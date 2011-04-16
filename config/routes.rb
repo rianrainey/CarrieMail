@@ -1,5 +1,10 @@
 CarrieMail::Application.routes.draw do
 
+  resources :catalogs do
+    resources :notes
+  end
+  
+
   devise_for :users
 
   # The priority is based upon order of creation:
