@@ -36,6 +36,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'autotest-rails'
   gem 'shoulda'
+  gem 'annotate'
   gem "ZenTest", "~> 4.4.2"
   gem 'autotest-fsevent'
   gem 'capybara'

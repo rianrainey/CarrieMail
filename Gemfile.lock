@@ -29,6 +29,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    annotate (2.4.0)
     arel (2.0.7)
     autotest-fsevent (0.2.4)
       sys-uname
@@ -154,6 +155,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest (~> 4.4.2)
+  annotate
   autotest-fsevent
   autotest-rails
   aws-s3
