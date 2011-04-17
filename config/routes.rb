@@ -2,6 +2,15 @@ CarrieMail::Application.routes.draw do
 
   devise_for :users
 
+  # if the user is already signed in, redirect to the 'home' path
+  authenticate :user do
+    root :to => "home#index"
+  end
+  
+  # otherwise, ask them to sign in or sign up
+  root :to => "devise/sessions#new"
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
