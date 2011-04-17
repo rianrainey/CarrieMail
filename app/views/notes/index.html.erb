@@ -17,8 +17,8 @@
     <td><%= note.title %></td>
     <td><%= note.body %></td>
     <td><%= note.recipient_id %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
+    <td><%= link_to 'Show', catalog_note_path(@catalog) %></td>
+    <td><%= link_to 'Edit', edit_catalog_note_path(@catalog) %></td>
     <td><%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Note', new_note_path %>
+<%= link_to 'New Note', new_catalog_note_path(@catalog) %>

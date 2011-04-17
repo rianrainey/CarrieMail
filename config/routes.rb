@@ -3,10 +3,16 @@ CarrieMail::Application.routes.draw do
   resources :catalogs do
     resources :notes
   end
-  
 
   devise_for :users
 
+  # route to list of recently sent letters after successful logon
+  authenticate :user do
+    root :to => "home#index"
+  end
+  
+  root :to => "devise/sessions#new"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

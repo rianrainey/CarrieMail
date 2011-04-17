@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @pages, @notes = paginate(@catalog.notes)
+    @notes = @catalog.notes
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @catalog.notes << @note
-        format.html { redirect_to(@note, :notice => 'Note was successfully created.') }
+        format.html { redirect_to(catalog_note_path, :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to(@note, :notice => 'Note was successfully updated.') }
+        format.html { redirect_to(catalog_note_path, :notice => 'Note was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +78,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to(notes_url) }
+      format.html { redirect_to(catalog_notes_url) }
       format.xml  { head :ok }
     end
   end
@@ -87,9 +87,9 @@ class NotesController < ApplicationController
   
   def protect_catalog
     @catalog = Catalog.find(params[:catalog_id]);
-    unless @blog.user == current_user
+    unless @catalog.user == current_user
       flash[:notice] = "This is not your list of notes"
-      redirect_to home_url
+      redirect_to root
       return false
     end
   end

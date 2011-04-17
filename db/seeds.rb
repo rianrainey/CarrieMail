@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+User.delete_all
 
 puts 'SETTING UP EXAMPLE USERS'
 user1 = User.create! :first_name => 'First User', :last_name => 'Johnson', 
