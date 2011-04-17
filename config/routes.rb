@@ -1,5 +1,7 @@
 CarrieMail::Application.routes.draw do
 
+  resources :messages
+
   devise_for :users
 
   # if the user is already signed in, redirect to the 'home' path

@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   # friendly_id
   # has_friendly_id :name, :use_slug => true, :strip_non_ascii => true
 
+  # ASSOCIATIONS
+  has_many :messages
+  
 end
 
 # == Schema Information
