@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
 
   # ASSOCIATIONS
   has_one :catalog
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
+  
 end
 
 # == Schema Information

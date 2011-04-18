@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.xml
   def show
-    @note = Note.find(params[:id])
+    @note = @catalog.notes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.xml
   def new
-    @note = Note.new
+    @note = @catalog.notes.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,17 +36,17 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @note = Note.find(params[:id])
+    @note = @catalog.notes.find(params[:id])
   end
 
   # POST /notes
   # POST /notes.xml
   def create
-    @note = Note.new(params[:note])
+    @note = @catalog.notes.build(params[:note])
 
     respond_to do |format|
       if @catalog.notes << @note
-        format.html { redirect_to(catalog_note_path, :notice => 'Note was successfully created.') }
+        format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -58,11 +58,11 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
-    @note = Note.find(params[:id])
+    @note = @catalog.notes.find(params[:id])
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to(catalog_note_path, :notice => 'Note was successfully updated.') }
+        format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,11 +74,11 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.xml
   def destroy
-    @note = Note.find(params[:id])
+    @note = @catalog.notes.find(params[:id])
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to(catalog_notes_url) }
+      format.html { redirect_to(catalog_notes_path(@catalog)) }
       format.xml  { head :ok }
     end
   end
