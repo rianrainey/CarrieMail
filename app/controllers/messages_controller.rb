@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.xml
   def show
-    @message = Message.find(params[:id])
+    @message = current_user.messages.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   # GET /messages/new.xml
   def new
-    @message = Message.new
+    @message = current_user.messages.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1/edit
   def edit
-    @message = Message.find(params[:id])
+    @message = current_user.messages.find(params[:id])
   end
 
   # POST /messages
@@ -56,11 +56,12 @@ class MessagesController < ApplicationController
   # PUT /messages/1
   # PUT /messages/1.xml
   def update
-    @message = Message.find(params[:id])
-
+    @message = current_user.messages.find(params[:id])
+    @user = current_user
+    
     respond_to do |format|
       if @message.update_attributes(params[:message])
-        format.html { redirect_to(@message, :notice => 'Message was successfully updated.') }
+        format.html { redirect_to([@message], :notice => 'Message was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -72,7 +73,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.xml
   def destroy
-    @message = Message.find(params[:id])
+    @message = current_user.messages.find(params[:id])
     @message.destroy
 
     respond_to do |format|

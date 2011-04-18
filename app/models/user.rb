@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS
   has_many :messages
   
+  def name
+    "#{first_name} #{last_name}"
+  end
+  
 end
 
 # == Schema Information

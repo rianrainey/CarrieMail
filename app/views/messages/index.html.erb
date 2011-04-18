@@ -1,5 +1,6 @@
-<h1>Listing messages</h1>
+<h1>Messages for <%= current_user.name -%></h1>
 
+<% if @current_user.messages.count > 0 %>
 <table>
   <tr>
     <th>Title</th>
@@ -21,5 +22,9 @@
 </table>
 
 <br />
+<% else %>
+<p><%= current_user.name %> has not sent any messages yet.</p>
+<%end %>
 
 <%= link_to 'New Message', new_message_path %>
+<%= link_to 'Home', root_path %>
