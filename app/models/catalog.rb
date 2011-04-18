@@ -1,6 +1,6 @@
 class Catalog < ActiveRecord::Base
   belongs_to :user
-  has_many :notes, :order => "created_at DESC"
+  has_many :notes, :order => "created_at DESC", :dependent => :destroy
 end
 
 # == Schema Information

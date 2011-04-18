@@ -10,10 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110416031126) do
+ActiveRecord::Schema.define(:version => 20110418021121) do
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,6 +31,21 @@ ActiveRecord::Schema.define(:version => 20110416031126) do
     t.string   "title"
     t.text     "body"
     t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipients", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "note_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "addr_line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -9,11 +9,14 @@ User.delete_all
 
 puts 'SETTING UP EXAMPLE USERS'
 user1 = User.create! :first_name => 'First User', :last_name => 'Johnson', 
-                     :email => 'mark@isandlot.com', :password => 'please', :password_confirmation => 'please'
+                     :email => 'mark@isandlot.com', :password => 'please', :password_confirmation => 'please', 
+                     :catalog => Catalog.new
+                     
 puts 'New user created: ' << user1.first_name
 user1.save
 
 user2 = User.create! :first_name => 'Second User', :last_name => 'Smith', 
-                     :email => 'mark.harris1011@gmail.com', :password => 'please', :password_confirmation => 'please'
+                     :email => 'mark.harris1011@gmail.com', :password => 'please', :password_confirmation => 'please',
+                     :catalog => Catalog.new
 puts 'New user created: ' << user2.first_name
 user2.save

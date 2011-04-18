@@ -1,3 +1,6 @@
 <h1>CarrieMail</h1>
 <p>Welcome to CarrieMail</p>
+<h2>Recent Notes Sent</h2>
 Click here to see your mail: <%= link_to "(Your Notes)", catalog_notes_path(current_user.catalog)-%>
+<h2>Address Book</h2>
+Click here to manage your addresses: <%= link_to "(Your Addresses)", user_recipients_path(current_user)%>

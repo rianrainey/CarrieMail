@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   # ASSOCIATIONS
   has_one :catalog
+  has_many :recipients
   
   def name
     "#{first_name} #{last_name}"

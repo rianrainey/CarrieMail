@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    current_user.catalog ||= Catalog.new
     # if user_signed_in?
     #   redirect_to catalog_notes_path(current_user.catalog)
     # else

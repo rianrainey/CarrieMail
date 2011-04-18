@@ -1,5 +1,6 @@
 class Note < ActiveRecord::Base
   belongs_to :catalog
+  has_one :recipient
   
   validates_presence_of :title, :body, :catalog
   

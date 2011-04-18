@@ -4,7 +4,11 @@ CarrieMail::Application.routes.draw do
     resources :notes
   end
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+  
+  resources :users do 
+    resources :recipients
+  end
 
   # route to list of recently sent letters after successful logon
   authenticate :user do
