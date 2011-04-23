@@ -27,7 +27,7 @@
     <td><%= recipient.zip %></td>
     <td><%= recipient.email %></td>
     <td><%= link_to 'Show', [@user, recipient] %></td>
-    <td><%= link_to 'Edit', edit_recipient_path(@user, recipient) %></td>
+    <td><%= link_to 'Edit', edit_user_recipient_path(@user, recipient) %></td>
     <td><%= link_to 'Destroy', [@user, recipient], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
