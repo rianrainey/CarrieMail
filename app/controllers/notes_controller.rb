@@ -20,6 +20,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
+      format.pdf { doc_raptor_send }
     end
   end
 
@@ -83,8 +84,28 @@ class NotesController < ApplicationController
     end
   end
   
-  private
+  def doc_raptor_send(options = {})
+    default_options = {
+      :name           => controller_name,
+      :document_type  => 'pdf',
+      :test           => true,
+    }
+    
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    ext = :pdf
+    
+    
+    
+    response = DocRaptor.create(options)
+    if response.code == 200
+      send_data response, :filename => "#{options[:name]}.#{ext}", :type => ext
+    else
+      render :inline => response.body, :status => response.code
+    end
+  end
   
+  private
   def protect_catalog
     @catalog = Catalog.find(params[:catalog_id]);
     unless @catalog.user == current_user

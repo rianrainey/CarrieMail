@@ -7,3 +7,9 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+#mail p {
+	font-family: "Monotype Corsiva", "MV Boli", "Lucida Calligraphy", cursive; 
+	font-size: 18pt;
+	color: #a7a7a7;
+}

@@ -1,0 +1,10 @@
+<div id="container">
+<p>
+Dear <%= @note.recipient_id-%>,
+</p>
+<p>
+  <%= @note.body %>
+</p>
+<p>Sincerely,</p>
+<p><%= current_user.name -%>
+</div>
