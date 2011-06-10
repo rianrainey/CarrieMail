@@ -4,14 +4,27 @@
 <% content_for :stylesheet_includes do %>
   <%= stylesheet_link_tag "contentflow.css" %>
 <% end %>
-	
-<div id="hero" class="ContentFlow">
+
+
+<script>
+	var myNewFlow = new ContentFlow('CoverFlow', { 
+		flowSpeedFactor: 0.1, 
+		circularFlow: false,
+		scrollWheelSpeed: 1.0,
+		37: function () { this.moveTo('pre') },         // left arrow
+        38: function () { this.moveTo('visibleNext') }, // up arrow
+        39: function () { this.moveTo('next') },        // right arrow
+		40: function () { this.moveTo('visiblePre') }   // down arrow
+	});
+</script>
+
+<div id="CoverFlow" class="ContentFlow">
 	<div id ="imgFlow" class="flow">
 		<%= image_tag("homer.jpeg", :class => 'item') %>
 		<%= image_tag("bart.jpeg", :class => 'item') %>
 		<%= image_tag("lisa.jpeg", :class => 'item') %>
 	</div>
-</div><!--#hero-->
+</div><!--#CoverFlow-->
 
 <h1>Welcome to CarrieMail</h1>
 <h2>Messages Sent</h2>
