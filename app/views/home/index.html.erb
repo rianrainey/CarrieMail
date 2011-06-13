@@ -1,21 +1,12 @@
-<h1>Welcome to CarrieMail</h1>
-<h2>Messages Sent</h2>
-<table>
-	<% @messages.each do |message| %>
-		<tr class="<%= cycle('list_line_odd', 'list_line_even')%>">
-			<td>
-				<dl>
-				<dt><%= message.title -%></dt>
-				<dt><%= message.body -%></dt>
-				</dl>
-			</td>
-			<td class="list_actions">
-				<%= link_to 'Show', message %><br/>
-				<%= link_to 'Edit', edit_message_path(message) %><br/>
-				<%= link_to 'Delete', message, :confirm => 'Are you sure?', :method=>:delete %>
-			</td>
-		</tr>
-	<% end %>
-</table>
-		
-				
+<div class="header"><h1>CarrieMail</h1></div>
+<div><h2>Welcome to CarrieMail</h2>
+<h2>Get Started!  <%= link_to "Send a letter", new_catalog_note_path(current_user.catalog) -%></h2>
+</div>
+<div class="boxed">
+<h2>Recent Notes Sent</h2>
+Click here to see your mail: <%= link_to "(Your Notes)", catalog_notes_path(current_user.catalog)-%>
+</div>
+<div class="boxed">
+<h2>Address Book</h2>
+Click here to manage your addresses: <%= link_to "(Your Addresses)", user_recipients_path(current_user)%>
+</div>

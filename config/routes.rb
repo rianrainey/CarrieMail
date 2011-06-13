@@ -1,18 +1,22 @@
 CarrieMail::Application.routes.draw do
 
-  resources :messages
+  resources :catalogs do
+    resources :notes
+  end
 
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+  
+  resources :users do 
+    resources :recipients
+  end
 
-  # if the user is already signed in, redirect to the 'home' path
+  # route to list of recently sent letters after successful logon
   authenticate :user do
     root :to => "home#index"
   end
   
-  # otherwise, ask them to sign in or sign up
   root :to => "devise/sessions#new"
   
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

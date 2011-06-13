@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%= @note.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @note.body %>
+</p>
+
+<p>
+  <b>Recipient:</b>
+  <%= @note.recipient_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_catalog_note_path(@catalog, @note) %> |
+<%= link_to 'Back', catalog_notes_path(@catalog) %>
