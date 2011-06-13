@@ -12,6 +12,8 @@ CarrieMail::Application.routes.draw do
   # otherwise, ask them to sign in or sign up
   root :to => "devise/sessions#new"
   
+  match '/signup', :to => "devise/sessions#new"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

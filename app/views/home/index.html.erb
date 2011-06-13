@@ -1,4 +1,4 @@
-<% content_for :head do %>
+<% content_for :home do %>
   <%= javascript_include_tag "contentflow.js" %>
 <% end %>
 <% content_for :stylesheet_includes do %>
@@ -17,6 +17,7 @@
 		40: function () { this.moveTo('visiblePre') }   // down arrow
 	});
 </script>
+<div class="clr"></div>
 
 <div id="CoverFlow" class="ContentFlow">
 	<div id ="imgFlow" class="flow">
@@ -26,7 +27,12 @@
 	</div>
 </div><!--#CoverFlow-->
 
-<h1>Welcome to CarrieMail</h1>
+<%= render 'layouts/testimonials' %>
+<%= render 'layouts/promo-signup' %>
+
+
+
+<!--
 <h2>Messages Sent</h2>
 <table>
 	<% @messages.each do |message| %>
@@ -45,5 +51,6 @@
 		</tr>
 	<% end %>
 </table>
+-->
 		
 				
