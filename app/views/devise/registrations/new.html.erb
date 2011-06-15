@@ -18,16 +18,18 @@
 		  <p><%= f.password_field :password_confirmation, :placeholder => 'Password Confirmation' %></p>
 	
 	</div><!--.form-->
+
 	<div class="form">
 		<p>Choose a pricing plan</p>
-		  <p><%= f.radio_button :package_choice, 'basic', :checked => true %>
-		  <%= label :package_choice_basic, 'Basic' %></p>
-		  <p><%= f.radio_button :package_choice, 'premium' %>
-		  <%= label :package_choice_basic, 'Premium' %></p>
-		  <p><%= f.radio_button :package_choice, 'free' %>
-		  <%= label :package_choice_basic, 'Free' %></p>
+		  <p><%= f.radio_button :package_choice, '0', :checked => true%>
+		  <%= label :package_choice, 'Basic' %></p>
+		  <p><%= f.radio_button :package_choice, '1' %>
+		  <%= label :package_choice, 'Premium' %></p>
+		  <p><%= f.radio_button :package_choice, '2' %>
+		  <%= label :package_choice, 'Free' %></p>
 		
 	</div>
+	
 	<div class="clr"></div>
 	<div class="center">
 		  <p><%= f.submit "Sign up" %></p>

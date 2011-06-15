@@ -5,14 +5,14 @@ CarrieMail::Application.routes.draw do
   devise_for :users
 
   # if the user is already signed in, redirect to the 'home' path
-  authenticate :user do
-    root :to => "home#index"
-  end
+  #authenticate :user do
+   # root :to => "messages#index"
+  #end
   
   # otherwise, ask them to sign in or sign up
-  root :to => "devise/sessions#new"
+  root :to => "home#index"
   
-  match '/signup', :to => "devise/sessions#new"
+  match '/signup', :to => "devise/registrations#new"
   
 
   # The priority is based upon order of creation:
@@ -64,7 +64,7 @@ CarrieMail::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  #root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -6,6 +6,6 @@
 		<%= render 'devise/menu/registration_items' %>
 		<%= render 'devise/menu/login_items' %>
 		<%= link_to 'Home', root_path %>
-		<%= link_to 'Messages', messages_path %>
+		<%= link_to('Messages', messages_path) unless current_user.nil? %>
 	</ul>
 </div><!--#utility-nav-->
