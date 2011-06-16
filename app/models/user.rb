@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   # has_friendly_id :name, :use_slug => true, :strip_non_ascii => true
 
   # ASSOCIATIONS
-  has_one :catalog
+  has_one :catalog, :dependent => :destroy
   has_many :recipients
   
   def name
