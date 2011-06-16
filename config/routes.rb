@@ -11,15 +11,7 @@ CarrieMail::Application.routes.draw do
   end
 
   # route to list of recently sent letters after successful logon
-  #authenticate :user do
-  #  root :to => "home#index"
-  #end
-  
-#  root :to => "devise/sessions#new"
   root :to => "home#index"
-  
-  # otherwise, ask them to sign in or sign up
-  # root :to => "home#index"
   
   match '/signup', :to => "devise/registrations#new"
   
