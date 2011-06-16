@@ -11,11 +11,17 @@ CarrieMail::Application.routes.draw do
   end
 
   # route to list of recently sent letters after successful logon
-  authenticate :user do
-    root :to => "home#index"
-  end
+  #authenticate :user do
+  #  root :to => "home#index"
+  #end
   
-  root :to => "devise/sessions#new"
+#  root :to => "devise/sessions#new"
+  root :to => "home#index"
+  
+  # otherwise, ask them to sign in or sign up
+  # root :to => "home#index"
+  
+  match '/signup', :to => "devise/registrations#new"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -66,7 +72,7 @@ CarrieMail::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  #root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

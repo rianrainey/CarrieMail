@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CarrieMail</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "jquery.js" %>
+
+  <%= yield(:home) -%>
   <%= csrf_meta_tag %>
+  <title>CarrieMail</title>
+
 </head>
 <body>
-	<ul class="hmenu">
-		<%= render 'devise/menu/registration_items' %>
-		<%= render 'devise/menu/login_items' %>
-		<%= link_to 'Home', root_path %>
-	</ul>
-		
-	<p style="color: green"><%= notice %></p>
-	<p style="color: red"><%= alert %></p>
+	<div id="main">
+		<div id="header">
+			<%= render 'devise/menu/header_items' %>
+		</div><!--#header-->
+		<div class="clr"></div>
+		<div id="container">
+			<p style="color: green"><%= notice %></p>
+			<p style="color: red"><%= alert %></p>
 
-<%= yield %>
-
+			<%= yield %>
+			
+			<div class="clr"></div>
+			<div id="footer">
+				<%= render 'devise/menu/footer_items' %>
+			</div>
+		</div><!--#container-->
+	</div><!--#main-->
 </body>
 </html>
