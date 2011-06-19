@@ -1,6 +1,8 @@
 == CarrieMail
 
-CarrieMail is a web-based Rails 3 application for sending personal email to the special people in your life.
+CarrieMail is a web-based Rails 3 application for sending personal mail to the special people in your life.  You can 
+use CarrieMail to let the special people in your life know how special they are, with a hand-written note, delivered
+to them in your words.
 
 == Contacts
 Please contact Mark Harris (mark@carriemail.com) or Chris Anderson (chris@carriemail.com) for more information.
