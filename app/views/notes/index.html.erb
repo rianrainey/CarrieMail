@@ -1,26 +1,28 @@
 <h1>Notes created by <%= current_user.name %></h1>
 
+<%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
+
 <% if @catalog.notes.count > 0 %>
+<h2>Recent Note</h2>
 <table>
   <tr>
-    <th>Catalog</th>
+    <th>Date Created</th>
     <th>Title</th>
-    <th>Body</th>
-    <th>Recipient</th>
-    <th></th>
+    <th>Sent To (could be many)</th>
+    <th>Status</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @notes.each do |note| %>
-  <tr>
-    <td><%= note.catalog_id %></td>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= note.created_at.strftime("%m/%d/%y") %></td>
     <td><%= note.title %></td>
-    <td><%= note.body %></td>
     <td><%= note.recipient_id %></td>
-    <td><%= link_to 'HTML', [@catalog, note] %>|<%= link_to 'PDF', catalog_note_path(@catalog, note, :format=>"pdf") -%></td>
-    <td><%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
-    <td><%= link_to 'Destroy', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>Status goes here</td>
+    <td><%= link_to 'HTML', [@catalog, note] %> | <%= link_to 'PDF', catalog_note_path(@catalog, note, :format=>"pdf") -%></td>
+    <td>| <%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
+    <td>| <%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -30,4 +32,3 @@
 <p><%= current_user.name -%> Needs to create a note first!</p>
 <% end %>
 
-<%= link_to 'New Note', new_catalog_note_path(@catalog) %>

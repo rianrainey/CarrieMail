@@ -4,16 +4,16 @@ CarrieMail::Application.routes.draw do
     resources :notes
   end
 
-  devise_for :users, :path => 'accounts'
+# re-route 'users' to 'accounts'. Map default path names to new names
+  devise_for :users, :path => 'accounts' , :path_names => { :sign_in => 'login', :sign_out => 'logout' }
   
   resources :users do 
     resources :recipients
   end
-
+  
+  
   # route to list of recently sent letters after successful logon
   root :to => "home#index"
-  
-  match '/signup', :to => "devise/registrations#new"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

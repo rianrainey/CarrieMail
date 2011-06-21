@@ -4,9 +4,11 @@
 <div id="utility-nav">
 	<ul class="hmenu">
 		<%= render 'devise/menu/registration_items' %> | 
-		<%= render 'devise/menu/login_items' %> |
-		<%= link_to('Home', root_path) unless current_user.nil? -%> |
+		<%= render 'devise/menu/login_items' %>
+		<% if user_signed_in? %>
+		 | <%= link_to('Home', root_path) %>
 		<!-- I don't know why this isn't working -->
-		<%= link_to('Notes', catalog_notes_path(current_user.catalog)) unless current_user.nil? %> 
+		 | <%= link_to('Notes', catalog_notes_path(current_user.catalog)) %> 
+		<% end %>
 	</ul>
 </div><!--#utility-nav-->
