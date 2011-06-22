@@ -55,6 +55,16 @@ ul.hmenu li {
 	width:960px;
 	margin:0 auto;
 }
+table {
+	border-spacing:0;
+	border:1px solid #000;
+}
+tr.even {
+	background-color:#CCC;
+}
+td {
+	padding:5px;
+}
 
 /*////////////////////////////
  Container
