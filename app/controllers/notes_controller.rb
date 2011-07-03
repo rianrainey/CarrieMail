@@ -98,11 +98,31 @@ class NotesController < ApplicationController
     
     response = DocRaptor.create(options)
     if response.code == 200
-      send_data response, :filename => "#{options[:name]}.pdf", :type => 'pdf'
+      send_data response, :filename => "#{options[:name]}.pdf", :type => 'pdf', :disposition => 'inline'
     else
       render :inline => response.body, :status => response.code
     end
   end
+  
+  def doc_raptor_post_to_s3(options = {})
+    default_options = {
+      :name   => 'carriemail',
+      :document_type => 'pdf',
+      :test => 'true',
+    }
+    options = default_options.merge(options)
+    options[:document_content] ||= render_to_string
+    
+    response = DocRaptor.create(options)
+    if response.code == 200
+      # put the data on s3
+      # response.body contains the actual PDF document we want
+    else
+      render :inline => response.body, :status => response.code
+    end
+    
+  end
+  
   
   private
   def protect_catalog
