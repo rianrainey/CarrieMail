@@ -6,9 +6,9 @@
 		<%= render 'devise/menu/registration_items' %> | 
 		<%= render 'devise/menu/login_items' %>
 		<% if user_signed_in? %>
-		 | <%= link_to('Home', root_path) %>
-		<!-- I don't know why this isn't working -->
-		 | <%= link_to('Notes', catalog_notes_path(current_user.catalog)) %> 
+		 | <%= link_to 'Home', root_path %>
+		 | <%= link_to 'Notes', catalog_notes_path(current_user.catalog) %> 
+		 | <%= link_to 'Contacts', user_recipients_path(current_user) -%>
 		<% end %>
 	</ul>
 </div><!--#utility-nav-->

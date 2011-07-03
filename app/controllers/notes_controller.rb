@@ -28,7 +28,7 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = @catalog.notes.build
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @note }
@@ -42,13 +42,15 @@ class NotesController < ApplicationController
 
   # POST /notes
   # POST /notes.xml
+  # POST /notes.pdf
   def create
     @note = @catalog.notes.build(params[:note])
-
+    
     respond_to do |format|
       if @catalog.notes << @note
         format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
+        format.pdf  { doc_raptor_send }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
@@ -60,7 +62,7 @@ class NotesController < ApplicationController
   # PUT /notes/1.xml
   def update
     @note = @catalog.notes.find(params[:id])
-
+    
     respond_to do |format|
       if @note.update_attributes(params[:note])
         format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully updated.') }
@@ -93,13 +95,10 @@ class NotesController < ApplicationController
     
     options = default_options.merge(options)
     options[:document_content] ||= render_to_string
-    ext = :pdf
-    
-    
     
     response = DocRaptor.create(options)
     if response.code == 200
-      send_data response, :filename => "#{options[:name]}.#{ext}", :type => ext
+      send_data response, :filename => "#{options[:name]}.pdf", :type => 'pdf'
     else
       render :inline => response.body, :status => response.code
     end

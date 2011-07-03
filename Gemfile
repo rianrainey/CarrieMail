@@ -12,6 +12,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'doc_raptor'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'builder', '~> 2.1.2'
+gem 'carmen' # states & countries
 
 # user authentication & authorization 
 gem 'devise'

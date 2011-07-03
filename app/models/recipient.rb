@@ -1,9 +1,13 @@
 class Recipient < ActiveRecord::Base
-  belongs_to :note
+  has_many :notes
   belongs_to :user
   
   validates_presence_of :first_name, :last_name, :street, :city, :state, :zip
   # email and addr_line2 are intentionally left as optional
+  
+  def name
+    "#{first_name} #{last_name}"
+  end
   
 end
 
