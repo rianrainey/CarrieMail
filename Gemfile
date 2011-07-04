@@ -13,6 +13,9 @@ gem 'doc_raptor'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'builder', '~> 2.1.2'
 gem 'carmen' # states & countries
+gem 'paperclip'
+gem 'jquery-rails', '>= 1.0.3'
+
 
 # user authentication & authorization 
 gem 'devise'
