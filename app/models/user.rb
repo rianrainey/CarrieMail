@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_one :catalog, :dependent => :destroy
   has_many :recipients
   
+
   def name
     "#{first_name} #{last_name}"
   end

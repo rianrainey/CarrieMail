@@ -1,15 +1,6 @@
-<p>
-  <b>Title:</b>
-  <%= @note.title %>
-</p>
-<p>
-  <b>Addressed to:</b>
-  <%= @note.recipient.name %>
-</p>
-<p>
-  <b>Body:</b>
-  <%= @note.body %>
-</p>
+<h2>Note:  <%= @note.title %> </h2><br/>
+
+<%= render 'letter' -%>
 
 <%= link_to 'Edit', edit_catalog_note_path(@catalog, @note) %> |
 <%= link_to 'Back', catalog_notes_path(@catalog) %>

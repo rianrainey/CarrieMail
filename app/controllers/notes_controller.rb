@@ -21,6 +21,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
+      format.pdf { doc_raptor_send }
     end
   end
 
@@ -45,7 +46,7 @@ class NotesController < ApplicationController
   # POST /notes.pdf
   def create
     @note = @catalog.notes.build(params[:note])
-    @note.document_content ||= render_to_string(:action=>'show.pdf.erb', :format=>:pdf, :layout => false)
+    @note.document_content ||= render_to_string(:action=>'show.pdf', :format=>:pdf, :layout => false)
     
     respond_to do |format|
       if @note.save # @catalog.notes << @note
@@ -108,12 +109,12 @@ class NotesController < ApplicationController
   
   private
   def protect_catalog
-    @catalog = Catalog.find(params[:catalog_id]);
-    unless @catalog.user == current_user
-      flash[:notice] = "This is not your list of notes"
-      redirect_to root
-      return false
-    end
+    @catalog = current_user.catalog || Catalog.new # Catalog.find(params[:catalog_id]);
+#    unless @catalog.user == current_user
+#      flash[:notice] = "This is not your list of notes"
+#      redirect_to root
+#      return false
+#    end
   end
 
 end

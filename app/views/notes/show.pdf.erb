@@ -1,10 +1,14 @@
-<div style="font-family: 'Monotype Corsiva',cursive;font-size: 18pt;" id="container">
-<p>
-Dear <%= @note.recipient.name-%>,
-</p>
-<p>
-  <%= @note.body %>
-</p>
-<p>Sincerely,</p>
-<p><%= current_user.name -%>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore&v1' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag :all %>
+
+  <title>CarrieMail</title>
+
+</head>
+<body>
+	<%= render 'letter.html' -%>
+</body>
+</html>
+

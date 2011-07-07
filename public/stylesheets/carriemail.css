@@ -35,11 +35,22 @@ ul.hmenu li {
   display: inline;  
 }
 
-#mail p {
-	font-family: "Monotype Corsiva", "MV Boli", "Lucida Calligraphy", cursive; 
+.mail {
+	font-family: 'La Belle Aurore', arial, serif;
 	font-size: 18pt;
 	color: #a7a7a7;
 }
+.salutation {
+	font-family: 'La Belle Aurore', arial, serif;
+	font-size: 20pt;
+	color: #a7a7a7;
+}
+.signature {
+	font-family: 'La Belle Aurore', arial, serif;
+	font-size: 20pt;
+	color: #a7a7a7;
+}
+
 
 #header {
 	width:100%;

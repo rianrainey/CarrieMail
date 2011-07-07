@@ -2,6 +2,9 @@ class Note < ActiveRecord::Base
   belongs_to :catalog
   belongs_to :recipient
 
+  # required for ActiveModel::Errors dependency
+  #extend ActiveModel::Naming
+  
   after_initialize :init  # initializes new notes with default values
   
   validates_presence_of :title, :body, :catalog, :recipient  
@@ -17,7 +20,7 @@ class Note < ActiveRecord::Base
   def create_pdfdoc
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
-                         :name             => self.document_name,
+                         :name             => self.title.tr(' ','_'),
                          :test             => true) do |file, response|
 
           #file.extend(ActionDispatch::Http::UploadedFile)
@@ -28,15 +31,15 @@ class Note < ActiveRecord::Base
           if response.code == 200
             self.pdfdoc = file
           else
-            e = ActiveResource::Errors.new(self) 
-            e.from_xml(response.body)
-            e.each do |key, value|
-              self.errors.add(key, value)
-            end #each do
+            #e = ActiveModel::Errors.new(self) 
+            #e.from_xml(response.body)
+            #e.each do |key, value|
+              self.errors.add(response.code, response.body)
+            #end #each do
           end #if
       end #create
 
-      self.errors.count == 0  #return false if there were any errors
+      #self.errors.count == 0  #return false if there were any errors
   end  # def
   
   def document_name

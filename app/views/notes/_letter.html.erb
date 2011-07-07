@@ -1,0 +1,13 @@
+<div class="salutation">
+  Dear <%= @note.recipient.first_name %>,
+</div>
+<br/>
+<div class="mail">
+  <%= @note.body %>
+</div>
+<br/>
+<div class="signature">
+  <span>Sincerely,</span><br/>
+  <%= @catalog.user.first_name%>
+</div>
+<br/>

@@ -1,7 +1,6 @@
 class RecipientsController < ApplicationController
   before_filter :authenticate_user!, :protect_recipient
 
-
   # GET /recipients
   # GET /recipients.xml
   def index

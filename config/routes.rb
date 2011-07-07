@@ -13,7 +13,7 @@ CarrieMail::Application.routes.draw do
   
   
   # route to list of recently sent letters after successful logon
-  root :to => "home#index"
+  root :to => "notes#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
