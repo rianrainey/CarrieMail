@@ -13,7 +13,7 @@ class Note < ActiveRecord::Base
   has_attached_file :pdfdoc,
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml",
-                    :s3_permissions => :private,
+#                    :s3_permissions => :private,
                     :path => ":attachment/:id/:normalized_filename",
                     :url => ":attachment/:id/:normalized_filename"
   
