@@ -21,7 +21,6 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
-      format.pdf { doc_raptor_send }
     end
   end
 
@@ -46,10 +45,13 @@ class NotesController < ApplicationController
   # POST /notes.pdf
   def create
     @note = @catalog.notes.build(params[:note])
+    
+    # generate the HTML that we will conver to PDF with DocRaptor
     @note.document_content ||= render_to_string(:action=>'show.pdf', :format=>:pdf, :layout => false)
     
+    # on save, the PDF is generated and saved to S3
     respond_to do |format|
-      if @note.save # @catalog.notes << @note
+      if @note.save 
         format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
@@ -58,14 +60,18 @@ class NotesController < ApplicationController
       end
     end
   end
-
+  
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
     @note = @catalog.notes.find(params[:id])
-    @note.document_content ||= render_to_string(:layout=>false, :format=>'pdf', :action=>'show')
+    @note.attributes = params[:note] # update the model without saving yet
+    @note.document_content ||= render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
+    logger.debug "document_content = "+@note.document_content
+    
+    # on save, the PDF is generated and saved to S3
     respond_to do |format|
-      if @note.update_attributes(params[:note])
+      if @note.update_attributes(params[:note]) 
         format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -87,34 +93,10 @@ class NotesController < ApplicationController
     end
   end
   
-  def doc_raptor_send(options = {})
-    default_options = {
-      :name           => 'carriemail',
-      :document_type  => 'pdf',
-      :test           => true,
-    }
-    options = default_options.merge(options) 
-    options[:document_content] ||= render_to_string
-    
-    response = DocRaptor.create(options)
-    # response.body is the pdf we created
-    if response.code == 200
-      send_data response, :filename => "#{options[:name]}.pdf", :type => 'pdf', :disposition => 'inline'
-    else
-      render :inline => response.body, :status => response.code
-    end
-  end
-  
-
   
   private
   def protect_catalog
     @catalog = current_user.catalog || Catalog.new # Catalog.find(params[:catalog_id]);
-#    unless @catalog.user == current_user
-#      flash[:notice] = "This is not your list of notes"
-#      redirect_to root
-#      return false
-#    end
   end
 
 end

@@ -20,7 +20,7 @@
     <td><%= note.title %></td>
     <td><%= note.recipient.name %></td>
     <td><%= note.status_description %></td>
-    <td><%= link_to 'HTML', [@catalog, note] %> | <%= link_to 'PDF', catalog_note_path(@catalog, note, :format=>"pdf") -%></td>
+    <td><%= link_to 'HTML', [@catalog, note] %> | <%= link_to 'PDF', note.pdfdoc.url -%></td>
     <td>| <%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
     <td>| <%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

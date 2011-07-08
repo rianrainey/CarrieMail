@@ -1,14 +1,30 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore&v1' rel='stylesheet' type='text/css'>
-  <%= stylesheet_link_tag :all %>
+  <link href="http://fonts.googleapis.com/css?family=La+Belle+Aurore&amp;v1" rel="stylesheet" type="text/css"/>
+  <style>
 
-  <title>CarrieMail</title>
+.mail {
+	font-family: 'La Belle Aurore', arial, serif;
+	font-size: 18pt;
+	color: #a7a7a7;
+}
+.salutation {
+	font-family: 'La Belle Aurore', arial, serif;
+	font-size: 20pt;
+	color: #a7a7a7;
+}
+.signature {
+	font-family: 'La Belle Aurore', arial, serif;
+	font-size: 20pt;
+	color: #a7a7a7;
+}
 
+  </style>
+  <title>Carriemail</title>
 </head>
 <body>
-	<%= render 'letter.html' -%>
+	<%= render 'letter.html' %>
 </body>
 </html>
 
