@@ -5,7 +5,11 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = @catalog.notes
+    if params[:recipient]
+      @notes = @catalog.notes.find(:all, :conditions => ['note.recipient_id = ?', params[:recipient]])
+    else
+      @notes = @catalog.notes
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,6 +25,15 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @note }
+      format.pdf  { 
+          # generate the HTML that we will conver to PDF with DocRaptor
+          @note.document_content ||= render_to_string(:action=>'show.pdf', :format=>:pdf, :layout => false)
+          if @note.save
+            render :action => "show", :format => :html, :notice => 'Your document was sent successfully!'
+          else
+            render :action => "show", :format => :pdf, :notice => 'Please try again.  There was an unexpected error'
+          end
+        }
     end
   end
 
@@ -46,9 +59,6 @@ class NotesController < ApplicationController
   def create
     @note = @catalog.notes.build(params[:note])
     
-    # generate the HTML that we will conver to PDF with DocRaptor
-    @note.document_content ||= render_to_string(:action=>'show.pdf', :format=>:pdf, :layout => false)
-    
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
@@ -60,14 +70,32 @@ class NotesController < ApplicationController
       end
     end
   end
+
+  # GET /notes/1/createpdf
+  def generate_pdf
+    @note = @catalog.notes.find(params[:id])
+    logger.debug @note.to_json
+    @note.document_content = render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
+    logger.debug "document_content = "+@note.document_content
+
+    # on save, the PDF is generated and saved to S3
+    respond_to do |format|
+      if @note.save 
+        format.html { redirect_to([@catalog, @note], :notice => 'Your PDF was successfully generated!') }
+        format.xml  { render :xml => @note, :status => :created, :location => @note }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
+      end
+    end
+    
+  end
+  
   
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
     @note = @catalog.notes.find(params[:id])
-    @note.attributes = params[:note] # update the model without saving yet
-    @note.document_content ||= render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
-    logger.debug "document_content = "+@note.document_content
     
     # on save, the PDF is generated and saved to S3
     respond_to do |format|

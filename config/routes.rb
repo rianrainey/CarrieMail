@@ -1,7 +1,11 @@
 CarrieMail::Application.routes.draw do
 
   resources :catalogs do
-    resources :notes
+    resources :notes do
+      member do
+        get 'generate_pdf'
+      end
+    end
   end
 
 # re-route 'users' to 'accounts'. Map default path names to new names

@@ -28,6 +28,9 @@ class Note < ActiveRecord::Base
   before_save :create_pdfdoc
   
   def create_pdfdoc
+      # if we don't have content set yet, then just return
+      return true if self.document_content.nil?
+      
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
                          :name             => self.title,

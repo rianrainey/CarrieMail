@@ -2,5 +2,6 @@
 
 <%= render 'letter' -%>
 
+<%= link_to 'Generate PDF', generate_pdf_catalog_note_path(@catalog, @note) %>
 <%= link_to 'Edit', edit_catalog_note_path(@catalog, @note) %> |
-<%= link_to 'Back', catalog_notes_path(@catalog) %>
+<%= link_to 'All Notes', catalog_notes_path(@catalog) %>
