@@ -115,7 +115,7 @@ class NotesController < ApplicationController
   
   private
   def protect_catalog
-    @catalog = current_user.catalog || Catalog.new # Catalog.find(params[:catalog_id]);
+    @catalog = current_user.catalog || Catalog.new 
   end
 
 end

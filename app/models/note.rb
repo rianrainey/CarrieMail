@@ -65,6 +65,7 @@ class Note < ActiveRecord::Base
   # similar to constructor, initializes values for new models
   def init
     self.status ||= 0
+    self.catalog ||= Catalog.new
   end
   
 end
