@@ -46,7 +46,7 @@ class RecipientsController < ApplicationController
 
     respond_to do |format|
       if @recipient.save
-        format.html { redirect_to([@user, @recipient], :notice => 'Recipient was successfully created.') }
+        format.html { redirect_to(user_recipients_path(@user), :notice => 'Recipient was successfully created.') }
         format.xml  { render :xml => @recipient, :status => :created, :location => @recipient }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class RecipientsController < ApplicationController
 
     respond_to do |format|
       if @recipient.update_attributes(params[:recipient])
-        format.html { redirect_to([@user, @recipient], :notice => 'Recipient was successfully updated.') }
+        format.html { redirect_to(user_recipients_path(@user), :notice => 'Recipient was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -1,7 +1,6 @@
-<h2>Note:  <%= @note.title %> </h2><br/>
+<h1><%= @note.title %> </h1>
 
 <%= render 'letter' -%>
 
-<%= link_to 'Generate PDF', generate_pdf_catalog_note_path(@catalog, @note) %>
-<%= link_to 'Edit', edit_catalog_note_path(@catalog, @note) %> |
-<%= link_to 'All Notes', catalog_notes_path(@catalog) %>
+<%= button_to 'Send This Note!', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note) %>
+<%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> 

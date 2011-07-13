@@ -3,7 +3,7 @@ CarrieMail::Application.routes.draw do
   resources :catalogs do
     resources :notes do
       member do
-        get 'generate_pdf'
+        post 'generate_pdf'
       end
     end
   end
@@ -17,7 +17,7 @@ CarrieMail::Application.routes.draw do
   
   
   # route to list of recently sent letters after successful logon
-  root :to => "notes#index"
+  root :to => "catalogs#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

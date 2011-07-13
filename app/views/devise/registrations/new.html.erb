@@ -1,8 +1,6 @@
 <div id="signup">
-	<h2>Sign up</h2>
-
 	<div id="carrie_img" class="l">
-		<%= image_tag("homer.jpeg") %>
+		<%= image_tag("CarriemailBasketLogo.jpg") %>
 		
 	</div><!--#carrie_img-->
 	
@@ -33,15 +31,11 @@
 	<div class="clr"></div>
 	<div class="center">
 		  <p><%= f.submit "Sign up" %></p>
-   		  <% end %>
+		  <div id="shared-links" class="l">
+			<%= render :partial => "devise/shared/links" %>
+		  </div>
+ 		  <% end %>
 	</div>
-	<div class="clr"></div>
-	<%= render 'layouts/testimonials' %>
-	<%= render 'layouts/promo-signup' %>
-	
-	
-	<!--<div id="shared-links" class="l">
-		<%= render :partial => "devise/shared/links" %>
-	</div>-->
+	<div class="clr"></div>	
 	
 </div><!--#signup-->

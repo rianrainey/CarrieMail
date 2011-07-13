@@ -12,32 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :first_name, :placeholder => 'First Name'%>
+    <%= f.text_field :last_name, :placeholder => 'Last Name'%>
   </div>
   <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
+    <%= f.text_field :street, :placeholder => 'Street Address', :size => 60%>
   </div>
   <div class="field">
-    <%= f.label :addr_line2 %><br />
-    <%= f.text_field :addr_line2 %>
+    <%= f.text_field :addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
   </div>
   <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-    <%= f.label :state %>
-	<%= f.select :state, Carmen::states %>
-    <%= f.label :zip %>
-    <%= f.text_field :zip %>
+    <%= f.text_field :city, :placeholder => 'City'%>
+	<%= f.select :state, Carmen::state_codes('US') %>
+    <%= f.text_field :zip, :placeholder => 'Zip', :size => 15 %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :placeholder => 'Email', :size => 45 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Contact' %>
   </div>
 <% end %>

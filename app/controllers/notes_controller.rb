@@ -5,8 +5,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    if params[:recipient]
-      @notes = @catalog.notes.find(:all, :conditions => ['note.recipient_id = ?', params[:recipient]])
+    if params[:recipient_id]
+      @notes = @catalog.notes.find(:all, :conditions => ['recipient_id = ?', params[:recipient_id]])
     else
       @notes = @catalog.notes
     end
@@ -32,6 +32,7 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = @catalog.notes.build
+    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
     
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +43,7 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = @catalog.notes.find(params[:id])
+    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
   end
 
   # POST /notes
@@ -62,7 +64,7 @@ class NotesController < ApplicationController
     end
   end
 
-  # GET /notes/1/createpdf
+  # POST /notes/1/createpdf
   def generate_pdf
     @note = @catalog.notes.find(params[:id])
     
@@ -115,7 +117,10 @@ class NotesController < ApplicationController
   
   private
   def protect_catalog
-    @catalog = current_user.catalog || Catalog.new 
+    if current_user.catalog.nil?
+      current_user.catalog = Catalog.create(:user_id => current_user.id)
+    end
+    @catalog = current_user.catalog
   end
 
 end

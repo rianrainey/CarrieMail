@@ -1,33 +1,23 @@
-<h1>Address Book for <%= @user.name -%></h1>
+<h1>Address Book</h1>
 
 <% if @user.recipients.count > 0 %>
 <table>
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Street</th>
-    <th>Addr line2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
+    <th>Name</th>
+    <th>Address</th>
     <th>Email</th>
-	<th>Number of Letters</th>
+	<th>Notes</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @recipients.each do |recipient| %>
-  <tr>
-    <td><%= recipient.first_name %></td>
-    <td><%= recipient.last_name %></td>
-    <td><%= recipient.street %></td>
-    <td><%= recipient.addr_line2 %></td>
-    <td><%= recipient.city %></td>
-    <td><%= recipient.state %></td>
-    <td><%= recipient.zip %></td>
+  <tr class="<%= cycle("even", "odd") %>">
+    <td><%= recipient.name %></td>
+    <td><%= recipient.full_address %></td>
     <td><%= recipient.email %></td>
-	<td><%= link_to recipient.notes.count, catalog_notes_path(@user.catalog) -%></td>
+	<td align="center"><%= link_to recipient.notes.count, catalog_notes_path(@user.catalog, :recipient_id => recipient.id) -%></td>
     <td><%= link_to 'Show', [@user, recipient] %></td>
     <td><%= link_to 'Edit', edit_user_recipient_path(@user, recipient) %></td>
     <td><%= link_to 'Destroy', [@user, recipient], :confirm => 'Are you sure?', :method => :delete %></td>

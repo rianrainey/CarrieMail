@@ -28,6 +28,6 @@
 
 <br />
 <% else %>
-<p>Welcome <%= current_user.name -%>, click <%= link_to 'here', new_catalog_note_path(@catalog)-%> to get started.</p>
+<p><%= current_user.name -%> Needs to create a note first!</p>
 <% end %>
 

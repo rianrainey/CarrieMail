@@ -1,14 +1,19 @@
+<% if controller_name != 'sessions' && controller_name != 'registrations' %>
 <div id="logo">
-	<h1><%= link_to 'CarrieMail', root_path%></h1>
-</div><!--#logo-->
+	<%= image_tag 'CarriemailBasketLogo-Small.jpg'%>
+</div>
+<% end %>
 <div id="utility-nav">
 	<ul class="hmenu">
-		<%= render 'devise/menu/registration_items' %> | 
-		<%= render 'devise/menu/login_items' %>
 		<% if user_signed_in? %>
-		 | <%= link_to 'Home', root_path %>
-		 | <%= link_to 'Notes', catalog_notes_path(current_user.catalog) %> 
+		 <%= link_to 'Home', root_path %>
 		 | <%= link_to 'Contacts', user_recipients_path(current_user) -%>
+		<% end %>
+		<% if controller_name != 'registrations' %>
+		| <%= render 'devise/menu/registration_items' %> 
+		<% end %>
+		<% if controller_name != 'sessions' %>
+		<%= render 'devise/menu/login_items' %>
 		<% end %>
 	</ul>
 </div><!--#utility-nav-->
