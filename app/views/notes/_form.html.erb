@@ -16,7 +16,7 @@
   </div>
   <div class="field">
     <%= f.label :recipient_id, "Dear " %>
-	<%= f.select :recipient_id, @recipients -%>
+	<%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
 	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
   </div>
   <div class="field">

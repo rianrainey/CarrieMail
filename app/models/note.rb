@@ -2,17 +2,19 @@ class Note < ActiveRecord::Base
   belongs_to :catalog
   belongs_to :recipient
 
-  # required for ActiveModel::Errors dependency
-  #extend ActiveModel::Naming
-  
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :title, :body, :catalog, :recipient  
+  validates_presence_of :title, :body, :catalog, :recipient 
+  #validate :must_have_recipient
+  #validate :must_have_catalog
+   
   attr_accessible :title, :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content
+  before_save :create_pdfdoc
   
   has_attached_file :pdfdoc,
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml",
+# uncomment for secured storage on s3
 #                    :s3_permissions => :private,
                     :path => ":attachment/:id/:normalized_filename",
                     :url => ":attachment/:id/:normalized_filename"
@@ -24,8 +26,6 @@ class Note < ActiveRecord::Base
   def normalized_filename
     "#{self.title}-#{self.recipient_id}.pdf"
   end  
-  
-  before_save :create_pdfdoc
   
   def create_pdfdoc
       # if we don't have content set yet, then just return
@@ -68,8 +68,6 @@ class Note < ActiveRecord::Base
   end
   
 end
-
-
 
 
 # == Schema Information

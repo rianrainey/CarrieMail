@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   # ASSOCIATIONS
   has_one :catalog, :dependent => :destroy
-  has_many :recipients
+  has_many :recipients, :dependent => :destroy
   
 
   def name

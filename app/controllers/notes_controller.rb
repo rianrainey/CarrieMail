@@ -32,7 +32,6 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = @catalog.notes.build
-    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
     
     respond_to do |format|
       format.html # new.html.erb
@@ -43,7 +42,7 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = @catalog.notes.find(params[:id])
-    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
+    
   end
 
   # POST /notes
@@ -74,7 +73,7 @@ class NotesController < ApplicationController
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
-        format.html { redirect_to(catalog_notes_path(@catalog), :notice => 'Your PDF was successfully generated!') }
+        format.html { redirect_to(catalogs_path, :notice => 'Your PDF was successfully generated!') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -106,10 +105,17 @@ class NotesController < ApplicationController
   # DELETE /notes/1.xml
   def destroy
     @note = @catalog.notes.find(params[:id])
-    @note.destroy
 
+    # can only destroy notes that have not yet been generated
+    if @note.status == 0
+      @note.destroy
+      notice = 'Your note has been succesfully deleted.'
+    else
+      notice = 'Once notes have been sent to printing they cannot be deleted.'
+    end
+    
     respond_to do |format|
-      format.html { redirect_to(catalog_notes_path(@catalog)) }
+      format.html { redirect_to(catalogs_path, :notice => notice) }
       format.xml  { head :ok }
     end
   end
@@ -121,6 +127,7 @@ class NotesController < ApplicationController
       current_user.catalog = Catalog.create(:user_id => current_user.id)
     end
     @catalog = current_user.catalog
+    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
   end
 
 end

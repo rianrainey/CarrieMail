@@ -1,8 +1,13 @@
 <h1>Welcome <%= current_user.name %></h1>
 
+<% unless current_user.recipients.empty? %>
 <%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
+<% else %>
+<p>Add a contact to your <%= link_to 'address book', new_user_recipient_path(current_user) -%> to get started.</p>
+<% end %>
 
 <% unless @catalog.notes.empty? %>
+
 <table>
   <tr>
     <th>Created</th>
@@ -10,7 +15,9 @@
     <th>Sent To</th>
     <th>Status</th>
     <th></th>
+	<th></th>
     <th></th>
+	<th></th>
   </tr>
 
 <% @notes.each do |note| %>
@@ -19,7 +26,8 @@
     <td><%= note.title %></td>
     <td><%= note.recipient.name %></td>
     <td><%= note.status_description %></td>
-    <td><%= link_to 'HTML Version', [@catalog, note] %> | <%= link_to 'View PDF', note.pdfdoc.url -%></td>
+    <td><%= link_to 'HTML Version', [@catalog, note] %></td>
+ 	<td>| <%= link_to 'View PDF', note.pdfdoc.url -%></td>
     <td>| <%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
     <td>| <%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
@@ -27,7 +35,5 @@
 </table>
 
 <br />
-<% else %>
-<p>Welcome <%= current_user.name -%>, click <%= link_to 'here', new_catalog_note_path(@catalog)-%> to get started.</p>
 <% end %>
 
