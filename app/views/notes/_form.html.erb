@@ -13,11 +13,10 @@
 
   <div class="field">
     Subject: <%= f.text_field :title, :placeholder => "Subject of the letter"%><br/>
-	To: <%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
 	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
   </div>
   <div class="field">
-	<%= f.select :greeting, greetings -%><%= f.select :greeting_name, greeting_names(@recipients[params[:recipient_id]]) %>
+	<%= f.select :greeting, greetings -%><%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
   </div>
   <div class="field">
 	<p><em></em></p>

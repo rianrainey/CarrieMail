@@ -1,6 +1,6 @@
 <div class="l letter">
 <div class="salutation">
-  <%= @note.greeting -%> <%= "#{@note.greeting_name}," unless @note.greeting_name.blank? %>
+  <%= @note.greeting -%> <%= "#{@note.recipient.first_name}," unless @note.recipient.nil? %>
 </div>
 <br/>
 <div class="mail">
