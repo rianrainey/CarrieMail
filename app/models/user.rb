@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
   has_one :catalog, :dependent => :destroy
   has_many :recipients, :dependent => :destroy
   
+  after_initialize :init
+  
+  def init
+    self.catalog ||= Catalog.create(:user_id => self.id)
+  end  
 
   def name
     "#{first_name} #{last_name}"

@@ -32,7 +32,7 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = @catalog.notes.build
-    
+       
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @note }
@@ -42,7 +42,6 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = @catalog.notes.find(params[:id])
-    
   end
 
   # POST /notes
@@ -69,11 +68,11 @@ class NotesController < ApplicationController
     
     # update the document_content so we can regenerate the PDF
     @note.document_content = render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
-
+    
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
-        format.html { redirect_to(catalogs_path, :notice => 'Your PDF was successfully generated!') }
+        format.html { redirect_to(user_recipients_path(current_user), :notice => 'Your letter is in the queue to be mailed!') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -123,11 +122,10 @@ class NotesController < ApplicationController
   
   private
   def protect_catalog
-    if current_user.catalog.nil?
-      current_user.catalog = Catalog.create(:user_id => current_user.id)
-    end
     @catalog = current_user.catalog
     @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
+    @title = controller_name
   end
+  
 
 end

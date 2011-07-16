@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe Note do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should validate catalog' do
+    pending "need to run this test #{__FILE__}"
+  end
 end
+
 
 
 
@@ -12,10 +15,10 @@ end
 # Table name: notes
 #
 #  id                  :integer         not null, primary key
-#  catalog_id          :integer
+#  catalog_id          :integer         not null
 #  title               :string(255)
 #  body                :text
-#  recipient_id        :integer
+#  recipient_id        :integer         not null
 #  created_at          :datetime
 #  updated_at          :datetime
 #  status              :integer
@@ -23,5 +26,9 @@ end
 #  pdfdoc_content_type :string(255)
 #  pdfdoc_file_size    :integer
 #  document_content    :text
+#  greeting            :string(255)
+#  closing             :string(255)
+#  greeting_name       :string(255)
+#  signature           :string(255)
 #
 

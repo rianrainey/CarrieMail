@@ -1,5 +1,6 @@
+<div class="l letter">
 <div class="salutation">
-  Dear <%= @note.recipient.first_name %>,
+  <%= @note.greeting -%> <%= "#{@note.greeting_name}," unless @note.greeting_name.blank? %>
 </div>
 <br/>
 <div class="mail">
@@ -7,7 +8,9 @@
 </div>
 <br/>
 <div class="signature">
-  <span>Sincerely,</span><br/>
-  <%= @catalog.user.first_name%>
+  <p><%= @note.closing %></p>
+  <p><%= @note.signature %></p>
 </div>
 <br/>
+</div>
+<div class="clr"></div>

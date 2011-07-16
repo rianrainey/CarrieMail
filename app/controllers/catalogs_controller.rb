@@ -15,6 +15,7 @@ class CatalogsController < ApplicationController
       current_user.catalog = Catalog.create(:user_id => current_user.id)
     end
     @catalog = current_user.catalog
+    @title = controller_name
   end
   
 end

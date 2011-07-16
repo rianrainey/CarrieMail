@@ -82,6 +82,39 @@ div.field, div.actions {
 	margin:0 20px;
 }
 
+/* for the contact page */
+div.contact_box {
+	border: 1px solid gray;
+	width:40%;
+	height:110px;
+	margin: 5px;
+	padding: 5px;
+	/*border-radius:5px;*/
+}
+
+div.contact_box img {
+	margin: 5px;
+}
+
+ul.contact {
+	list-style:none;
+	font-size:8pt;
+	font-style:italic;
+}
+
+ul.contact li.name {
+	font-size:12;
+	font-weight:bold;
+	font-style:normal;
+}
+
+ul.contact li.sent {
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* end: contact page styles */
+
 ul.hmenu {
   list-style: none;	
   margin: 0 0 2em;
@@ -92,21 +125,31 @@ ul.hmenu li {
   display: inline;  
 }
 
-.mail {
+.mail, .mail p {
 	font-family: 'La Belle Aurore', arial, serif;
 	font-size: 18pt;
+	margin:.5em;
 }
 .salutation {
 	font-family: 'La Belle Aurore', arial, serif;
 	font-size: 20pt;
+	margin:.5em;
 }
-.signature {
+.signature p {
 	font-family: 'La Belle Aurore', arial, serif;
 	font-size: 20pt;
+	margin:.5em;
 }
+
 
 #header {
 	width:100%;
+	border-bottom:3px solid gray;
+	float:left;
+}
+
+.title {
+	margin-left:25px;
 }
 
 #logo {
@@ -159,6 +202,8 @@ td {
  Footer Styling 
 ////////////////////////////*/
 #footer {
+	border-top:3px solid gray;
 	width: 100%;
+	margin-top:20px;
 }
 }

@@ -1,11 +1,4 @@
-<h1>Welcome <%= current_user.name %></h1>
-
-<% unless current_user.recipients.empty? %>
-<%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
-<% else %>
-<p>Add a contact to your <%= link_to 'address book', new_user_recipient_path(current_user) -%> to get started.</p>
-<% end %>
-
+<div class="mail"><p>Edit, Create, and Delete notes to your contacts directly.</p></div>
 <% unless @catalog.notes.empty? %>
 
 <table>
@@ -16,7 +9,6 @@
     <th>Status</th>
     <th></th>
 	<th></th>
-    <th></th>
 	<th></th>
   </tr>
 
@@ -26,10 +18,13 @@
     <td><%= note.title %></td>
     <td><%= note.recipient.name %></td>
     <td><%= note.status_description %></td>
-    <td><%= link_to 'HTML Version', [@catalog, note] %></td>
- 	<td>| <%= link_to 'View PDF', note.pdfdoc.url -%></td>
-    <td>| <%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
-    <td>| <%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if note.status == 0 %>
+    <td><%= link_to 'Preview', [@catalog, note] %></td>
+    <% else %>
+ 	<td><%= link_to 'Document', note.pdfdoc.url -%></td>
+    <% end %>
+    <td><%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
+    <td><%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -37,3 +32,8 @@
 <br />
 <% end %>
 
+<% unless current_user.recipients.empty? %>
+<%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
+<% else %>
+<p>  <%= link_to 'Add a contact to your address book', new_user_recipient_path(current_user) -%> to get started.</p>
+<% end %>

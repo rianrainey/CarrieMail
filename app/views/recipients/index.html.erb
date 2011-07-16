@@ -1,35 +1,36 @@
-<h1>Address Book</h1>
-
 <% if @user.recipients.count > 0 %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-	<th>Notes</th>
-	<th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @recipients.each do |recipient| %>
-  <tr class="<%= cycle("even", "odd") %>">
-    <td><%= recipient.name %></td>
-    <td><%= recipient.full_address %></td>
-    <td><%= recipient.email %></td>
-	<td align="center"><%= link_to recipient.notes.count, catalog_notes_path(@user.catalog, :recipient_id => recipient.id) -%></td>
-	<td><%= link_to 'Send Note', new_catalog_note_path(@user.catalog, :recipient_id => recipient.id)%>
-    <td><%= link_to 'Show', [@user, recipient] %></td>
-    <td><%= link_to 'Edit', edit_user_recipient_path(@user, recipient) %></td>
-    <td><%= link_to 'Delete', [@user, recipient], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="l mail">
+<p>Choose any of the below contacts to send a note to, or add a contact below.  Remember, handwriting is special.</p>
+</div>
+	
+<% @recipients.each do |recipient| -%>
+<div class="l contact_box">
+	<div class="r">
+	<div class="l small-icon">
+		<%= link_to image_tag("email.png"), new_catalog_note_path(@catalog, :recipient_id => recipient.id) -%>
+	</div>
+	<div class="l small-icon">
+		<%= link_to image_tag("page_white_edit.png"), edit_user_recipient_path(@user, recipient) -%>
+	</div>
+	<div class="l small-icon">
+		<%= link_to image_tag("dialog-close.png"), [@user, recipient], :confirm => 'Are you sure?', :method=> :delete -%> 
+	</div>
+	</div>
+	<div class="l photo">
+		<%= image_tag recipient.photo.url(:thumb) -%>
+	</div>
+	<ul class="l contact">
+		<li class="name"><%= link_to recipient.name, [@user, recipient] %></li>
+		<li><%= "#{recipient.street}, #{recipient.addr_line2}" %></li>
+		<li><%= "#{recipient.city}, #{recipient.state} #{recipient.zip}" %></li>
+		<li class="sent">Sent <%= link_to(recipient.notes.count, catalog_notes_path(@catalog, :recipient_id => recipient.id))-%> notes</li>
+	</ul>
+</div>
 <% end %>
-</table>
-
-<br />
 <% else %>
-<p>Click 'New Contact' below to begin adding names</p>
+<div class="mail clr">Click 'New Contact' below to begin sending your friendly notes.</div>
 <% end %>
 
+<div class="clr">
 <%= link_to 'New Contact', new_user_recipient_path(@user) %>
+</div>

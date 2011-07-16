@@ -3,17 +3,21 @@
 	<%= image_tag 'CarriemailBasketLogo-Small.jpg'%>
 </div>
 <% end %>
+<div id="title-top" class="l title">
+	<h1><%= @title.capitalize unless @title.nil? -%></h1>
+</div>
 <div id="utility-nav">
 	<ul class="hmenu">
 		<% if user_signed_in? %>
-		 <%= link_to 'Home', root_path %>
-		 | <%= link_to 'Contacts', user_recipients_path(current_user) -%>
+		    <li><%= link_to 'Home', home_path %></li>
+			<li><%= link_to 'Contacts', user_recipients_path(current_user) -%></li>
+		    <li><%= link_to 'Notes', catalog_notes_path(current_user.catalog) -%></li>
 		<% end %>
 		<% if controller_name != 'registrations' %>
-		| <%= render 'devise/menu/registration_items' %> 
+		    <%= render 'devise/menu/registration_items' %> 
 		<% end %>
 		<% if controller_name != 'sessions' %>
-		<%= render 'devise/menu/login_items' %>
+		    <%= render 'devise/menu/login_items' %>
 		<% end %>
 	</ul>
 </div><!--#utility-nav-->

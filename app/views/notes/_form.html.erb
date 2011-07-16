@@ -12,16 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :title, :placeholder => "Subject of the letter"%>
+    Subject: <%= f.text_field :title, :placeholder => "Subject of the letter"%><br/>
+	To: <%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
+	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
   </div>
   <div class="field">
-    <%= f.label :recipient_id, "Dear " %>
-	<%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
-	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
+	<%= f.select :greeting, greetings -%><%= f.select :greeting_name, greeting_names(current_user.recipients[0]) %>
   </div>
   <div class="field">
 	<p><em></em></p>
     <%= f.text_area :body, :placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>
+  </div>
+  <div class="field">
+	<%= f.select :closing, closings -%>
+  </div>
+  <div class="field">
+	<%= f.select :signature, signatures -%>
   </div>
   <div class="actions">
     <%= f.submit "Preview" %>

@@ -87,5 +87,7 @@ class RecipientsController < ApplicationController
   
   def protect_recipient
     @user = current_user
+    @catalog = current_user.catalog
+    @title = "Contacts"
   end  
 end

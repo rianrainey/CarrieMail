@@ -4,11 +4,11 @@ class Note < ActiveRecord::Base
 
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :title, :body, :catalog, :recipient 
-  #validate :must_have_recipient
-  #validate :must_have_catalog
+  validates_presence_of :title, :body, :catalog, :recipient, :greeting, :closing, :signature
    
-  attr_accessible :title, :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content
+  attr_accessible :title, :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
+                  :greeting_name, :greeting, :closing, :signature
+                  
   before_save :create_pdfdoc
   
   has_attached_file :pdfdoc,
@@ -38,6 +38,7 @@ class Note < ActiveRecord::Base
 
           if response.code == 200
             self.pdfdoc = file
+            self.status = 1
           else
             e = Hash.from_xml(response.body)
             
@@ -70,15 +71,16 @@ class Note < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: notes
 #
 #  id                  :integer         not null, primary key
-#  catalog_id          :integer
+#  catalog_id          :integer         not null
 #  title               :string(255)
 #  body                :text
-#  recipient_id        :integer
+#  recipient_id        :integer         not null
 #  created_at          :datetime
 #  updated_at          :datetime
 #  status              :integer
@@ -86,5 +88,9 @@ end
 #  pdfdoc_content_type :string(255)
 #  pdfdoc_file_size    :integer
 #  document_content    :text
+#  greeting            :string(255)
+#  closing             :string(255)
+#  greeting_name       :string(255)
+#  signature           :string(255)
 #
 
