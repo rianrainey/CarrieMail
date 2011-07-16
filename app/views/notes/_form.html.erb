@@ -17,7 +17,7 @@
 	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
   </div>
   <div class="field">
-	<%= f.select :greeting, greetings -%><%= f.select :greeting_name, greeting_names(current_user.recipients[0]) %>
+	<%= f.select :greeting, greetings -%><%= f.select :greeting_name, greeting_names(@recipients[params[:recipient_id]]) %>
   </div>
   <div class="field">
 	<p><em></em></p>
