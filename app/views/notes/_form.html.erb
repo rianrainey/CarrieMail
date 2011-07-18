@@ -11,24 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    Subject: <%= f.text_field :title, :placeholder => "Subject of the letter"%><br/>
-	<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
-  </div>
-  <div class="field">
-	<%= f.select :greeting, greetings -%><%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
-  </div>
-  <div class="field">
-	<p><em></em></p>
-    <%= f.text_area :body, :placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>
-  </div>
-  <div class="field">
-	<%= f.select :closing, closings -%>
-  </div>
-  <div class="field">
-	<%= f.select :signature, signatures -%>
-  </div>
-  <div class="actions">
-    <%= f.submit "Preview" %>
-  </div>
+<div class="form">
+	<div id="note-tabs">
+		<ul>
+			<li><a href="#recipients">Choose Recipients</a></li>
+			<li><a href="#note-body">Write A Message</a></li>
+			<li><a href="#preview"><%= f.submit "Preview" %></a></li>
+		</ul>
+		
+		<div id="recipients">
+			<div class="field">
+			<%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
+			<%= link_to "Create a New Contact", new_user_recipient_path(@current_user)-%>
+		  </div>
+		</div>
+
+		<div id="note-body" class="field">
+			<div class="field">
+				<%= f.select :greeting, greetings -%>
+			</div>
+			<div class="field">
+		    	Subject: <%= f.text_field :title, :placeholder => "Subject of the letter"%><br/>
+		  	</div>
+			<p><em></em></p>
+			<%= f.text_area :body, :placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>	
+			<div class="field">
+				<%= f.select :closing, closings -%>
+		  	</div>
+			<div class="field">
+				<%= f.select :signature, signatures -%>
+			</div>
+
+		</div><!-- /#note-body-->
+	</div><!-- /#note-tabs-->
+	
+	
 <% end %>
+</div>
+
