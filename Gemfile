@@ -13,7 +13,7 @@ gem 'doc_raptor'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'builder', '~> 2.1.2'
 gem 'carmen' # states & countries
-gem 'paperclip'
+gem 'paperclip', '~> 2.3.15'
 gem 'jquery-rails', '>= 1.0.3'
 
 
@@ -39,4 +39,6 @@ group :development, :test do
   gem "cucumber-rails"
   gem "spork"
   gem "launchy"
+	gem "compass", ">= 0.11.5"
+	gem "sass"
 end

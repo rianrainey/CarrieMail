@@ -1,0 +1,164 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Grab Blueprint's grid layout
+@import "blueprint/grid";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+}
+
+form.bp {
+  @include blueprint-form;
+  // You'll probably want to remove the scaffolding once you start styling your site.
+  @include blueprint-scaffolding; }
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.two-col {
+  #container {
+    @include container; }
+  #header, #footer {
+    @include column($blueprint-grid-columns); }
+  #sidebar {
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns); }
+  #content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    // true means it's the last column in the row
+    @include column($content-columns, true); 
+	} 
+}
+
+// Carriemail Body Styling
+.clear {
+	clear:both;
+}
+
+body {
+	li { list-style-type: $list-style-type;	}
+	@include prepend-top(2em);
+	background: $body-bg-img;
+	#container {
+		//background: $main-bg-color;
+		@include container;
+	//	@include showgrid;
+		.wrapper {
+			//@include box;
+			position:relative;
+			#header {
+				@include column($blueprint-grid-columns);
+				#utility-nav {
+					@include column(9);
+					@include prepend(8);
+					@include append(6);
+					position:absolute;
+					ul {
+						background: url('images/tape-links.png') no-repeat 0 0;
+						height: 65px;
+						padding-top:23px;
+						text-align:center;
+					}
+					float:right; // overwrites +columns' float: left
+					li {
+						display:inline;
+						padding:1em;
+					}
+				}
+				#logo {
+					@include column(3);
+				}
+				#title-top {
+					@include column(6);
+				}
+			
+			}
+			#main {
+				background: $main-bg-shadow;
+				@include column($blueprint-grid-columns);
+				@include prepend-top(1em);
+				#content {
+					background: $main-bg-color;
+					margin:5px;
+					height:400px;
+					
+				}
+			}
+			#featurettes {
+				@include prepend-top;
+				@include column(24);
+				@include prepend(3);
+				@include append(3);
+				.block {
+					@include column(6);
+				}
+				.box {
+					@include column(5);
+					padding-top:5px;
+					height: $featurette-height;
+					display:inline;
+					text-align:center;
+				}
+				.info {
+					@include prepend(.5);
+					@include column(4);
+				}
+
+				h1 {
+					font-size: 35px;
+					color: #ffffff;
+				}
+				#step-1  {
+					background: url('images/green-step.png') $featurette-img;
+				}
+				#step-2 {
+					background: url('images/red-step.png') $featurette-img;
+				}
+				#step-3 {
+					background: url('images/blue-step.png') $featurette-img;
+				}
+			}
+		
+			#footer {
+				@include prepend-top;
+				@include column($blueprint-grid-columns);
+				li {
+					display:inline;
+				}
+				#copyright {
+					@include column(5);
+				}
+				#ftr-links {
+					@include column(5);
+					float:right;
+				}
+
+			}
+			
+		}
+	}
+
+}
