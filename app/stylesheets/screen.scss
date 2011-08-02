@@ -5,6 +5,8 @@
 @import "partials/base";
 
 // Import all the default blueprint modules so that we can access their mixins.
+// To generate css equivalent to the blueprint css but with your
+// configuration applied
 @import "blueprint";
 
 // Grab Blueprint's grid layout
@@ -13,9 +15,6 @@
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
 
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
 
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
