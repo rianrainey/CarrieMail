@@ -72,8 +72,8 @@ body {
 				@include column($blueprint-grid-columns);
 				#utility-nav {
 					@include column(9);
-					@include prepend(8);
-					@include append(6);
+					@include prepend(7);
+					@include append(7);
 					position:absolute;
 					ul {
 						background: url('images/tape-links.png') no-repeat 0 0;
@@ -101,6 +101,7 @@ body {
 				@include prepend-top(1em);
 				#content {
 					background: $main-bg-color;
+					// background-image: $featurette-img-blue;
 					margin:5px;
 					height:400px;
 					
@@ -116,14 +117,19 @@ body {
 				}
 				.box {
 					@include column(5);
-					padding-top:5px;
 					height: $featurette-height;
+					padding:2px;
 					display:inline;
 					text-align:center;
+					font-family:$script-font;
 				}
 				.info {
-					@include prepend(.5);
-					@include column(4);
+					@include column(5);
+					padding-top:5px;
+					font-family:$script-font;
+					font-size:14pt;
+					line-height:18pt;
+					text-align:center;
 				}
 
 				h1 {
@@ -151,8 +157,8 @@ body {
 					@include column(5);
 				}
 				#ftr-links {
-					@include column(5);
-					float:right;
+					@include column(19, true);
+					text-align:right;
 				}
 
 			}
