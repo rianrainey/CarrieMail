@@ -22,7 +22,8 @@ $default-padding-col: .5;
 $body-bg-img: url('images/body-bg.png') repeat 0 0;
 $main-bg-color: #ffffff;
 $main-bg-shadow: #000000;
-$featurette-img: no-repeat 0 0;
+$content-shadow: 10px 10px 5px #888;//10px #110F12;
+$featurette-img: no-repeat 0px 0px;
 $featurette-width: 195px;
 $featurette-height: 56px;
 $featurette-img-blue: url('images/blue-step.png') no-repeat 0 0;
@@ -36,3 +37,5 @@ $featurette-img-blue: url('images/blue-step.png') no-repeat 0 0;
 //************
 // Mixins
 //************
+
+
