@@ -1,8 +1,51 @@
+
+<% content_for :home do %>
+  <%= javascript_include_tag "contentflow.js" %>
+  <%= stylesheet_link_tag "contentflow.css" %>
+<% end %>
+
+
+<script>
+var myNewFlow = new ContentFlow('CoverFlow', {
+flowSpeedFactor: 0.1,
+circularFlow: false,
+scrollWheelSpeed: 1.0,
+		37: function () { this.moveTo('pre') }, // left arrow
+        38: function () { this.moveTo('visibleNext') }, // up arrow
+        39: function () { this.moveTo('next') }, // right arrow
+		40: function () { this.moveTo('visiblePre') } // down arrow
+});
+</script>
+
 <div id="main">
 	<div id="content">
+		<div id="callout">
+			headline headline headline headline headline headline
+		</div>
+		
 
+		
+		
+		<div id="card-slider" class="ContentFlow">
+			<a href="#app">Click here to load the app</a>
+			
+				<div id ="imgFlow" class="flow">
+				<%= image_tag("homer.jpeg", :class => 'item') %>
+				<%= image_tag("bart.jpeg", :class => 'item') %>
+				<%= image_tag("lisa.jpeg", :class => 'item') %>
+				</div>
+		</div>
+		<div id="carrie-stamp">
+
+		</div>
 	</div>
 
+</div>
+
+<div style="display:none">
+	<div id="app" style="padding: 10px; background:#fff;">
+		<p>This can be any html stuff we want.</p>
+	</div>
 </div>
 
 <%= render 'layouts/featurettes' %>

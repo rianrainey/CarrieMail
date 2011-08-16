@@ -4,4 +4,7 @@ $(document).ready(function() {
 	
 	/* Remove tabs from last list-item */
 	$("#ftr-links li:last").css("border-right", "none");
+	
+	/* Load Carrie Demo App */
+	$("#card-slider a").colorbox({width:"70%", height:"80%", inline:true});
 });
