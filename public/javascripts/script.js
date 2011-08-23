@@ -6,5 +6,5 @@ $(document).ready(function() {
 	$("#ftr-links li:last").css("border-right", "none");
 	
 	/* Load Carrie Demo App */
-	$("#card-slider a").colorbox({width:"70%", height:"80%", inline:true});
+	$("#card-slider a").colorbox({width:"70%", height:"80%", iframe:true});
 });

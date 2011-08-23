@@ -27,7 +27,7 @@ scrollWheelSpeed: 1.0,
 		
 		
 		<div id="card-slider" class="ContentFlow">
-			<a href="#app">Click here to load the app</a>
+			<%= link_to('Click here to load the app', new_catalog_note_path(@catalog)) %>
 			
 				<div id ="imgFlow" class="flow">
 				<%= image_tag("homer.jpeg", :class => 'item') %>
@@ -44,7 +44,7 @@ scrollWheelSpeed: 1.0,
 
 <div style="display:none">
 	<div id="app" style="padding: 10px; background:#fff;">
-		<p>This can be any html stuff we want.</p>
+hello		
 	</div>
 </div>
 
