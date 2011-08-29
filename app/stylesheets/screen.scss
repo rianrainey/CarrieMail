@@ -118,6 +118,18 @@ body {
 							height:249px;
 							width:512px;
 							
+							#speech-bubble {
+								@include prepend-top;
+								@include column(12);
+								text-align:center;
+
+								h2 {
+									font-size:28px;
+									font-family:$script-font;
+									color: #000000;
+								}
+							}
+							
 							#colorbox {
 								@include column(3);
 								height:100px;
@@ -131,6 +143,7 @@ body {
 							height:144px;
 							width:109px;
 						}
+						
 					}
 				}
 			}
@@ -168,6 +181,9 @@ body {
 				}
 				#step-1  {
 					background: url('images/green-step.png') $featurette-img;
+					a {
+						text-decoration:none;
+					}
 				}
 				#step-2 {
 					background: url('images/red-step.png') $featurette-img;

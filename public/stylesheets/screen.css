@@ -215,6 +215,25 @@ body #container .wrapper #main-wrapper #main #content #card-slider {
   overflow-x: hidden;
 }
 /* line 121, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
+  margin-top: 1.5em;
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 470px;
+  text-align: center;
+}
+/* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
+  overflow-x: hidden;
+}
+/* line 126, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble h2 {
+  font-size: 28px;
+  font-family: "La Belle Aurore", arial, serif;
+  color: #000000;
+}
+/* line 133, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider #colorbox {
   display: inline;
   float: left;
@@ -226,7 +245,7 @@ body #container .wrapper #main-wrapper #main #content #card-slider #colorbox {
 * html body #container .wrapper #main-wrapper #main #content #card-slider #colorbox {
   overflow-x: hidden;
 }
-/* line 127, ../../app/stylesheets/screen.scss */
+/* line 139, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   background: url("images/carrie-stamp.png") no-repeat 0 0;
   display: inline;
@@ -241,7 +260,7 @@ body #container .wrapper #main-wrapper #main #content #carrie-stamp {
 * html body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   overflow-x: hidden;
 }
-/* line 138, ../../app/stylesheets/screen.scss */
+/* line 151, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes {
   margin-top: 1.5em;
   display: inline;
@@ -255,7 +274,7 @@ body #container .wrapper #featurettes {
 * html body #container .wrapper #featurettes {
   overflow-x: hidden;
 }
-/* line 143, ../../app/stylesheets/screen.scss */
+/* line 156, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .block {
   display: inline;
   float: left;
@@ -266,7 +285,7 @@ body #container .wrapper #featurettes .block {
 * html body #container .wrapper #featurettes .block {
   overflow-x: hidden;
 }
-/* line 146, ../../app/stylesheets/screen.scss */
+/* line 159, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .box {
   display: inline;
   float: left;
@@ -284,7 +303,7 @@ body #container .wrapper #featurettes .box {
 * html body #container .wrapper #featurettes .box {
   overflow-x: hidden;
 }
-/* line 156, ../../app/stylesheets/screen.scss */
+/* line 169, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .info {
   display: inline;
   float: left;
@@ -300,24 +319,28 @@ body #container .wrapper #featurettes .info {
 * html body #container .wrapper #featurettes .info {
   overflow-x: hidden;
 }
-/* line 165, ../../app/stylesheets/screen.scss */
+/* line 178, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes h1 {
   font-size: 35px;
   color: #ffffff;
 }
-/* line 169, ../../app/stylesheets/screen.scss */
+/* line 182, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 {
   background: url("images/green-step.png") no-repeat 0px 0px;
 }
-/* line 172, ../../app/stylesheets/screen.scss */
+/* line 184, ../../app/stylesheets/screen.scss */
+body #container .wrapper #featurettes #step-1 a {
+  text-decoration: none;
+}
+/* line 188, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-2 {
   background: url("images/red-step.png") no-repeat 0px 0px;
 }
-/* line 175, ../../app/stylesheets/screen.scss */
+/* line 191, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-3 {
   background: url("images/blue-step.png") no-repeat 0px 0px;
 }
-/* line 180, ../../app/stylesheets/screen.scss */
+/* line 196, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer {
   margin-top: 1.5em;
   display: inline;
@@ -329,11 +352,11 @@ body #container .wrapper #footer {
 * html body #container .wrapper #footer {
   overflow-x: hidden;
 }
-/* line 183, ../../app/stylesheets/screen.scss */
+/* line 199, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer li {
   display: inline;
 }
-/* line 186, ../../app/stylesheets/screen.scss */
+/* line 202, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #copyright {
   display: inline;
   float: left;
@@ -344,7 +367,7 @@ body #container .wrapper #footer #copyright {
 * html body #container .wrapper #footer #copyright {
   overflow-x: hidden;
 }
-/* line 189, ../../app/stylesheets/screen.scss */
+/* line 205, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #ftr-links {
   display: inline;
   float: left;
