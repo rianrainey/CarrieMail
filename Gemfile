@@ -39,6 +39,6 @@ group :development, :test do
   gem "cucumber-rails"
   gem "spork"
   gem "launchy"
-	gem "compass", ">= 0.11.5"
-	gem "sass"
+  gem "compass", ">= 0.11.5"
+  gem "sass"
 end

@@ -18,7 +18,7 @@ CarrieMail::Application.routes.draw do
   match 'home' => 'home#index'
   
   # route to list of recently sent letters after successful logon
-  root :to => "recipients#index"
+  root :to => "home#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

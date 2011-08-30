@@ -5,6 +5,8 @@
 @import "partials/base";
 
 // Import all the default blueprint modules so that we can access their mixins.
+// To generate css equivalent to the blueprint css but with your
+// configuration applied
 @import "blueprint";
 
 // Grab Blueprint's grid layout
@@ -62,8 +64,8 @@ body {
 				@include column($blueprint-grid-columns);
 				#utility-nav {
 					@include column(9);
-					@include prepend(8);
-					@include append(6);
+					@include prepend(7);
+					@include append(7);
 					position:absolute;
 					ul {
 						background: url('images/tape-links.png') no-repeat 0 0;
@@ -116,6 +118,18 @@ body {
 							height:249px;
 							width:512px;
 							
+							#speech-bubble {
+								@include prepend-top;
+								@include column(12);
+								text-align:center;
+
+								h2 {
+									font-size:28px;
+									font-family:$script-font;
+									color: #000000;
+								}
+							}
+							
 							#colorbox {
 								@include column(3);
 								height:100px;
@@ -129,6 +143,7 @@ body {
 							height:144px;
 							width:109px;
 						}
+						
 					}
 				}
 			}
@@ -146,12 +161,18 @@ body {
 					width:195px;
 					padding-top:10px;
 					height: $featurette-height;
+					padding:2px;
 					display:inline;
 					text-align:center;
+					font-family:$script-font;
 				}
 				.info {
-					@include prepend(.5);
-					@include column(4);
+					@include column(5);
+					padding-top:5px;
+					font-family:$script-font;
+					font-size:14pt;
+					line-height:18pt;
+					text-align:center;
 				}
 
 				h1 {
@@ -160,6 +181,9 @@ body {
 				}
 				#step-1  {
 					background: url('images/green-step.png') $featurette-img;
+					a {
+						text-decoration:none;
+					}
 				}
 				#step-2 {
 					background: url('images/red-step.png') $featurette-img;
@@ -179,8 +203,8 @@ body {
 					@include column(5);
 				}
 				#ftr-links {
-					@include column(5);
-					float:right;
+					@include column(19, true);
+					text-align:right;
 				}
 
 			}

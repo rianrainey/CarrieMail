@@ -2,10 +2,7 @@
 <html>
 <head>
   <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore&v1' rel='stylesheet' type='text/css'>
-  <%= 
-	#stylesheet_link_tag :all 
-  %>
-
+  <%= stylesheet_link_tag :all %>
   <%= stylesheet_link_tag 'screen.css', :media => 'screen, projection' %>
   <%= stylesheet_link_tag 'print.css', :media => 'print' %>
   <!--[if lt IE 8]><%= stylesheet_link_tag 'ie.css', :media => 'screen, projection' %><![endif]-->
@@ -18,7 +15,7 @@
   <%= javascript_include_tag "script.js" %>
   <%= javascript_include_tag "jquery.colorbox.js" %>
   <%= csrf_meta_tag %>
-  
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
   <title>CarrieMail</title>
 
 </head>
@@ -31,9 +28,11 @@
 			<div id="header">
 				<%= render 'devise/menu/header_items' %>
 			</div><!--#header-->
+			
 			<div id="main-wrapper">
 				<%= yield %>
 			</div>
+
 			<div id="footer">
 				<%= render 'devise/menu/footer_items' %>
 			</div>
