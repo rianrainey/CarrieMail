@@ -7,4 +7,5 @@ $(document).ready(function() {
 	
 	/* Load Carrie Demo App */
 	$("#step-1 a").colorbox({width:"70%", height:"80%", iframe:true});
+	
 });

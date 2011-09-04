@@ -1,6 +1,7 @@
-<div class="l"><p><%= @note.title %> </p></div>
-<div class="clr"></div>
 <%= render 'letter' -%>
 
-<%= button_to 'Send This Note!', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note) %>
-<%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> 
+<div id='send-button'>
+<%= button_to 'Send', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note)%>
+</div>
+
+<div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>

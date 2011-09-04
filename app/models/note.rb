@@ -4,9 +4,9 @@ class Note < ActiveRecord::Base
 
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :title, :body, :catalog, :recipient, :greeting, :closing, :signature
+  validates_presence_of :body, :catalog, :recipient, :greeting, :closing, :signature
    
-  attr_accessible :title, :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
+  attr_accessible :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
                   :greeting_name, :greeting, :closing, :signature
                   
   before_save :create_pdfdoc
@@ -33,7 +33,7 @@ class Note < ActiveRecord::Base
       
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
-                         :name             => self.title,
+                         :name             => self.recipient_id.to_s,
                          :test             => true) do |file, response|
 
           if response.code == 200

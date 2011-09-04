@@ -50,7 +50,6 @@ class NotesController < ApplicationController
   def create
     @note = @catalog.notes.build(params[:note])
     
-    # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
         format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully created.') }
@@ -72,7 +71,9 @@ class NotesController < ApplicationController
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
-        format.html { redirect_to(user_recipients_path(current_user), :notice => 'Your letter is in the queue to be mailed!') }
+        format.html { #redirect_to(user_recipients_path(current_user), :notice => 'Your letter is in the queue to be mailed!') 
+            render :action => "success", :notice => 'Your letter is in the queue to be mailed!'
+          }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }

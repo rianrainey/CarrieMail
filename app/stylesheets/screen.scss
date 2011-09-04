@@ -93,6 +93,13 @@ body {
 					//background: $main-bg-shadow;
 					@include column($blueprint-grid-columns);
 					@include prepend-top(1em);
+					#note-content {
+						textarea {width:150px;height:150px;padding:5px;}
+						font-family:$script-font;
+						font-size:12px;
+					}
+
+
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
@@ -191,6 +198,32 @@ body {
 				#step-3 {
 					background: url('images/blue-step.png') $featurette-img;
 				}
+			}
+
+			#check-button input[type="submit"] {
+				background: url('images/red-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				width:195px;
+				padding-top:10px;
+				height: $featurette-height;
+				padding:2px;
+				display:inline;
+				text-align:center;
+			}
+			
+			#send-button input[type="submit"] {
+				background: url('images/green-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				width:195px;
+				padding-top:10px;
+				height: $featurette-height;
+				padding:2px;
+				display:inline;
+				text-align:center;
 			}
 		
 			#footer {
