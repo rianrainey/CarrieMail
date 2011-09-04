@@ -72,7 +72,8 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save 
         format.html { #redirect_to(user_recipients_path(current_user), :notice => 'Your letter is in the queue to be mailed!') 
-            render :action => "success", :notice => 'Your letter is in the queue to be mailed!'
+#            redirect_to(success_catalog_note_path(@catalog, @note), :notice=>'Your letter is in the queue to be mailed!')
+             render :action => "success"
           }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else

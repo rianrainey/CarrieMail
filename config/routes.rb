@@ -4,6 +4,7 @@ CarrieMail::Application.routes.draw do
     resources :notes do
       member do
         post 'generate_pdf'
+        get 'success'
       end
     end
   end
