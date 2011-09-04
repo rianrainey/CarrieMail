@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-  before_filter :authenticate_user!, :protect_catalog
+  before_filter :protect_catalog
 
   
   # GET /notes
