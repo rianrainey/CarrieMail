@@ -1,10 +1,10 @@
-<div class="l letter">
+<div class="letter">
 <div class="salutation">
   <%= @note.greeting.gsub(/,\s*$/, '') -%>,
 </div>
 <br/>
 <div class="mail">
-  <%= @note.body.gsub(/\n/, '<br/>') %>
+  <%= raw(@note.body.gsub(/\n/, '<br/>')) %>
 </div>
 <br/>
 <div class="signature">

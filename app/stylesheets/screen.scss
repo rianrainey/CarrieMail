@@ -226,6 +226,25 @@ body {
 				text-align:center;
 			}
 		
+			#letter {
+				@include prepend-top;
+				@include column($blueprint-grid-columns, true);
+				padding:20px;
+				background-color:#ffffff;
+				height:3in;
+				width:45%in;
+			}
+			
+			#envelope {
+				@include prepend-top;
+				@include column($blueprint-grid-columns, true);
+				padding:20px;
+				background-color:#ffffff;
+				height:3.5in;
+				width:45%in;
+			}
+			
+			
 			#footer {
 				@include prepend-top;
 				@include column($blueprint-grid-columns);

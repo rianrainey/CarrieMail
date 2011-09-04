@@ -1,5 +1,21 @@
-<%= render 'letter' -%>
-
+<div id='letter'>
+  <%= render 'letter' -%>
+</div>
+<div id='envelope'>
+  <div class="">
+	<%= @note.recipient.name -%>
+  </div>
+  <div class="">
+	<%= @note.recipient.street -%>
+  </div>
+  <div class="">
+	<%= @note.recipient.addr_line2 %>
+  </div>
+  <div class="">
+	<%= @note.recipient.city %>, <%= @note.recipient.state %> <%= @note.recipient.zip %>
+  </div>
+</div>
+	
 <div id='send-button'>
 <%= button_to 'Send', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note)%>
 </div>
