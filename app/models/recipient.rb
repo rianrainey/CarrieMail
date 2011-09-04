@@ -1,5 +1,4 @@
 class Recipient < ActiveRecord::Base
-  has_many :notes
   belongs_to :user
   has_attached_file :photo,
                     :styles => {

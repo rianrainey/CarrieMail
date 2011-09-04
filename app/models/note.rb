@@ -1,15 +1,16 @@
 class Note < ActiveRecord::Base
   belongs_to :catalog
-  belongs_to :recipient
-
+  
   after_initialize :init  # initializes new notes with default values
   
   validates_presence_of :body, :catalog, :recipient, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
-                        :return_state, :return_zip
+                        :return_state, :return_zip, :dest_name, :dest_street, :dest_city,
+                                              :dest_state, :dest_zip
    
   attr_accessible :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
                   :greeting_name, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
-                  :return_state, :return_zip
+                  :return_state, :return_zip, :dest_name, :dest_street, :dest_city,
+                                        :dest_state, :dest_zip
                   
   before_save :create_pdfdoc
   
@@ -74,6 +75,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: notes
@@ -94,5 +96,17 @@ end
 #  closing             :string(255)
 #  greeting_name       :string(255)
 #  signature           :string(255)
+#  return_name         :string(255)
+#  return_street       :string(255)
+#  return_addr_line2   :string(255)
+#  return_city         :string(255)
+#  return_state        :string(255)
+#  return_zip          :string(255)
+#  dest_name           :string(255)
+#  dest_street         :string(255)
+#  dest_addr_line2     :string(255)
+#  dest_city           :string(255)
+#  dest_state          :string(255)
+#  dest_zip            :string(255)
 #
 

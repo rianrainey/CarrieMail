@@ -27,12 +27,22 @@
 		</div>
 	</div>
 
-	<div id="note-address">
-		Address Letter to:
+	<div id="destination-address">
+		Destination Address:
 		<div class="field">
-			<%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
-			<%= link_to "New", new_user_recipient_path(@current_user)-%>
-	    </div>
+			<%= f.text_field :dest_name, :placeholder => current_user.name -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :dest_street, :placeholder => 'Street #' -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
+		</div>
+    	<div class="field">
+	    	<%= f.text_field :dest_city, :placeholder => 'City'%>
+			<%= f.select :dest_state, Carmen::state_codes('US') %>
+	    	<%= f.text_field :dest_zip, :placeholder => 'Zip', :size => 15 %>
+	  	</div>
 	</div>
 	
 	<div id="return-address">
@@ -51,7 +61,8 @@
 			<%= f.select :return_state, Carmen::state_codes('US') %>
 	    	<%= f.text_field :return_zip, :placeholder => 'Zip', :size => 15 %>
 	  	</div>
-		
+	</div>
+	
 	<div id="check-button">
 		<%= f.submit "Check" -%>
 	</div>

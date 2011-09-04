@@ -4,6 +4,7 @@
 
 <div id='envelope'>
 	<div id='return-address'>
+		Return to:
 		<div>
 		<%= @note.return_name %>
 		</div>
@@ -17,19 +18,20 @@
 		<%= @note.return_city %>, <%= @note.return_state %> <%= @note.return_zip %>
 		</div>
 	</div>
-	<div id='recipient-address'>
-	    <div class="">
-			<%= @note.recipient.name -%>
-	    </div>
-	    <div class="">
-			<%= @note.recipient.street -%>
-	    </div>
-	    <div class="">
-			<%= @note.recipient.addr_line2 %>
-	    </div>
-	    <div class="">
-			<%= @note.recipient.city %>, <%= @note.recipient.state %> <%= @note.recipient.zip %>
-	    </div>
+	<div id='destination-address'>
+		Destination:
+		<div>
+		<%= @note.dest_name %>
+		</div>
+		<div>
+		<%= @note.dest_street %>
+		</div>
+		<div>
+		<%= @note.dest_addr_line2 %>
+		</div>
+		<div>
+		<%= @note.dest_city %>, <%= @note.dest_state %> <%= @note.dest_zip %>
+		</div>
 	</div>
 </div>
 	
