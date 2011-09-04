@@ -17,7 +17,7 @@ class Recipient < ActiveRecord::Base
   # email and addr_line2 are intentionally left as optional
   
   def name
-    "#{first_name} #{last_name}"
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
   
   def full_address

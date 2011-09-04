@@ -4,10 +4,12 @@ class Note < ActiveRecord::Base
 
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :body, :catalog, :recipient, :greeting, :closing, :signature
+  validates_presence_of :body, :catalog, :recipient, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                        :return_state, :return_zip
    
   attr_accessible :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
-                  :greeting_name, :greeting, :closing, :signature
+                  :greeting_name, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                  :return_state, :return_zip
                   
   before_save :create_pdfdoc
   

@@ -2,15 +2,12 @@
 <div class="salutation">
   <%= @note.greeting.gsub(/,\s*$/, '') -%>,
 </div>
-<br/>
 <div class="mail">
   <%= raw(@note.body.gsub(/\n/, '<br/>')) %>
 </div>
-<br/>
 <div class="signature">
   <p><%= @note.closing %></p>
   <p><%= @note.signature %></p>
 </div>
-<br/>
 </div>
 <div class="clr"></div>

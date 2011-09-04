@@ -1,19 +1,36 @@
 <div id='letter'>
   <%= render 'letter' -%>
 </div>
+
 <div id='envelope'>
-  <div class="">
-	<%= @note.recipient.name -%>
-  </div>
-  <div class="">
-	<%= @note.recipient.street -%>
-  </div>
-  <div class="">
-	<%= @note.recipient.addr_line2 %>
-  </div>
-  <div class="">
-	<%= @note.recipient.city %>, <%= @note.recipient.state %> <%= @note.recipient.zip %>
-  </div>
+	<div id='return-address'>
+		<div>
+		<%= @note.return_name %>
+		</div>
+		<div>
+		<%= @note.return_street %>
+		</div>
+		<div>
+		<%= @note.return_addr_line2 %>
+		</div>
+		<div>
+		<%= @note.return_city %>, <%= @note.return_state %> <%= @note.return_zip %>
+		</div>
+	</div>
+	<div id='recipient-address'>
+	    <div class="">
+			<%= @note.recipient.name -%>
+	    </div>
+	    <div class="">
+			<%= @note.recipient.street -%>
+	    </div>
+	    <div class="">
+			<%= @note.recipient.addr_line2 %>
+	    </div>
+	    <div class="">
+			<%= @note.recipient.city %>, <%= @note.recipient.state %> <%= @note.recipient.zip %>
+	    </div>
+	</div>
 </div>
 	
 <div id='send-button'>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831031328) do
+ActiveRecord::Schema.define(:version => 20110904191803) do
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20110831031328) do
     t.string   "closing"
     t.string   "greeting_name"
     t.string   "signature"
+    t.string   "return_name"
+    t.string   "return_street"
+    t.string   "return_addr_line2"
+    t.string   "return_city"
+    t.string   "return_state"
+    t.string   "return_zip"
   end
 
   create_table "recipients", :force => true do |t|
