@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  
   def paginate(arg, options = {})
     if arg.instance_of?(Symbol) or arg.instance_of?(String)
       #use default paginate function
