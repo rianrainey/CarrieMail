@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904201251) do
+ActiveRecord::Schema.define(:version => 20110907032424) do
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20110904201251) do
     t.text     "document_content"
     t.string   "greeting"
     t.string   "closing"
-    t.string   "greeting_name"
     t.string   "signature"
     t.string   "return_name"
     t.string   "return_street"

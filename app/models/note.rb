@@ -7,7 +7,7 @@ class Note < ActiveRecord::Base
                         :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
   attr_accessible :body, :catalog_id, :status, :pdfdoc, 
-                  :greeting_name, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                  :greeting, :closing, :signature, :return_name, :return_street, :return_city,
                   :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
                   
   before_save :create_pdfdoc
@@ -74,6 +74,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: notes
@@ -82,7 +84,6 @@ end
 #  catalog_id          :integer         not null
 #  title               :string(255)
 #  body                :text
-#  recipient_id        :integer         not null
 #  created_at          :datetime
 #  updated_at          :datetime
 #  status              :integer
@@ -92,7 +93,6 @@ end
 #  document_content    :text
 #  greeting            :string(255)
 #  closing             :string(255)
-#  greeting_name       :string(255)
 #  signature           :string(255)
 #  return_name         :string(255)
 #  return_street       :string(255)
