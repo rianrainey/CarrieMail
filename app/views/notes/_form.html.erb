@@ -20,7 +20,7 @@
 		<%= f.text_area :body, :rows=>10, :cols=>45,
 						:placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>
 		<div class="field">
-			<%= f.text_field :closing, :placeholder => "Sincerely," -%>
+			<%= f.select :closing, closings -%>
 	  	</div>
 		<div class="field">
 			<%= f.text_field :signature, :placeholder => "Your Name Here" -%>
@@ -28,7 +28,8 @@
 	</div>
 
 	<div id="destination-address">
-		Destination Address:
+		<fieldset>
+			<legend>Destination Address</legend>
 		<div class="field">
 			<%= f.text_field :dest_name, :placeholder => current_user.name -%>
 		</div>
@@ -43,10 +44,12 @@
 			<%= f.select :dest_state, Carmen::state_codes('US') %>
 	    	<%= f.text_field :dest_zip, :placeholder => 'Zip', :size => 15 %>
 	  	</div>
+	    </fieldset>
 	</div>
 	
 	<div id="return-address">
-		Return Address:
+		<fieldset>
+		<legend>Return Address</legend>
 		<div class="field">
 			<%= f.text_field :return_name, :placeholder => current_user.name -%>
 		</div>
@@ -61,6 +64,7 @@
 			<%= f.select :return_state, Carmen::state_codes('US') %>
 	    	<%= f.text_field :return_zip, :placeholder => 'Zip', :size => 15 %>
 	  	</div>
+		</fieldset>
 	</div>
 	
 	<div id="check-button">

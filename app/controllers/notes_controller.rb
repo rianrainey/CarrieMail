@@ -1,6 +1,5 @@
 class NotesController < ApplicationController
   before_filter :protect_catalog
-
   
   # GET /notes
   # GET /notes.xml
@@ -71,9 +70,8 @@ class NotesController < ApplicationController
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.save 
-        format.html { #redirect_to(user_recipients_path(current_user), :notice => 'Your letter is in the queue to be mailed!') 
-#            redirect_to(success_catalog_note_path(@catalog, @note), :notice=>'Your letter is in the queue to be mailed!')
-             render :action => "success"
+        format.html { 
+          render :action => "success"
           }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
@@ -125,7 +123,6 @@ class NotesController < ApplicationController
   private
   def protect_catalog
     @catalog = current_user.catalog
-    @recipients = current_user.recipients.find(:all).collect {|r| [r.name, r.id]}
     @title = controller_name
   end
   

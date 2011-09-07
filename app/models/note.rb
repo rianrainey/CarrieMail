@@ -3,14 +3,12 @@ class Note < ActiveRecord::Base
   
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :body, :catalog, :recipient, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
-                        :return_state, :return_zip, :dest_name, :dest_street, :dest_city,
-                                              :dest_state, :dest_zip
+  validates_presence_of :body, :catalog, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                        :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
-  attr_accessible :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
+  attr_accessible :body, :catalog_id, :status, :pdfdoc, 
                   :greeting_name, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
-                  :return_state, :return_zip, :dest_name, :dest_street, :dest_city,
-                                        :dest_state, :dest_zip
+                  :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
                   
   before_save :create_pdfdoc
   
@@ -27,7 +25,7 @@ class Note < ActiveRecord::Base
   end
   
   def normalized_filename
-    "#{self.title}-#{self.recipient_id}.pdf"
+    "#{self.return_name.gsub(/\s+/,"_")}-#{self.dest_name.gsub(/\s+/,"_")}-#{Time.now.strftime("%Y-%m-%d-%H-%M-%S")}.pdf"
   end  
   
   def create_pdfdoc
@@ -36,7 +34,7 @@ class Note < ActiveRecord::Base
       
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
-                         :name             => self.recipient_id.to_s,
+                         :name             => self.normalized_filename,
                          :test             => true) do |file, response|
 
           if response.code == 200
