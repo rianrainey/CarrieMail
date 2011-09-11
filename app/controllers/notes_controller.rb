@@ -48,10 +48,17 @@ class NotesController < ApplicationController
   # POST /notes.pdf
   def create
     @note = @catalog.notes.build(params[:note])
+    if (params[:recipient_id])
+      @recipient = Recipient.find(params[:recipient_id])
+    else
+      @recipient = Recipient.new
+      @recipient.first_name = "Temp"
+      @recipient.last_name = "User"
+    end
     
     respond_to do |format|
       if @note.save 
-        format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully created.') }
+        format.html { redirect_to([@catalog, @note]) }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
@@ -62,24 +69,28 @@ class NotesController < ApplicationController
 
   # POST /notes/1/createpdf
   def generate_pdf
-    @note = @catalog.notes.find(params[:id])
+    # check if we've authenticated for real yet
+    if !anyone_signed_in?
+      session[:note] = params[:id]
+      logger.debug "session[note]=#{session[:note]}"
+      deny_access
+    else
+      @note = @catalog.notes.find(params[:id])
     
-    # update the document_content so we can regenerate the PDF
-    @note.document_content = render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
+      # update the document_content so we can regenerate the PDF
+      @note.document_content = render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
     
-    # on save, the PDF is generated and saved to S3
-    respond_to do |format|
-      if @note.save 
-        format.html { 
-          render :action => "success"
-          }
-        format.xml  { render :xml => @note, :status => :created, :location => @note }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
+      # on save, the PDF is generated and saved to S3
+      respond_to do |format|
+        if @note.save 
+          format.html { render :action => "success" }
+          format.xml  { render :xml => @note, :status => :created, :location => @note }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
+        end
       end
     end
-    
   end
   
   
@@ -91,7 +102,7 @@ class NotesController < ApplicationController
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
       if @note.update_attributes(params[:note]) 
-        format.html { redirect_to([@catalog, @note], :notice => 'Note was successfully updated.') }
+        format.html { redirect_to([@catalog, @note]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

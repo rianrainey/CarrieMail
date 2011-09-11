@@ -16,7 +16,7 @@
   <tr class="<%= cycle("even", "odd") %>">
     <td><%= note.created_at.strftime("%m/%d/%y") %></td>
     <td><%= note.title %></td>
-    <td><%= note.recipient.name %></td>
+    <td><%= note.dest_name %></td>
     <td><%= note.status_description %></td>
     <% if note.status == 0 %>
     <td><%= link_to 'Preview', [@catalog, note] %></td>

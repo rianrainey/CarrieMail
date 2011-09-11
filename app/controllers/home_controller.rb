@@ -1,17 +1,15 @@
 class HomeController < ApplicationController
   def index
-    @guest = User.find_by_first_name("guest")
-    if @guest.nil?
-        @guest = User.create(:first_name=>'guest', :last_name=>'guest', :email=>'guest@carriemail.com', :password=>'guest')
-    end
-    sign_in(:user, @guest)
-    
-    
+    # always log in the guest user first, unless we're already logged in
+    if current_user.nil? 
+      # guest user is seeded in the database, always
+      sign_in(:user, User.find_by_email("guest@carriemail.com"))
+    end # current_user.nil?
+  
     @title = controller_name
     @catalog = current_user.catalog
     respond_to do |format| 
-      format.html #index.html.erb
-    end
-  end
-
-end
+      format.html # by convention this renders index.html.erb
+    end #respond_to
+  end #index
+end #HomeController

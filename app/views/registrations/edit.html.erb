@@ -12,6 +12,19 @@
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
 
+  <p><%= f.label :street %><br />
+  <%= f.text_field :street %></p>
+
+  <p><%= f.label :city %><br />
+  <%= f.text_field :city %></p>
+
+  <p><%= f.label :state %><br />
+  <%= f.select :state, Carmen::state_codes('US') %>
+	
+    <p><%= f.label :zip %><br />
+  <%= f.text_field :zip %></p>
+
+
   <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></p>
 

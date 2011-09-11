@@ -36,7 +36,7 @@
 </div>
 	
 <div id='send-button'>
-<%= button_to 'Send', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note)%>
+	<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
 </div>
 
 <div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>

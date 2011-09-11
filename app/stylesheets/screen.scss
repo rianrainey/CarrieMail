@@ -209,21 +209,38 @@ body {
 				padding-top:10px;
 				height: $featurette-height;
 				padding:2px;
-				display:inline;
 				text-align:center;
 			}
 			
-			#send-button input[type="submit"] {
+			#send-button {
 				background: url('images/green-step.png') $featurette-img;
 				font-size: 35px;
 				color:#ffffff;
 				font-family:$script-font;
-				width:195px;
 				padding-top:10px;
-				height: $featurette-height;
 				padding:2px;
-				display:inline;
 				text-align:center;
+				display:inline;
+				width:195px;
+				height: $featurette-height;
+				a {
+					text-decoration:none;
+				}
+			}
+
+			#relax-button {
+				background: url('images/blue-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				width:195px;
+				height: $featurette-height;
+				padding-top:10px;
+				padding:2px;
+				text-align:center;
+				a {
+					text-decoration:none;
+				}
 			}
 		
 			#letter {

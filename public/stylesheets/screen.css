@@ -361,23 +361,42 @@ body #container .wrapper #check-button input[type="submit"] {
   padding-top: 10px;
   height: 56px;
   padding: 2px;
-  display: inline;
   text-align: center;
 }
-/* line 216, ../../app/stylesheets/screen.scss */
-body #container .wrapper #send-button input[type="submit"] {
+/* line 215, ../../app/stylesheets/screen.scss */
+body #container .wrapper #send-button {
   background: url("images/green-step.png") no-repeat 0px 0px;
   font-size: 35px;
   color: #ffffff;
   font-family: "La Belle Aurore", arial, serif;
-  width: 195px;
   padding-top: 10px;
-  height: 56px;
   padding: 2px;
+  text-align: center;
   display: inline;
+  width: 195px;
+  height: 56px;
+}
+/* line 226, ../../app/stylesheets/screen.scss */
+body #container .wrapper #send-button a {
+  text-decoration: none;
+}
+/* line 231, ../../app/stylesheets/screen.scss */
+body #container .wrapper #relax-button {
+  background: url("images/blue-step.png") no-repeat 0px 0px;
+  font-size: 35px;
+  color: #ffffff;
+  font-family: "La Belle Aurore", arial, serif;
+  width: 195px;
+  height: 56px;
+  padding-top: 10px;
+  padding: 2px;
   text-align: center;
 }
-/* line 229, ../../app/stylesheets/screen.scss */
+/* line 241, ../../app/stylesheets/screen.scss */
+body #container .wrapper #relax-button a {
+  text-decoration: none;
+}
+/* line 246, ../../app/stylesheets/screen.scss */
 body #container .wrapper #letter {
   margin-top: 1.5em;
   display: inline;
@@ -392,7 +411,7 @@ body #container .wrapper #letter {
 * html body #container .wrapper #letter {
   overflow-x: hidden;
 }
-/* line 237, ../../app/stylesheets/screen.scss */
+/* line 254, ../../app/stylesheets/screen.scss */
 body #container .wrapper #envelope {
   margin-top: 1.5em;
   display: inline;
@@ -407,7 +426,7 @@ body #container .wrapper #envelope {
 * html body #container .wrapper #envelope {
   overflow-x: hidden;
 }
-/* line 246, ../../app/stylesheets/screen.scss */
+/* line 263, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer {
   margin-top: 1.5em;
   display: inline;
@@ -419,11 +438,11 @@ body #container .wrapper #footer {
 * html body #container .wrapper #footer {
   overflow-x: hidden;
 }
-/* line 249, ../../app/stylesheets/screen.scss */
+/* line 266, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer li {
   display: inline;
 }
-/* line 252, ../../app/stylesheets/screen.scss */
+/* line 269, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #copyright {
   display: inline;
   float: left;
@@ -434,7 +453,7 @@ body #container .wrapper #footer #copyright {
 * html body #container .wrapper #footer #copyright {
   overflow-x: hidden;
 }
-/* line 255, ../../app/stylesheets/screen.scss */
+/* line 272, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #ftr-links {
   display: inline;
   float: left;

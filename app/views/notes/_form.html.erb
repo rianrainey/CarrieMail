@@ -23,7 +23,7 @@
 			<%= f.select :closing, closings -%>
 	  	</div>
 		<div class="field">
-			<%= f.text_field :signature, :placeholder => "Your Name Here" -%>
+			<%= f.text_field :signature, :value => guest_or_user_name -%>
 		</div>
 	</div>
 
@@ -31,10 +31,10 @@
 		<fieldset>
 			<legend>Destination Address</legend>
 		<div class="field">
-			<%= f.text_field :dest_name, :placeholder => current_user.name -%>
+			<%= f.text_field :dest_name, :value => "Destination" -%>
 		</div>
 		<div class="field">
-			<%= f.text_field :dest_street, :placeholder => 'Street #' -%>
+			<%= f.text_field :dest_street, :value => "Address" -%>
 		</div>
 		<div class="field">
 			<%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
@@ -51,18 +51,18 @@
 		<fieldset>
 		<legend>Return Address</legend>
 		<div class="field">
-			<%= f.text_field :return_name, :placeholder => current_user.name -%>
+			<%= f.text_field :return_name, :value => guest_or_user_name -%>
 		</div>
 		<div class="field">
-			<%= f.text_field :return_street, :placeholder => 'Street #' -%>
+			<%= f.text_field :return_street, :value => guest_or_user_street -%>
 		</div>
 		<div class="field">
 			<%= f.text_field :return_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
 		</div>
     	<div class="field">
-	    	<%= f.text_field :return_city, :placeholder => 'City'%>
-			<%= f.select :return_state, Carmen::state_codes('US') %>
-	    	<%= f.text_field :return_zip, :placeholder => 'Zip', :size => 15 %>
+	    	<%= f.text_field :return_city, :value => guest_or_user_city%>
+			<%= f.select :return_state, Carmen::state_codes('US'), :value => guest_or_user_state %>
+	    	<%= f.text_field :return_zip, :value => guest_or_user_zip, :size => 15 %>
 	  	</div>
 		</fieldset>
 	</div>
