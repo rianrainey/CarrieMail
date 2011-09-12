@@ -79,6 +79,18 @@ body {
 						padding:1em;
 					}
 				}
+				#menu-items {
+					
+					ul {
+						padding-top:10px;
+						text-align:center;
+					}
+					li {
+						text-align:left;
+						display:inline;
+						padding:1em;
+					}
+				}	
 				#logo {
 					@include column(3);
 				}

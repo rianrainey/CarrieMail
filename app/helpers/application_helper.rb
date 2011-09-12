@@ -5,7 +5,6 @@ module ApplicationHelper
     if current_user
       if session[:guest_user_id]
         logging_in
-        guest_user.destroy
         session[:guest_user_id] = nil
       end
       current_user
@@ -14,11 +13,14 @@ module ApplicationHelper
     end
   end
   
+  def anyone_signed_in?
+    !current_user.nil? && !session[:guest_user_id].nil? && (current_user.id != session[:guest_user_id])
+  end
+  
   # find guest_user object associated with the current session, 
   # creating one as needed
   def guest_user
-    logger.debug "creating a guest user, I think"
-    guest_user_id = session[:guest_user_id] ||= User.find_by_email(:email => "guest@carriemail.com").id
+    guest_user_id = session[:guest_user_id] ||= User.find_by_email("guest@carriemail.com").id
     User.find(guest_user_id)
   end
   

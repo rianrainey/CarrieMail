@@ -9,14 +9,21 @@ class ApplicationController < ActionController::Base
     
     # once we sign out, the session is cleared
     store_location
+    
+    # restore the ID of the note we were working on
     session[:note] = noteid
     redirect_to new_user_registration_path
   end
 
+  # find guest_user object associated with the current session, 
+  # creating one as needed
+  def guest_user
+    guest_user_id = session[:guest_user_id] ||= User.find_by_email("guest@carriemail.com").id
+    User.find(guest_user_id)
+  end
+
   def anyone_signed_in?
-    @guest = guest_user
-    
-    !current_user.nil? && (current_user != @guest)
+    !current_user.nil? && !session[:guest_user_id].nil? && (current_user.id != session[:guest_user_id])
   end
 
   private

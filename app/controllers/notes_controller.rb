@@ -75,6 +75,7 @@ class NotesController < ApplicationController
       logger.debug "session[note]=#{session[:note]}"
       deny_access
     else
+      # if we have someone logged in, then let's find their note and generate a PDF for it
       @note = @catalog.notes.find(params[:id])
     
       # update the document_content so we can regenerate the PDF
