@@ -1,13 +1,14 @@
 class Note < ActiveRecord::Base
   belongs_to :catalog
-  belongs_to :recipient
-
+  
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :title, :body, :catalog, :recipient, :greeting, :closing, :signature
+  validates_presence_of :body, :catalog, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                        :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
-  attr_accessible :title, :body, :recipient_id, :catalog_id, :status, :pdfdoc, :document_content,
-                  :greeting_name, :greeting, :closing, :signature
+  attr_accessible :body, :catalog_id, :status, :pdfdoc, :document_content,
+                  :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+                  :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
                   
   before_save :create_pdfdoc
   
@@ -24,7 +25,7 @@ class Note < ActiveRecord::Base
   end
   
   def normalized_filename
-    "#{self.title}-#{self.recipient_id}.pdf"
+    "#{self.return_name.gsub(/\s+/,"_")}-#{self.dest_name.gsub(/\s+/,"_")}-#{Time.now.strftime("%Y-%m-%d-%H-%M-%S")}.pdf"
   end  
   
   def create_pdfdoc
@@ -33,7 +34,7 @@ class Note < ActiveRecord::Base
       
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
-                         :name             => self.title,
+                         :name             => self.normalized_filename,
                          :test             => true) do |file, response|
 
           if response.code == 200
@@ -72,6 +73,9 @@ end
 
 
 
+
+
+
 # == Schema Information
 #
 # Table name: notes
@@ -80,7 +84,6 @@ end
 #  catalog_id          :integer         not null
 #  title               :string(255)
 #  body                :text
-#  recipient_id        :integer         not null
 #  created_at          :datetime
 #  updated_at          :datetime
 #  status              :integer
@@ -90,7 +93,18 @@ end
 #  document_content    :text
 #  greeting            :string(255)
 #  closing             :string(255)
-#  greeting_name       :string(255)
 #  signature           :string(255)
+#  return_name         :string(255)
+#  return_street       :string(255)
+#  return_addr_line2   :string(255)
+#  return_city         :string(255)
+#  return_state        :string(255)
+#  return_zip          :string(255)
+#  dest_name           :string(255)
+#  dest_street         :string(255)
+#  dest_addr_line2     :string(255)
+#  dest_city           :string(255)
+#  dest_state          :string(255)
+#  dest_zip            :string(255)
 #
 

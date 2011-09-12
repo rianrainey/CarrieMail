@@ -1,5 +1,5 @@
 <% if @user.recipients.count > 0 %>
-<div class="l mail">
+<div class="mail">
 <p>Choose any of the below contacts to send a note to, or add a contact below.  Remember, handwriting is special.</p>
 </div>
 	
@@ -23,7 +23,6 @@
 		<li class="name"><%= link_to recipient.name, [@user, recipient] %></li>
 		<li><%= "#{recipient.street}, #{recipient.addr_line2}" %></li>
 		<li><%= "#{recipient.city}, #{recipient.state} #{recipient.zip}" %></li>
-		<li class="sent">Sent <%= link_to(recipient.notes.count, catalog_notes_path(@catalog, :recipient_id => recipient.id))-%> notes</li>
 	</ul>
 </div>
 <% end %>

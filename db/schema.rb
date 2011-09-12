@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110716061415) do
+ActiveRecord::Schema.define(:version => 20110910162444) do
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20110716061415) do
     t.integer  "catalog_id",          :null => false
     t.string   "title"
     t.text     "body"
-    t.integer  "recipient_id",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "status"
@@ -32,8 +31,19 @@ ActiveRecord::Schema.define(:version => 20110716061415) do
     t.text     "document_content"
     t.string   "greeting"
     t.string   "closing"
-    t.string   "greeting_name"
     t.string   "signature"
+    t.string   "return_name"
+    t.string   "return_street"
+    t.string   "return_addr_line2"
+    t.string   "return_city"
+    t.string   "return_state"
+    t.string   "return_zip"
+    t.string   "dest_name"
+    t.string   "dest_street"
+    t.string   "dest_addr_line2"
+    t.string   "dest_city"
+    t.string   "dest_state"
+    t.string   "dest_zip"
   end
 
   create_table "recipients", :force => true do |t|
@@ -58,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20110716061415) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -71,6 +82,10 @@ ActiveRecord::Schema.define(:version => 20110716061415) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "package_choice"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

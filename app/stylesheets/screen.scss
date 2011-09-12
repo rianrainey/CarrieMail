@@ -93,6 +93,13 @@ body {
 					//background: $main-bg-shadow;
 					@include column($blueprint-grid-columns);
 					@include prepend-top(1em);
+					#note-content {
+						textarea {width:150px;height:150px;padding:5px;}
+						font-family:$script-font;
+						font-size:12px;
+					}
+
+
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
@@ -192,7 +199,67 @@ body {
 					background: url('images/blue-step.png') $featurette-img;
 				}
 			}
+
+			#check-button input[type="submit"] {
+				background: url('images/red-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				width:195px;
+				padding-top:10px;
+				height: $featurette-height;
+				padding:2px;
+				text-align:center;
+			}
+			
+			#send-button {
+				background: url('images/green-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				padding-top:10px;
+				padding:2px;
+				text-align:center;
+				display:inline;
+				width:195px;
+				height: $featurette-height;
+				a {
+					text-decoration:none;
+				}
+			}
+
+			#relax-button {
+				background: url('images/blue-step.png') $featurette-img;
+				font-size: 35px;
+				color:#ffffff;
+				font-family:$script-font;
+				width:195px;
+				height: $featurette-height;
+				padding-top:10px;
+				padding:2px;
+				text-align:center;
+				a {
+					text-decoration:none;
+				}
+			}
 		
+			#letter {
+				@include prepend-top;
+				@include column($blueprint-grid-columns, true);
+				padding:20px;
+				background-color:#ffffff;
+				width:45%;
+			}
+			
+			#envelope {
+				@include prepend-top;
+				@include column($blueprint-grid-columns, true);
+				padding:20px;
+				background-color:#ffffff;
+				width:45%;
+			}
+			
+			
 			#footer {
 				@include prepend-top;
 				@include column($blueprint-grid-columns);

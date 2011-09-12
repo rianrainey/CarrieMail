@@ -1,4 +1,10 @@
 <% if controller_name != 'sessions' && controller_name != 'registrations' %>
+<div id="user-name">
+	Welcome <%= link_to current_or_guest_user.name, edit_user_registration_path(current_or_guest_user) -%>
+</div>
+<div id="logout">
+	<%= link_to 'Logout', destroy_user_session_path -%>
+</div>
 <div id="utility-nav">
 	<ul>
 		<li>Gallery</li>

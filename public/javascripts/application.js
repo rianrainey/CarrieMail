@@ -5,7 +5,7 @@
 
 //$(document).ready(function() {
 	// Remove border-right from last element in footer links
-	$("#ftr-link ul li:last").css('border-right', 'none');
+	//	$("#ftr-link ul li:last").css('border-right', 'none');
 
 	
 //});

@@ -1,6 +1,42 @@
-<div class="l"><p><%= @note.title %> </p></div>
-<div class="clr"></div>
-<%= render 'letter' -%>
+<div id='letter'>
+  <%= render 'letter' -%>
+</div>
 
-<%= button_to 'Send This Note!', generate_pdf_catalog_note_path(:catalog_id => @catalog, :note_id => @note) %>
-<%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> 
+<div id='envelope'>
+	<div id='return-address'>
+		Return to:
+		<div>
+		<%= @note.return_name %>
+		</div>
+		<div>
+		<%= @note.return_street %>
+		</div>
+		<div>
+		<%= @note.return_addr_line2 %>
+		</div>
+		<div>
+		<%= @note.return_city %>, <%= @note.return_state %> <%= @note.return_zip %>
+		</div>
+	</div>
+	<div id='destination-address'>
+		Destination:
+		<div>
+		<%= @note.dest_name %>
+		</div>
+		<div>
+		<%= @note.dest_street %>
+		</div>
+		<div>
+		<%= @note.dest_addr_line2 %>
+		</div>
+		<div>
+		<%= @note.dest_city %>, <%= @note.dest_state %> <%= @note.dest_zip %>
+		</div>
+	</div>
+</div>
+	
+<div id='send-button'>
+	<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
+</div>
+
+<div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>

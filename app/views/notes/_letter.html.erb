@@ -1,16 +1,13 @@
-<div class="l letter">
+<div class="letter">
 <div class="salutation">
-  <%= @note.greeting -%> <%= "#{@note.recipient.first_name}," unless @note.recipient.nil? %>
+  <%= @note.greeting.gsub(/,\s*$/, '') -%>,
 </div>
-<br/>
 <div class="mail">
-  <%= @note.body %>
+  <%= raw(@note.body.gsub(/\n/, '<br/>')) %>
 </div>
-<br/>
 <div class="signature">
   <p><%= @note.closing %></p>
   <p><%= @note.signature %></p>
 </div>
-<br/>
 </div>
 <div class="clr"></div>

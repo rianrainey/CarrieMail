@@ -11,34 +11,64 @@
     </div>
   <% end %>
 
-	<div id="content">
+<div id="content">
 <div class="form">
 	<div id="note-content">
 		<div class="field">
-	    	Subject: <%= f.text_field :title, :placeholder => "Subject of the letter"%><br/>
-	  	</div>
-		<div class="field">
 			<%= f.text_field :greeting, :placeholder => "Dear ..." -%>
 		</div>
-		<%= f.text_area :body, 
+		<%= f.text_area :body, :rows=>10, :cols=>45,
 						:placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>
 		<div class="field">
-			<%= f.text_field :closing, :placeholder => "Sincerely," -%>
+			<%= f.select :closing, closings -%>
 	  	</div>
 		<div class="field">
-			<%= f.text_field :signature, :placeholder => @current_user.name -%>
+			<%= f.text_field :signature, :value => guest_or_user_name -%>
 		</div>
 	</div>
 
-	<div id="note-address">
+	<div id="destination-address">
+		<fieldset>
+			<legend>Destination Address</legend>
 		<div class="field">
-			<%= f.select :recipient_id, @recipients, :selected => params[:recipient_id] -%>
-			<%= link_to "New", new_user_recipient_path(@current_user)-%>
-	    </div>
+			<%= f.text_field :dest_name, :value => "Destination" -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :dest_street, :value => "Address" -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
+		</div>
+    	<div class="field">
+	    	<%= f.text_field :dest_city, :placeholder => 'City'%>
+			<%= f.select :dest_state, Carmen::state_codes('US') %>
+	    	<%= f.text_field :dest_zip, :placeholder => 'Zip', :size => 15 %>
+	  	</div>
+	    </fieldset>
 	</div>
-
+	
+	<div id="return-address">
+		<fieldset>
+		<legend>Return Address</legend>
+		<div class="field">
+			<%= f.text_field :return_name, :value => guest_or_user_name -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :return_street, :value => guest_or_user_street -%>
+		</div>
+		<div class="field">
+			<%= f.text_field :return_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
+		</div>
+    	<div class="field">
+	    	<%= f.text_field :return_city, :value => guest_or_user_city%>
+			<%= f.select :return_state, Carmen::state_codes('US'), :value => guest_or_user_state %>
+	    	<%= f.text_field :return_zip, :value => guest_or_user_zip, :size => 15 %>
+	  	</div>
+		</fieldset>
+	</div>
+	
 	<div id="check-button">
-		<%= link_to content_tag(:h1, "2 Relax"), [@catalog, @note] %>
+		<%= f.submit "Check" -%>
 	</div>
 	
 <% end %>

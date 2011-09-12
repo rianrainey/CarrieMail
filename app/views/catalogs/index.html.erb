@@ -1,7 +1,6 @@
+<div id='catalog'>
 <% unless current_user.recipients.empty? %>
 <%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
-<% else %>
-<p>Add a contact to your <%= link_to 'address book', new_user_recipient_path(current_user) -%> to get started.</p>
 <% end %>
 
 <% unless @catalog.notes.empty? %>
@@ -22,7 +21,7 @@
   <tr class="<%= cycle("even", "odd") %>">
     <td><%= note.created_at.strftime("%m/%d/%y") %></td>
     <td><%= note.title %></td>
-    <td><%= note.recipient.name %></td>
+    <td><%= note.dest_name %></td>
     <td><%= note.status_description %></td>
     <td><%= link_to 'HTML Version', [@catalog, note] %></td>
  	<td>| <%= link_to 'View PDF', note.pdfdoc.url -%></td>
@@ -34,4 +33,5 @@
 
 <br />
 <% end %>
+</div>
 

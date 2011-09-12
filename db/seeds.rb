@@ -6,17 +6,12 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 User.delete_all
+Catalog.delete_all
+Note.delete_all
+Recipient.delete_all
 
 puts 'SETTING UP EXAMPLE USERS'
-user1 = User.create! :first_name => 'First User', :last_name => 'Johnson', 
-                     :email => 'mark@isandlot.com', :password => 'please', :password_confirmation => 'please', 
-                     :catalog => Catalog.new
-                     
-puts 'New user created: ' << user1.first_name
-user1.save
-
-user2 = User.create! :first_name => 'Second User', :last_name => 'Smith', 
-                     :email => 'mark.harris1011@gmail.com', :password => 'please', :password_confirmation => 'please',
-                     :catalog => Catalog.new
-puts 'New user created: ' << user2.first_name
-user2.save
+catalog = Catalog.create! 
+User.create! :first_name => 'Guest', :last_name => 'User', 
+             :email => 'guest@carriemail.com', :password => 'guest2', :password_confirmation => 'guest2', 
+             :catalog => catalog
