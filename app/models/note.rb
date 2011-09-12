@@ -6,7 +6,7 @@ class Note < ActiveRecord::Base
   validates_presence_of :body, :catalog, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
                         :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
-  attr_accessible :body, :catalog_id, :status, :pdfdoc, :document_content,
+  attr_accessible :body, :title, :catalog_id, :status, :pdfdoc, :document_content,
                   :greeting, :closing, :signature, :return_name, :return_street, :return_city,
                   :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
                   
