@@ -149,10 +149,6 @@ body {
 								}
 							}
 							
-							#colorbox {
-								@include column(3);
-								height:100px;
-							}
 						}
 						
 						#carrie-stamp {
@@ -212,49 +208,6 @@ body {
 				}
 			}
 
-			#check-button input[type="submit"] {
-				background: url('images/red-step.png') $featurette-img;
-				font-size: 35px;
-				color:#ffffff;
-				font-family:$script-font;
-				width:195px;
-				padding-top:10px;
-				height: $featurette-height;
-				padding:2px;
-				text-align:center;
-			}
-			
-			#send-button {
-				background: url('images/green-step.png') $featurette-img;
-				font-size: 35px;
-				color:#ffffff;
-				font-family:$script-font;
-				padding-top:10px;
-				padding:2px;
-				text-align:center;
-				display:inline;
-				width:195px;
-				height: $featurette-height;
-				a {
-					text-decoration:none;
-				}
-			}
-
-			#relax-button {
-				background: url('images/blue-step.png') $featurette-img;
-				font-size: 35px;
-				color:#ffffff;
-				font-family:$script-font;
-				width:195px;
-				height: $featurette-height;
-				padding-top:10px;
-				padding:2px;
-				text-align:center;
-				a {
-					text-decoration:none;
-				}
-			}
-		
 			#letter {
 				@include prepend-top;
 				@include column($blueprint-grid-columns, true);

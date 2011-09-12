@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
   end
 
   def anyone_signed_in?
-    !current_user.nil? && !session[:guest_user_id].nil? && (current_user.id != session[:guest_user_id])
+    @guest = guest_user.id
+    !current_user.nil? && (current_user.id != @guest)
   end
 
   private

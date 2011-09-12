@@ -14,6 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
       resource_or_scope.catalog.notes << @note
       
       store_location = session[:return_to]
+      logger.debug "session[:return_to] = #{session[:return_to]}"
       clear_stored_location
       (store_location.nil?) ? home_path : store_location.to_s
     else

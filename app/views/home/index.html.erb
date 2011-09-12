@@ -25,7 +25,7 @@ scrollWheelSpeed: 1.0,
 		
 		<div id="card-slider" class="ContentFlow">
 			<div id="speech-bubble">
-				<h2>Click "Write" to get started sending your handwritten note.</h2>
+				<h2>Click <%= link_to 'Here', new_catalog_note_path(@catalog) %> to get started sending your handwritten note.</h2>
 			</div>
 			<div id ="imgFlow" class="flow">
 				<%= image_tag("homer.jpeg", :class => 'item') %>
@@ -46,5 +46,4 @@ scrollWheelSpeed: 1.0,
 	</div>
 </div>
 
-<%= render 'layouts/featurettes' %>
 	
