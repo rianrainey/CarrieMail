@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -53,5 +54,9 @@ end
 #  created_at           :datetime
 #  updated_at           :datetime
 #  package_choice       :integer
+#  street               :string(255)
+#  city                 :string(255)
+#  state                :string(255)
+#  zip                  :string(255)
 #
 

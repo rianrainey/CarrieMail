@@ -1,24 +1,20 @@
 <% if controller_name != 'sessions' && controller_name != 'registrations' %>
 <div id="menu-items">
-<% if anyone_signed_in? %>
-	<ul>
-	<li><%= link_to current_or_guest_user.name, edit_user_registration_path(current_or_guest_user) -%></li>
-	<li><%= link_to 'Notes Sent', catalog_notes_path(@catalog) -%>
-	<li><%= link_to 'Logout', destroy_user_session_path -%></li>
-	</ul>
-<% else %>
-	<ul>
-		<li>Guest</li>
-		<li><%= link_to 'Sign In', new_user_session_path -%></li>
-	</ul>
-<% end %>
-</div>
-<div id="utility-nav">
-	<ul>
+	<ul id="utility-nav">
+		<% if @user.id != session[:guest_user_id] -%>
+		<li><%= @user.name %>
+			<ul>
+			<li><%= link_to 'My Account', edit_user_registration_path(@user) %>
+			<li><%= link_to 'My Cards', catalog_notes_path(@catalog) -%>
+			<li><%= link_to 'Logout', destroy_user_session_path -%></li>
+			</ul>
+		</li>
+		<% else %>
+		<li><%= link_to 'Sign In', new_user_session_path %></li>
+		<% end %>
 		<li>Gallery</li>
-		<li>Link</li>		
 		<li>Blog</li>
 		<li>Contact Us</li>	
 	</ul>
-</div><!--#utility-nav-->
+</div>
 <% end %>

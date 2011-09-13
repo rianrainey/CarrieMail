@@ -1,41 +1,19 @@
 
-<% content_for :home do %>
-  <%= javascript_include_tag "contentflow.js" %>
-  <%= stylesheet_link_tag "contentflow.css" %>
-<% end %>
-
-
-<script>
-var myNewFlow = new ContentFlow('CoverFlow', {
-flowSpeedFactor: 0.1,
-circularFlow: false,
-scrollWheelSpeed: 1.0,
-		37: function () { this.moveTo('pre') }, // left arrow
-        38: function () { this.moveTo('visibleNext') }, // up arrow
-        39: function () { this.moveTo('next') }, // right arrow
-		40: function () { this.moveTo('visiblePre') } // down arrow
-});
-</script>
-
 <div id="main">
 	<div id="content">
 		<div id="callout">
-			headline headline headline headline headline headline
+			Carrie Mail<br/>
+			123 Anywhere Ave.<br/>
+			Columbus, OH 43210<br/>
 		</div>		
 		
 		<div id="card-slider" class="ContentFlow">
 			<div id="speech-bubble">
-				<h2>Click <%= link_to 'Here', new_catalog_note_path(@catalog) %> to get started sending your handwritten note.</h2>
-			</div>
-			<div id ="imgFlow" class="flow">
-				<%= image_tag("homer.jpeg", :class => 'item') %>
-				<%= image_tag("bart.jpeg", :class => 'item') %>
-				<%= image_tag("lisa.jpeg", :class => 'item') %>
+				<p>Carrie is ready to help you connect with friends, co-workers, family, and anyone else special in your life.</p>
+				<p><%= link_to 'Get Started!', new_catalog_note_path(@catalog) %></p>
 			</div>
 		</div>
-		<div id="carrie-stamp">
-
-		</div>
+		<div id="carrie-stamp"></div>
 	</div>
 
 </div>

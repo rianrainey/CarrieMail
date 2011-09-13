@@ -86,11 +86,11 @@ body #container {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 60, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/stylesheets/screen.scss */
 body #container .wrapper {
   position: relative;
 }
-/* line 63, ../../app/stylesheets/screen.scss */
+/* line 60, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header {
   display: inline;
   float: left;
@@ -101,45 +101,108 @@ body #container .wrapper #header {
 * html body #container .wrapper #header {
   overflow-x: hidden;
 }
-/* line 65, ../../app/stylesheets/screen.scss */
-body #container .wrapper #header #utility-nav {
+/* line 63, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 350px;
-  padding-left: 280px;
-  padding-right: 280px;
-  position: absolute;
-  float: right;
+  width: 550px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body #container .wrapper #header #utility-nav {
+* html body #container .wrapper #header div#menu-items {
   overflow-x: hidden;
 }
-/* line 70, ../../app/stylesheets/screen.scss */
-body #container .wrapper #header #utility-nav ul {
-  background: url("images/tape-links.png") no-repeat 0 0;
+/* line 68, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav {
+  /*------------------------------------*\
+  	NAV
+  \*------------------------------------*/
+  list-style: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+  /* Clear floats */
+  float: left;
+  /* Bring the nav above everything else--uncomment if needed.*/
+  position: relative;
+  z-index: 5;
+  background: url("images/tape-links.png") repeat-x 0 0;
   height: 65px;
   padding-top: 23px;
   text-align: center;
+  font-family: "BlackJackRegular", serif;
+  font-size: 1.5em;
+  color: #12537F;
+  line-height: 1em;
+  /*--- DROPDOWN ---*/
 }
-/* line 77, ../../app/stylesheets/screen.scss */
-body #container .wrapper #header #utility-nav li {
-  display: inline;
-  padding: 1em;
+/* line 91, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav li {
+  float: left;
+  margin-right: 10px;
+  position: relative;
 }
-/* line 84, ../../app/stylesheets/screen.scss */
-body #container .wrapper #header #menu-items ul {
-  padding-top: 10px;
-  text-align: center;
+/* line 96, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #12537F;
 }
-/* line 88, ../../app/stylesheets/screen.scss */
-body #container .wrapper #header #menu-items li {
-  text-align: left;
-  display: inline;
-  padding: 1em;
+/* line 102, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav a:hover {
+  background: #6b0c36;
+  text-decoration: none;
 }
-/* line 94, ../../app/stylesheets/screen.scss */
+/* line 108, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav ul {
+  background: url("images/tape-links.png") repeat 0 0;
+  /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+  background: rgba(255, 255, 255, 0);
+  /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+  list-style: none;
+  position: absolute;
+  left: -9999px;
+  /* Hide off-screen when not needed (this is more accessible than display:none;) */
+  color: #12537F;
+}
+/* line 116, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav ul li {
+  padding-top: 1px;
+  /* Introducing a padding between the li and the a give the illusion spaced items */
+  float: none;
+}
+/* line 120, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav ul a {
+  white-space: nowrap;
+  /* Stop text wrapping and creating multi-line dropdown items */
+  text-decoration: none;
+  color: #12537F;
+}
+/* line 125, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav li:hover ul {
+  /* Display the dropdown on hover */
+  left: 0;
+  /* Bring back on-screen when needed */
+}
+/* line 128, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav li:hover a {
+  /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+  background: rgba(255, 255, 255, 0);
+  text-decoration: none;
+}
+/* line 132, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav li:hover ul a {
+  /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+  text-decoration: none;
+}
+/* line 135, ../../app/stylesheets/screen.scss */
+body #container .wrapper #header div#menu-items ul#utility-nav li:hover ul li a:hover {
+  /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+  background: url("images/tape-links.png") repeat 0 0;
+}
+/* line 142, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #logo {
   display: inline;
   float: left;
@@ -150,7 +213,7 @@ body #container .wrapper #header #logo {
 * html body #container .wrapper #header #logo {
   overflow-x: hidden;
 }
-/* line 97, ../../app/stylesheets/screen.scss */
+/* line 145, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #title-top {
   display: inline;
   float: left;
@@ -161,7 +224,7 @@ body #container .wrapper #header #title-top {
 * html body #container .wrapper #header #title-top {
   overflow-x: hidden;
 }
-/* line 102, ../../app/stylesheets/screen.scss */
+/* line 150, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper {
   display: inline;
   float: left;
@@ -172,30 +235,21 @@ body #container .wrapper #main-wrapper {
 * html body #container .wrapper #main-wrapper {
   overflow-x: hidden;
 }
-/* line 104, ../../app/stylesheets/screen.scss */
+/* line 152, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 950px;
   margin-top: 1em;
+  font-family: "BlackJackRegular", serif;
+  color: #12537F;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #main-wrapper #main {
   overflow-x: hidden;
 }
-/* line 108, ../../app/stylesheets/screen.scss */
-body #container .wrapper #main-wrapper #main #note-content {
-  font-family: "La Belle Aurore", arial, serif;
-  font-size: 12px;
-}
-/* line 109, ../../app/stylesheets/screen.scss */
-body #container .wrapper #main-wrapper #main #note-content textarea {
-  width: 150px;
-  height: 150px;
-  padding: 5px;
-}
-/* line 115, ../../app/stylesheets/screen.scss */
+/* line 160, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content {
   background: url("images/home-bg.png") no-repeat -10px 0;
   box-shadow: 10px 10px 5px #888888;
@@ -203,16 +257,16 @@ body #container .wrapper #main-wrapper #main #content {
   -webkit-box-shadow: 10px 10px 5px #888888;
   height: 436px;
 }
-/* line 123, ../../app/stylesheets/screen.scss */
+/* line 168, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #callout {
   margin-top: 1em;
   padding-left: 20px;
-  padding-right: 80px;
+  padding-right: 40px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 190px;
-  font-family: "BlackJackRegular";
+  width: 230px;
+  font-family: "BlackJackRegular", serif;
   font-size: 1.5em;
   color: #12537F;
   line-height: 1em;
@@ -221,14 +275,14 @@ body #container .wrapper #main-wrapper #main #content #callout {
 * html body #container .wrapper #main-wrapper #main #content #callout {
   overflow-x: hidden;
 }
-/* line 133, ../../app/stylesheets/screen.scss */
+/* line 178, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider {
   background: url("images/home-bubble.png") no-repeat 0 0;
   margin-top: 50px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 350px;
+  width: 310px;
   height: 249px;
   width: 512px;
 }
@@ -236,26 +290,21 @@ body #container .wrapper #main-wrapper #main #content #card-slider {
 * html body #container .wrapper #main-wrapper #main #content #card-slider {
   overflow-x: hidden;
 }
-/* line 140, ../../app/stylesheets/screen.scss */
+/* line 185, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
-  margin-top: 1.5em;
+  padding-left: 40px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 470px;
+  width: 390px;
   text-align: center;
+  font-size: 22pt;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
   overflow-x: hidden;
 }
-/* line 145, ../../app/stylesheets/screen.scss */
-body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble h2 {
-  font-size: 28px;
-  font-family: "La Belle Aurore", arial, serif;
-  color: #000000;
-}
-/* line 154, ../../app/stylesheets/screen.scss */
+/* line 195, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   background: url("images/carrie-stamp.png") no-repeat 0 0;
   display: inline;
@@ -270,7 +319,7 @@ body #container .wrapper #main-wrapper #main #content #carrie-stamp {
 * html body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   overflow-x: hidden;
 }
-/* line 166, ../../app/stylesheets/screen.scss */
+/* line 207, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes {
   margin-top: 1.5em;
   display: inline;
@@ -284,7 +333,7 @@ body #container .wrapper #featurettes {
 * html body #container .wrapper #featurettes {
   overflow-x: hidden;
 }
-/* line 171, ../../app/stylesheets/screen.scss */
+/* line 212, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .block {
   display: inline;
   float: left;
@@ -295,7 +344,7 @@ body #container .wrapper #featurettes .block {
 * html body #container .wrapper #featurettes .block {
   overflow-x: hidden;
 }
-/* line 174, ../../app/stylesheets/screen.scss */
+/* line 215, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .box {
   display: inline;
   float: left;
@@ -307,20 +356,20 @@ body #container .wrapper #featurettes .box {
   padding: 2px;
   display: inline;
   text-align: center;
-  font-family: "La Belle Aurore", arial, serif;
+  font-family: "BlackJackRegular", serif;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #featurettes .box {
   overflow-x: hidden;
 }
-/* line 184, ../../app/stylesheets/screen.scss */
+/* line 225, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .info {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 190px;
   padding-top: 5px;
-  font-family: "La Belle Aurore", arial, serif;
+  font-family: "BlackJackRegular", serif;
   font-size: 14pt;
   line-height: 18pt;
   text-align: center;
@@ -329,28 +378,37 @@ body #container .wrapper #featurettes .info {
 * html body #container .wrapper #featurettes .info {
   overflow-x: hidden;
 }
-/* line 193, ../../app/stylesheets/screen.scss */
+/* line 234, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes h1 {
   font-size: 35px;
   color: #ffffff;
 }
-/* line 197, ../../app/stylesheets/screen.scss */
+/* line 238, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 {
   background: url("images/green-step.png") no-repeat 0px 0px;
 }
-/* line 199, ../../app/stylesheets/screen.scss */
+/* line 240, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 a {
   text-decoration: none;
 }
-/* line 203, ../../app/stylesheets/screen.scss */
+/* line 244, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-2 {
   background: url("images/red-step.png") no-repeat 0px 0px;
 }
-/* line 206, ../../app/stylesheets/screen.scss */
+/* line 247, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-3 {
   background: url("images/blue-step.png") no-repeat 0px 0px;
 }
-/* line 211, ../../app/stylesheets/screen.scss */
+/* line 252, ../../app/stylesheets/screen.scss */
+body #container .wrapper textarea#styled-textarea {
+  width: 300px;
+  height: 175px;
+  border: 3px solid #cccccc;
+  padding: 5px;
+  font-family: "BlackJackRegular", serif;
+  font-size: 12pt;
+}
+/* line 261, ../../app/stylesheets/screen.scss */
 body #container .wrapper #letter {
   margin-top: 1.5em;
   display: inline;
@@ -360,12 +418,13 @@ body #container .wrapper #letter {
   padding: 20px;
   background-color: #ffffff;
   width: 45%;
+  font-family: "BlackJackRegular", serif;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #letter {
   overflow-x: hidden;
 }
-/* line 219, ../../app/stylesheets/screen.scss */
+/* line 270, ../../app/stylesheets/screen.scss */
 body #container .wrapper #envelope {
   margin-top: 1.5em;
   display: inline;
@@ -380,23 +439,23 @@ body #container .wrapper #envelope {
 * html body #container .wrapper #envelope {
   overflow-x: hidden;
 }
-/* line 228, ../../app/stylesheets/screen.scss */
+/* line 279, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer {
   margin-top: 1.5em;
   display: inline;
   float: left;
-  margin-right: 10px;
+  margin-right: 0;
   width: 950px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #footer {
   overflow-x: hidden;
 }
-/* line 231, ../../app/stylesheets/screen.scss */
+/* line 282, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer li {
   display: inline;
 }
-/* line 234, ../../app/stylesheets/screen.scss */
+/* line 285, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #copyright {
   display: inline;
   float: left;
@@ -407,7 +466,7 @@ body #container .wrapper #footer #copyright {
 * html body #container .wrapper #footer #copyright {
   overflow-x: hidden;
 }
-/* line 237, ../../app/stylesheets/screen.scss */
+/* line 288, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #ftr-links {
   display: inline;
   float: left;

@@ -47,50 +47,98 @@
 @include font-face ("BlackJackRegular", font-files("BlackJackRegular/blackjar-webfont.ttf", truetype, 
 													"BlackJackRegular/blackjar-webfont.otf", opentype));
 	
-
+$script-font: 'BlackJackRegular', serif;
 
 body {
 	li { list-style-type: $list-style-type;	}
 	@include prepend-top(2em);
 	background: $body-bg-img;
 	#container {
-		//background: $main-bg-color;
 		@include container;
-	//	@include showgrid;
 		.wrapper {
-			//@include box;
 			position:relative;
 			#header {
 				@include column($blueprint-grid-columns);
-				#utility-nav {
-					@include column(9);
-					@include prepend(7);
-					@include append(7);
-					position:absolute;
-					ul {
-						background: url('images/tape-links.png') no-repeat 0 0;
-						height: 65px;
-						padding-top:23px;
-						text-align:center;
-					}
-					float:right; // overwrites +columns' float: left
-					li {
-						display:inline;
-						padding:1em;
-					}
-				}
-				#menu-items {
+				
+				div#menu-items {
+					@include column(14);
+					@include prepend(5);
+					@include append(5);
 					
-					ul {
-						padding-top:10px;
-						text-align:center;
+				ul#utility-nav {
+					/*------------------------------------*\
+						NAV
+					\*------------------------------------*/
+					list-style:none;
+					font-weight:bold;
+					margin-bottom:10px;
+					/* Clear floats */
+					float:left;
+					/* Bring the nav above everything else--uncomment if needed.*/
+					position:relative;
+					z-index:5;
+
+					background: url('images/tape-links.png') repeat-x 0 0;
+					height: 65px;
+					padding-top:23px;
+					text-align:center;
+
+					font-family: $script-font;
+					font-size:1.5em;
+					color:#12537F;
+					line-height:1em;
+										
+					li{
+						float:left;
+						margin-right:10px;
+						position:relative;
 					}
-					li {
-						text-align:left;
-						display:inline;
-						padding:1em;
+					a{
+						display:block;
+						padding:5px;
+						text-decoration:none;
+						color:#12537F;
 					}
-				}	
+					a:hover{
+						background:#6b0c36;
+						text-decoration:none;
+					}
+
+					/*--- DROPDOWN ---*/
+					ul{
+						background: url('images/tape-links.png') repeat 0 0; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+						background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+						list-style:none;
+						position:absolute;
+						left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+						color:#12537F;
+					}
+					ul li{
+						padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+						float:none;
+					}
+					ul a{
+						white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+						text-decoration:none;
+						color:#12537F;
+					}
+					li:hover ul{ /* Display the dropdown on hover */
+						left:0; /* Bring back on-screen when needed */
+					}
+					li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+						background:rgba(255,255,255,0);
+						text-decoration:none;
+					}
+					li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+						text-decoration:none;
+					}
+					li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+						background:url('images/tape-links.png') repeat 0 0;
+					}					
+					
+				} // ul#utility-nav
+				} // div#menu-items
+				
 				#logo {
 					@include column(3);
 				}
@@ -105,13 +153,10 @@ body {
 					//background: $main-bg-shadow;
 					@include column($blueprint-grid-columns);
 					@include prepend-top(1em);
-					#note-content {
-						textarea {width:150px;height:150px;padding:5px;}
-						font-family:$script-font;
-						font-size:12px;
-					}
 
-
+					font-family:$script-font;
+					color:#12537F;
+					
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
@@ -123,9 +168,9 @@ body {
 						#callout {
 							@include prepend-top(1em);
 							@include prepend(.5);
-							@include append(2);
-							@include column(5);
-							font-family: "BlackJackRegular";
+							@include append(1);
+							@include column(6);
+							font-family: $script-font;
 							font-size:1.5em;
 							color:#12537F;
 							line-height:1em;
@@ -133,20 +178,16 @@ body {
 						#card-slider {
 							background: url('images/home-bubble.png') no-repeat 0 0; //$main-bg-color;
 							@include prepend-top(50px);
-							@include column(9);
+							@include column(8);
 							height:249px;
 							width:512px;
 							
 							#speech-bubble {
-								@include prepend-top;
-								@include column(12);
+								@include prepend(1);
+								@include column(10);
 								text-align:center;
+								font-size:22pt;
 
-								h2 {
-									font-size:28px;
-									font-family:$script-font;
-									color: #000000;
-								}
 							}
 							
 						}
@@ -208,12 +249,22 @@ body {
 				}
 			}
 
+			textarea#styled-textarea {
+				width: 300px;
+			    height: 175px;
+				border: 3px solid #cccccc;
+				padding: 5px;
+				font-family: $script-font;
+				font-size:12pt;
+			}	
+			
 			#letter {
 				@include prepend-top;
 				@include column($blueprint-grid-columns, true);
 				padding:20px;
 				background-color:#ffffff;
 				width:45%;
+				font-family: $script-font;
 			}
 			
 			#envelope {
@@ -227,7 +278,7 @@ body {
 			
 			#footer {
 				@include prepend-top;
-				@include column($blueprint-grid-columns);
+				@include column($blueprint-grid-columns, true);
 				li {
 					display:inline;
 				}

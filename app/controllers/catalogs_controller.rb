@@ -4,17 +4,14 @@ class CatalogsController < ApplicationController
   def index
     @notes = @catalog.notes
     respond_to do |format|
-      format.html # index.html.erb (by convention)
-      format.xml {render :xml => @catalog}
+      format.html {redirect_to catalog_notes_path(@catalog)}
     end    
   end
   
   private
   def protect_catalog
-    if current_user.catalog.nil?
-      current_user.catalog = Catalog.create(:user_id => current_user.id)
-    end
-    @catalog = current_user.catalog
+    @user = current_or_guest_user
+    @catalog = @user.catalog
     @title = controller_name
   end
   

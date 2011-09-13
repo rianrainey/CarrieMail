@@ -3,29 +3,30 @@ class Note < ActiveRecord::Base
   
   after_initialize :init  # initializes new notes with default values
   
-  validates_presence_of :body, :catalog, :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+  validates_presence_of :body, :catalog, :return_name, :return_street, :return_city,
                         :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
-  attr_accessible :body, :title, :catalog_id, :status, :pdfdoc, :document_content,
-                  :greeting, :closing, :signature, :return_name, :return_street, :return_city,
+  attr_accessible :body, :catalog_id, :status, :pdfdoc, :document_content,
+                  :return_name, :return_street, :return_city,
                   :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
                   
   before_save :create_pdfdoc
   
   has_attached_file :pdfdoc,
+                    :styles => {:normal => "640x480", :thumb => "100x100#"},
                     :storage => :s3,
                     :s3_credentials => "#{Rails.root}/config/s3.yml",
 # uncomment for secured storage on s3
 #                    :s3_permissions => :private,
-                    :path => ":attachment/:id/:normalized_filename",
-                    :url => ":attachment/:id/:normalized_filename"
+                    :path => ":attachment/:id/:normalized_filename-:style",
+                    :url => ":attachment/:id/:normalized_filename-:style"
   
   Paperclip.interpolates :normalized_filename do |attachment, style|
     attachment.instance.normalized_filename
   end
   
   def normalized_filename
-    "#{self.return_name.gsub(/\s+/,"_")}-#{self.dest_name.gsub(/\s+/,"_")}-#{Time.now.strftime("%Y-%m-%d-%H-%M-%S")}.pdf"
+    "#{self.return_name.gsub(/\s+/,"_")}-#{self.dest_name.gsub(/\s+/,"_")}.pdf"
   end  
   
   def create_pdfdoc
@@ -35,6 +36,8 @@ class Note < ActiveRecord::Base
       DocRaptor.create(  :document_content => self.document_content, 
                          :document_type    => 'pdf',
                          :name             => self.normalized_filename,
+                         :prince_options   => {:media => :screen, :baseurl => 'http://carriemail-staging.heroku.com'},
+                         :tag              => 'Carriemail',
                          :test             => true) do |file, response|
 
           if response.code == 200
@@ -51,6 +54,10 @@ class Note < ActiveRecord::Base
 
       self.errors.count == 0  #return false if there were any errors
   end  # def
+  
+  def is_printing?
+    self.status == 2 || self.status == 3
+  end
   
   def status_description
     @statuses = { 
@@ -76,13 +83,13 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: notes
 #
 #  id                  :integer         not null, primary key
 #  catalog_id          :integer         not null
-#  title               :string(255)
 #  body                :text
 #  created_at          :datetime
 #  updated_at          :datetime
@@ -91,9 +98,6 @@ end
 #  pdfdoc_content_type :string(255)
 #  pdfdoc_file_size    :integer
 #  document_content    :text
-#  greeting            :string(255)
-#  closing             :string(255)
-#  signature           :string(255)
 #  return_name         :string(255)
 #  return_street       :string(255)
 #  return_addr_line2   :string(255)

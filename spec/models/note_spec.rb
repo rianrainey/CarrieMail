@@ -13,13 +13,13 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: notes
 #
 #  id                  :integer         not null, primary key
 #  catalog_id          :integer         not null
-#  title               :string(255)
 #  body                :text
 #  created_at          :datetime
 #  updated_at          :datetime
@@ -28,9 +28,6 @@ end
 #  pdfdoc_content_type :string(255)
 #  pdfdoc_file_size    :integer
 #  document_content    :text
-#  greeting            :string(255)
-#  closing             :string(255)
-#  signature           :string(255)
 #  return_name         :string(255)
 #  return_street       :string(255)
 #  return_addr_line2   :string(255)

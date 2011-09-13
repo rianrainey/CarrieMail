@@ -1,13 +1,6 @@
 <div class="letter">
-<div class="salutation">
-  <%= @note.greeting.gsub(/,\s*$/, '') -%>,
-</div>
 <div class="mail">
-  <%= raw(@note.body.gsub(/\n/, '<br/>')) %>
+  <%= simple_format(@note.body) %>
 </div>
-<div class="signature">
-  <p><%= @note.closing %></p>
-  <p><%= @note.signature %></p>
+<%= image_tag('CarriemailBasketLogo-100x100.png')-%>
 </div>
-</div>
-<div class="clr"></div>

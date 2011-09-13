@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910162444) do
+ActiveRecord::Schema.define(:version => 20110913023148) do
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110910162444) do
 
   create_table "notes", :force => true do |t|
     t.integer  "catalog_id",          :null => false
-    t.string   "title"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,9 +28,6 @@ ActiveRecord::Schema.define(:version => 20110910162444) do
     t.string   "pdfdoc_content_type"
     t.integer  "pdfdoc_file_size"
     t.text     "document_content"
-    t.string   "greeting"
-    t.string   "closing"
-    t.string   "signature"
     t.string   "return_name"
     t.string   "return_street"
     t.string   "return_addr_line2"

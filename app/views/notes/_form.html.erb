@@ -14,27 +14,18 @@
 <div id="content">
 <div class="form">
 	<div id="note-content">
-		<div class="field">
-			<%= f.text_field :greeting, :placeholder => "Dear ..." -%>
-		</div>
-		<%= f.text_area :body, :rows=>10, :cols=>45,
-						:placeholder => "Type in the text of your message here.  We'll print it on a 3x5 card and sent it off for you!"%>
-		<div class="field">
-			<%= f.select :closing, closings -%>
-	  	</div>
-		<div class="field">
-			<%= f.text_field :signature, :value => guest_or_user_name -%>
-		</div>
+		<%= f.text_area :body, :id => 'styled-textarea',
+						:placeholder => "Dear John,..."%>
 	</div>
 
 	<div id="destination-address">
 		<fieldset>
 			<legend>Destination Address</legend>
 		<div class="field">
-			<%= f.text_field :dest_name, :value => "Destination" -%>
+			<%= f.text_field :dest_name, :placeholder => "Destination" -%>
 		</div>
 		<div class="field">
-			<%= f.text_field :dest_street, :value => "Address" -%>
+			<%= f.text_field :dest_street, :placeholder => "Address" -%>
 		</div>
 		<div class="field">
 			<%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
@@ -51,18 +42,18 @@
 		<fieldset>
 		<legend>Return Address</legend>
 		<div class="field">
-			<%= f.text_field :return_name, :value => guest_or_user_name -%>
+			<%= f.text_field :return_name, :placeholder => @user.name -%>
 		</div>
 		<div class="field">
-			<%= f.text_field :return_street, :value => guest_or_user_street -%>
+			<%= f.text_field :return_street, :placeholder => @user.street -%>
 		</div>
 		<div class="field">
 			<%= f.text_field :return_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 60 %>
 		</div>
     	<div class="field">
-	    	<%= f.text_field :return_city, :value => guest_or_user_city%>
-			<%= f.select :return_state, Carmen::state_codes('US'), :value => guest_or_user_state %>
-	    	<%= f.text_field :return_zip, :value => guest_or_user_zip, :size => 15 %>
+	    	<%= f.text_field :return_city, :placeholder => @user.city %>
+			<%= f.select :return_state, Carmen::state_codes('US') %>
+	    	<%= f.text_field :return_zip, :placeholder => @user.zip, :size => 15 %>
 	  	</div>
 		</fieldset>
 	</div>
