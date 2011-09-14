@@ -27,7 +27,12 @@ class NotesController < ApplicationController
   # GET /notes/new.xml
   def new
     @note = @user.catalog.notes.build
-       
+    @note.return_name = @user.name
+    @note.return_street = @user.street  
+    @note.return_city = @user.city
+    @note.return_state = @user.state
+    @note.return_zip = @user.zip
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @note }
@@ -66,6 +71,9 @@ class NotesController < ApplicationController
     
       # update the document_content so we can regenerate the PDF
       @note.document_content = render_to_string(:action=>'standard_letter.pdf',:format=>:pdf, :layout=> false)
+      
+      # update the envelope content so we can generate the envelope
+      @note.envelope_content = render_to_string(:action=>'standard_envelope.pdf', :format=>:pdf, :layout=>false)
     
       # on save, the PDF is generated and saved to S3
       respond_to do |format|

@@ -60,12 +60,13 @@ body {
 			#header {
 				@include column($blueprint-grid-columns);
 				
-				div#menu-items {
+				
+				#mainmenu {
 					@include column(14);
 					@include prepend(5);
 					@include append(5);
 					
-				ul#utility-nav {
+				ul {
 					/*------------------------------------*\
 						NAV
 					\*------------------------------------*/
@@ -75,8 +76,8 @@ body {
 					/* Clear floats */
 					float:left;
 					/* Bring the nav above everything else--uncomment if needed.*/
-					position:relative;
-					z-index:5;
+//					position:relative;
+//					z-index:5;
 
 					background: url('images/tape-links.png') repeat-x 0 0;
 					height: 65px;
@@ -160,6 +161,15 @@ body {
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
+						// for the notes form
+						#destination-address {
+							@include column(12);
+						}
+						#return-address {
+							@include column(12, true);
+						}
+						
+						
 						// Make this a function/mixin/something reusable
 						box-shadow: $content-shadow;
 						-moz-box-shadow: $content-shadow;
@@ -183,11 +193,11 @@ body {
 							width:512px;
 							
 							#speech-bubble {
+								@include prepend-top(10px);
 								@include prepend(1);
 								@include column(10);
 								text-align:center;
 								font-size:22pt;
-
 							}
 							
 						}

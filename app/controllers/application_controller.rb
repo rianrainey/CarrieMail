@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  before_filter :protect_catalog 
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
@@ -56,6 +58,11 @@ class ApplicationController < ActionController::Base
       u.save(:validate => false)
       u
     end
-
+    
+    def protect_catalog
+      @user = current_or_guest_user
+      @catalog = @user.catalog
+      @title = controller_name
+    end
   
 end

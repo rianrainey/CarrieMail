@@ -1,6 +1,5 @@
 <% unless @catalog.notes.empty? %>
 
-
 <% @notes.each do |note| %>
   <div id="notelist" class="<%= cycle("even", "odd") %>">
 	<ul>
@@ -8,8 +7,12 @@
     <li><%= note.dest_name %></li>
     <li><%= note.status_description %></li>
 	<li><div class="small-icon">
-		<%= link_to image_tag(note.pdfdoc.url(:thumb)), note.pdfdoc.url -%>
+		<%= link_to image_tag(note.letter.url(:thumb)), note.letter.url -%>
 	</div>
+	</li>
+	<li><div class="small-icon">
+		<%= link_to image_tag(note.envelope.url(:thumb)), note.envelope.url -%>
+		</div>
 	</li>
 	<li><div class="small-icon">
 		<%= link_to image_tag("page_white_edit.png"), edit_catalog_note_path(@catalog, note) -%>
@@ -24,4 +27,4 @@
 <br />
 <% end %>
 
-<%= link_to 'Send Another', new_catalog_note_path(@catalog) %>
+<%= link_to 'Send a Card', new_catalog_note_path(@catalog) %>
