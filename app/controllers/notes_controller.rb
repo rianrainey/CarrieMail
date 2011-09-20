@@ -4,11 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    if params[:recipient_id]
-      @notes = @catalog.notes.find(:all, :conditions => ['recipient_id = ?', params[:recipient_id]])
-    else
-      @notes = @catalog.notes
-    end
+    @notes = @user.catalog.notes
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +15,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.xml
   def show
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,8 +26,13 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.xml
   def new
-    @note = @catalog.notes.build
-       
+    @note = @user.catalog.notes.build
+    @note.return_name = @user.name
+    @note.return_street = @user.street  
+    @note.return_city = @user.city
+    @note.return_state = @user.state
+    @note.return_zip = @user.zip
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @note }
@@ -40,21 +41,13 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
   end
 
   # POST /notes
   # POST /notes.xml
-  # POST /notes.pdf
   def create
-    @note = @catalog.notes.build(params[:note])
-    if (params[:recipient_id])
-      @recipient = Recipient.find(params[:recipient_id])
-    else
-      @recipient = Recipient.new
-      @recipient.first_name = "Temp"
-      @recipient.last_name = "User"
-    end
+    @note = @user.catalog.notes.build(params[:note])
     
     respond_to do |format|
       if @note.save 
@@ -71,19 +64,21 @@ class NotesController < ApplicationController
   def generate_pdf
     # check if we've authenticated for real yet
     if !anyone_signed_in?
-      session[:note] = params[:id]
-      logger.debug "session[note]=#{session[:note]}"
       deny_access
     else
-      @note = @catalog.notes.find(params[:id])
+      # if we have someone logged in, then let's find their note and generate a PDF for it
+      @note = @user.catalog.notes.find(params[:id])
     
       # update the document_content so we can regenerate the PDF
-      @note.document_content = render_to_string(:action=>'show.pdf',:format=>:pdf, :layout=> false)
+      @note.document_content = render_to_string(:action=>'standard_letter.pdf',:format=>:pdf, :layout=> false)
+      
+      # update the envelope content so we can generate the envelope
+      @note.envelope_content = render_to_string(:action=>'standard_envelope.pdf', :format=>:pdf, :layout=>false)
     
       # on save, the PDF is generated and saved to S3
       respond_to do |format|
         if @note.save 
-          format.html { render :action => "success" }
+          format.html { redirect_to(catalog_notes_path(@catalog)) }
           format.xml  { render :xml => @note, :status => :created, :location => @note }
         else
           format.html { render :action => "new" }
@@ -117,7 +112,7 @@ class NotesController < ApplicationController
     @note = @catalog.notes.find(params[:id])
 
     # can only destroy notes that have not yet been generated
-    if @note.status == 0
+    if !@note.is_printing?
       @note.destroy
       notice = 'Your note has been succesfully deleted.'
     else
@@ -125,17 +120,18 @@ class NotesController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { redirect_to(catalogs_path, :notice => notice) }
+      format.html { redirect_to(catalog_notes_url, :notice => notice) }
       format.xml  { head :ok }
     end
   end
   
   
   private
-  def protect_catalog
-    @catalog = current_user.catalog
-    @title = controller_name
-  end
+    def protect_catalog
+      @user = current_or_guest_user
+      @catalog = @user.catalog
+      @title = controller_name
+    end
   
 
 end

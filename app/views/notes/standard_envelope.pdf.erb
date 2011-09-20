@@ -2,22 +2,15 @@
 <html>
 <head>
 	<link href="http://fonts.googleapis.com/css?family=La+Belle+Aurore&amp;v1" rel="stylesheet" type="text/css"/>
+	
 	<style>
+	@page { size:5.5in 3.5in; }
+	@page { margin:10pt 10pt 10pt 10pt;}
 
-	.mail {
+	#printed-envelope {
 		font-family: 'La Belle Aurore', arial, serif;
-		font-size: 18pt;
-		margin:.5em;
-	}
-	.salutation {
-		font-family: 'La Belle Aurore', arial, serif;
-		font-size: 20pt;
-		margin:.5em;
-	}
-	.signature p {
-		font-family: 'La Belle Aurore', arial, serif;
-		font-size: 20pt;
-		margin:.5em;
+		font-size: 12pt;
+		page-break-before: always;
 	}
 
 	</style>
@@ -25,7 +18,7 @@
 	<title>Carriemail</title>
 </head>
 <body>
-	<%= render 'letter.html' %>
+	<%= render 'envelope.html' %>
 </body>
 </html>
 

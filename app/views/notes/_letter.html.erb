@@ -1,13 +1,3 @@
-<div class="letter">
-<div class="salutation">
-  <%= @note.greeting.gsub(/,\s*$/, '') -%>,
+<div id="printed-letter">
+  <%= simple_format(@note.body) %>
 </div>
-<div class="mail">
-  <%= raw(@note.body.gsub(/\n/, '<br/>')) %>
-</div>
-<div class="signature">
-  <p><%= @note.closing %></p>
-  <p><%= @note.signature %></p>
-</div>
-</div>
-<div class="clr"></div>

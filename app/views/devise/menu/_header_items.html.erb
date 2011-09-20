@@ -1,16 +1,18 @@
-<% if controller_name != 'sessions' && controller_name != 'registrations' %>
-<div id="user-name">
-	Welcome <%= link_to current_or_guest_user.name, edit_user_registration_path(current_or_guest_user) -%>
-</div>
-<div id="logout">
-	<%= link_to 'Logout', destroy_user_session_path -%>
-</div>
-<div id="utility-nav">
+<div id="mainmenu">
 	<ul>
+		<% if @user.id != session[:guest_user_id] -%>
+		<li><%= @user.name %>
+			<ul>
+			<li><%= link_to 'My Account', edit_user_registration_path(@user) %>
+			<li><%= link_to 'My Cards', catalog_notes_path(@catalog) -%>
+			<li><%= link_to 'Logout', destroy_user_session_path -%></li>
+			</ul>
+		</li>
+		<% else %>
+		<li><%= link_to 'Sign In', new_user_session_path %></li>
+		<% end %>
 		<li>Gallery</li>
-		<li>Link</li>		
 		<li>Blog</li>
 		<li>Contact Us</li>	
 	</ul>
-</div><!--#utility-nav-->
-<% end %>
+</div>

@@ -1,14 +1,14 @@
 development:
-  bucket: carriemail-pdf-dev
+  bucket: carriemail-dev
   access_key_id: AKIAJH6PB433TWJOE4ZA
   secret_access_key: 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
 
 test:
-  bucket: carriemail-pdf-test
+  bucket: carriemail-test
   access_key_id: AKIAJH6PB433TWJOE4ZA
   secret_access_key: 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
 
 production:
-  bucket: carriemail-pdf-production
+  bucket: carriemail-production
   access_key_id: AKIAJH6PB433TWJOE4ZA
   secret_access_key: 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

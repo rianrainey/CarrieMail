@@ -1,42 +1,27 @@
-<div id='letter'>
-  <%= render 'letter' -%>
-</div>
+<div id="main">
+  <div id="note-wizard">
+    <div id="note-content">
+      <div id="letter">
+        <%= render 'letter' -%>
+      </div><!-- #letter -->
+    </div><!-- #note-content -->
+    
 
-<div id='envelope'>
-	<div id='return-address'>
-		Return to:
-		<div>
-		<%= @note.return_name %>
-		</div>
-		<div>
-		<%= @note.return_street %>
-		</div>
-		<div>
-		<%= @note.return_addr_line2 %>
-		</div>
-		<div>
-		<%= @note.return_city %>, <%= @note.return_state %> <%= @note.return_zip %>
-		</div>
-	</div>
-	<div id='destination-address'>
-		Destination:
-		<div>
-		<%= @note.dest_name %>
-		</div>
-		<div>
-		<%= @note.dest_street %>
-		</div>
-		<div>
-		<%= @note.dest_addr_line2 %>
-		</div>
-		<div>
-		<%= @note.dest_city %>, <%= @note.dest_state %> <%= @note.dest_zip %>
-		</div>
-	</div>
-</div>
-	
-<div id='send-button'>
-	<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
-</div>
+    <div id="envelope-content">
+      <div id="carrie-stamp"></div>
+      
+      <div id='envelope'>
+        <%= render 'envelope' -%>
+      </div>
+    </div><!-- #envelope-content -->
 
-<div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>
+
+    <div id='send-button'>
+      <div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>
+    	<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
+    </div>
+
+    
+		
+  </div><!-- #note-wizard -->
+</div><!-- #main -->

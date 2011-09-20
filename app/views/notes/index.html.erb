@@ -1,39 +1,30 @@
-<div class="mail"><p>Edit, Create, and Delete notes to your contacts directly.</p></div>
 <% unless @catalog.notes.empty? %>
 
-<table>
-  <tr>
-    <th>Created</th>
-    <th>Description</th>
-    <th>Sent To</th>
-    <th>Status</th>
-    <th></th>
-	<th></th>
-	<th></th>
-  </tr>
-
 <% @notes.each do |note| %>
-  <tr class="<%= cycle("even", "odd") %>">
-    <td><%= note.created_at.strftime("%m/%d/%y") %></td>
-    <td><%= note.title %></td>
-    <td><%= note.dest_name %></td>
-    <td><%= note.status_description %></td>
-    <% if note.status == 0 %>
-    <td><%= link_to 'Preview', [@catalog, note] %></td>
-    <% else %>
- 	<td><%= link_to 'Document', note.pdfdoc.url -%></td>
-    <% end %>
-    <td><%= link_to 'Edit', edit_catalog_note_path(@catalog, note) %></td>
-    <td><%= link_to 'Delete', [@catalog, note], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div id="notelist" class="<%= cycle("even", "odd") %>">
+	<ul>
+    <li><%= note.created_at.strftime("%m/%d/%y") %></li>
+    <li><%= note.dest_name %></li>
+    <li><%= note.status_description %></li>
+	<li><div class="small-icon">
+		<%= link_to image_tag(note.letter.url(:thumb)), note.letter.url -%>
+	</div>
+	</li>
+	<li><div class="small-icon">
+		<%= link_to image_tag(note.envelope.url(:thumb)), note.envelope.url -%>
+		</div>
+	</li>
+	<li><div class="small-icon">
+		<%= link_to image_tag("page_white_edit.png"), edit_catalog_note_path(@catalog, note) -%>
+	</div></li>
+	<li><div class="small-icon">
+		<%= link_to image_tag("dialog-close.png"), [@catalog, note], :confirm => 'Are you sure?', :method=> :delete -%> 
+	</div></li>
+	</ul>
+  </div>
 <% end %>
-</table>
 
 <br />
 <% end %>
 
-<% unless current_user.recipients.empty? %>
-<%= link_to 'Send A New Note', new_catalog_note_path(@catalog) %>
-<% else %>
-<p>  <%= link_to 'Add a contact to your address book', new_user_recipient_path(current_user) -%> to get started.</p>
-<% end %>
+<%= link_to 'Send a Card', new_catalog_note_path(@catalog) %>
