@@ -363,11 +363,11 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #des
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 230px;
+  width: 310px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 310px;
+  width: 230px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #destination-address {
@@ -389,11 +389,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #ret
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #return-address {
   overflow-x: hidden;
 }
-/* line 236, ../../app/stylesheets/screen.scss */
-body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #return-address #note_return_zip {
-  display: block;
-}
-/* line 242, ../../app/stylesheets/screen.scss */
+/* line 238, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button {
   padding-left: 800px;
   display: inline;
@@ -405,7 +401,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #che
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button {
   overflow-x: hidden;
 }
-/* line 250, ../../app/stylesheets/screen.scss */
+/* line 246, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #send-button {
   padding-left: 800px;
   display: inline;
@@ -417,7 +413,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #send-button {
 * html body #container .wrapper #main-wrapper #main #note-wizard #send-button {
   overflow-x: hidden;
 }
-/* line 255, ../../app/stylesheets/screen.scss */
+/* line 251, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
   padding-left: 20px;
   display: inline;
@@ -429,7 +425,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
   overflow-x: hidden;
 }
-/* line 259, ../../app/stylesheets/screen.scss */
+/* line 255, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination {
   margin-top: 50px;
   padding-left: 400px;
@@ -450,7 +446,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination 
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination {
   overflow-x: hidden;
 }
-/* line 266, ../../app/stylesheets/screen.scss */
+/* line 262, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #letter {
   padding-left: 400px;
   display: inline;
@@ -467,7 +463,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #letter {
 * html body #container .wrapper #main-wrapper #main #note-wizard #letter {
   overflow-x: hidden;
 }
-/* line 276, ../../app/stylesheets/screen.scss */
+/* line 272, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content {
   background: url("images/home-bg.png") no-repeat -10px 0;
   box-shadow: 10px 10px 5px #888888;
@@ -475,7 +471,7 @@ body #container .wrapper #main-wrapper #main #content {
   -webkit-box-shadow: 10px 10px 5px #888888;
   height: 436px;
 }
-/* line 286, ../../app/stylesheets/screen.scss */
+/* line 282, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #callout {
   margin-top: 1em;
   padding-left: 20px;
@@ -493,7 +489,7 @@ body #container .wrapper #main-wrapper #main #content #callout {
 * html body #container .wrapper #main-wrapper #main #content #callout {
   overflow-x: hidden;
 }
-/* line 296, ../../app/stylesheets/screen.scss */
+/* line 292, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider {
   background: url("images/home-bubble.png") no-repeat 0 0;
   margin-top: 50px;
@@ -508,7 +504,7 @@ body #container .wrapper #main-wrapper #main #content #card-slider {
 * html body #container .wrapper #main-wrapper #main #content #card-slider {
   overflow-x: hidden;
 }
-/* line 303, ../../app/stylesheets/screen.scss */
+/* line 299, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
   margin-top: 10px;
   padding-left: 40px;
@@ -523,7 +519,7 @@ body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubbl
 * html body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
   overflow-x: hidden;
 }
-/* line 313, ../../app/stylesheets/screen.scss */
+/* line 309, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   background: url("images/carrie-stamp.png") no-repeat 0 0;
   display: inline;
@@ -538,11 +534,11 @@ body #container .wrapper #main-wrapper #main #content #carrie-stamp {
 * html body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   overflow-x: hidden;
 }
-/* line 320, ../../app/stylesheets/screen.scss */
+/* line 316, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin {
   padding-top: 10px;
 }
-/* line 323, ../../app/stylesheets/screen.scss */
+/* line 319, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
   padding-left: 20px;
   display: inline;
@@ -555,7 +551,7 @@ body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
 * html body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
   overflow-x: hidden;
 }
-/* line 329, ../../app/stylesheets/screen.scss */
+/* line 325, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin .form {
   margin-top: 50px;
   display: inline;
@@ -570,7 +566,7 @@ body #container .wrapper #main-wrapper #main #content #signin .form {
 * html body #container .wrapper #main-wrapper #main #content #signin .form {
   overflow-x: hidden;
 }
-/* line 345, ../../app/stylesheets/screen.scss */
+/* line 341, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes {
   margin-top: 1.5em;
   display: inline;
@@ -584,7 +580,7 @@ body #container .wrapper #featurettes {
 * html body #container .wrapper #featurettes {
   overflow-x: hidden;
 }
-/* line 350, ../../app/stylesheets/screen.scss */
+/* line 346, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .block {
   display: inline;
   float: left;
@@ -595,7 +591,7 @@ body #container .wrapper #featurettes .block {
 * html body #container .wrapper #featurettes .block {
   overflow-x: hidden;
 }
-/* line 353, ../../app/stylesheets/screen.scss */
+/* line 349, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .box {
   display: inline;
   float: left;
@@ -613,7 +609,7 @@ body #container .wrapper #featurettes .box {
 * html body #container .wrapper #featurettes .box {
   overflow-x: hidden;
 }
-/* line 363, ../../app/stylesheets/screen.scss */
+/* line 359, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .info {
   display: inline;
   float: left;
@@ -629,28 +625,28 @@ body #container .wrapper #featurettes .info {
 * html body #container .wrapper #featurettes .info {
   overflow-x: hidden;
 }
-/* line 372, ../../app/stylesheets/screen.scss */
+/* line 368, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes h1 {
   font-size: 35px;
   color: #ffffff;
 }
-/* line 376, ../../app/stylesheets/screen.scss */
+/* line 372, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 {
   background: url("images/green-step.png") no-repeat 0px 0px;
 }
-/* line 378, ../../app/stylesheets/screen.scss */
+/* line 374, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 a {
   text-decoration: none;
 }
-/* line 382, ../../app/stylesheets/screen.scss */
+/* line 378, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-2 {
   background: url("images/red-step.png") no-repeat 0px 0px;
 }
-/* line 385, ../../app/stylesheets/screen.scss */
+/* line 381, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-3 {
   background: url("images/blue-step.png") no-repeat 0px 0px;
 }
-/* line 390, ../../app/stylesheets/screen.scss */
+/* line 386, ../../app/stylesheets/screen.scss */
 body #container .wrapper textarea#styled-textarea {
   width: 400px;
   border: 3px solid #cccccc;
@@ -658,7 +654,7 @@ body #container .wrapper textarea#styled-textarea {
   font-family: "BlackJackRegular", serif;
   font-size: 12pt;
 }
-/* line 402, ../../app/stylesheets/screen.scss */
+/* line 398, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer {
   margin-top: 1.5em;
   display: inline;
@@ -670,11 +666,11 @@ body #container .wrapper #footer {
 * html body #container .wrapper #footer {
   overflow-x: hidden;
 }
-/* line 405, ../../app/stylesheets/screen.scss */
+/* line 401, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer li {
   display: inline;
 }
-/* line 408, ../../app/stylesheets/screen.scss */
+/* line 404, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #copyright {
   display: inline;
   float: left;
@@ -685,7 +681,7 @@ body #container .wrapper #footer #copyright {
 * html body #container .wrapper #footer #copyright {
   overflow-x: hidden;
 }
-/* line 411, ../../app/stylesheets/screen.scss */
+/* line 407, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #ftr-links {
   display: inline;
   float: left;

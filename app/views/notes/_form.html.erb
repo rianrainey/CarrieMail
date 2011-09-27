@@ -14,101 +14,87 @@
 <div id="main">
   <div id="note-wizard">  
     <div class="form">
-    	<div id="note-content">
-    	  <div id="instructions">
-    	    <ol>
-    	     <li>Write Your Message</li>
+        <div id="note-content">
+          <div id="instructions">
+            <ol>
+             <li>Write Your Message</li>
            <li>Fill Return Address</li>
            <li>Fill Destination Address</li>
           </ol>
-    	  </div><!-- #instructions -->
-    	  <div id="message">
-    	   	<%= f.text_area :body, 
-    	   	  :id => 'styled-textarea',
-      			:placeholder => "Dear John,...", 
-      			:rows => '12' 
-      		%>
-    	  </div><!-- #message -->
+          </div><!-- #instructions -->
+          <div id="message">
+            <%= f.text_area :body, 
+              :id => 'styled-textarea',
+                :placeholder => "Dear John,...", 
+                :rows => '12' 
+            %>
+          </div><!-- #message -->
 
-      	<div id="separator"></div><!-- #separator -->
-    	
-      	<div id="thumb-nav">
-      	  <div id="thumb-front">
-      	    <%= link_to image_tag("thumbs/frontthumb.gif", :alt => 'Front', :width => '100px') %>
-      	  </div><!-- #thumb-front -->
-      	  <div id="thumb-open">
-      	    <%= link_to image_tag("thumbs/insidethumb.gif", :alt => 'Inside', :width => '200px') %>
-      	  </div><!-- #thumb-open -->
+        <div id="separator"></div><!-- #separator -->
+        
+        <div id="thumb-nav">
+          <div id="thumb-front">
+            <%= link_to image_tag("thumbs/frontthumb.gif", :alt => 'Front', :width => '100px') %>
+          </div><!-- #thumb-front -->
+          <div id="thumb-open">
+            <%= link_to image_tag("thumbs/insidethumb.gif", :alt => 'Inside', :width => '200px') %>
+          </div><!-- #thumb-open -->
           <div id="thumb-back">
-      	    <%= link_to image_tag("thumbs/backthumb.gif", :alt => 'Back', :width => '100px') %>
+            <%= link_to image_tag("thumbs/backthumb.gif", :alt => 'Back', :width => '100px') %>
           </div><!-- #thumb-back -->
-      	</div><!-- #thumb-nav -->
+        </div><!-- #thumb-nav -->
 
-    	</div>
-    	
-    	
-    	<div id="envelope-content">
-    	  <div id="carrie-stamp"></div>
-
-        <div id="return-address">
-          <fieldset>
-          <legend>Return Address</legend>
-          <div class="field">
-            <%= f.text_field :return_name, :placeholder => @user.name -%>
-          </div>
-          <div class="field">
-            <% if !@user.street.nil? : %>
-              <%= f.text_field :return_street, :placeholder => @user.street -%>
-            <% else %>
-              <%= f.text_field :return_street, :placeholder => '123 Anywhere St' -%>
-            <% end %>            
-          </div>
-          <div class="field">
-            <%= f.text_field :return_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 45 %>
-          </div>
-            <div class="field">
-              <% if !@user.city.nil? %>
-                <%= f.text_field :return_city, :placeholder => @user.city %>
-              <% else %>
-                <%= f.text_field :return_city, :placeholder => 'City' %>
-              <% end %>
-            
-              <%= f.select :return_state, Carmen::state_codes('US') %>
-              
-              <% if !@user.zip.nil? %>
-                <%= f.text_field :return_zip, :placeholder => @user.zip, :size => 15 %>
-              <% else %>
-                <%= f.text_field :return_zip, :placeholder => 'Zip', :size => 15 %>
-              <% end %>
-            </div>
-          </fieldset>
-        </div>
-
-        <div id="destination-address">
-          <fieldset>
-            <legend>Destination Address</legend>
-          <div class="field">
-            <%= f.text_field :dest_name, :placeholder => "Destination" -%>
-          </div>
-          <div class="field">
-            <%= f.text_field :dest_street, :placeholder => "Address" -%>
-          </div>
-          <div class="field">
-            <%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 45 %>
-          </div>
-            <div class="field">
-              <%= f.text_field :dest_city, :placeholder => 'City'%>
-            <%= f.select :dest_state, Carmen::state_codes('US') %>
-              <%= f.text_field :dest_zip, :placeholder => 'Zip', :size => 15 %>
-            </div>
-            </fieldset>
         </div>
         
-        <div id="check-button">
-      		<%= f.submit "Preview" -%>
-      	</div>
         
-    	</div><!-- #envelope-content -->
+        <div id="envelope-content">
+            <div id="carrie-stamp"></div>
+
+            <div id="return-address">
+              <fieldset>
+                  <legend>Return Address</legend>
+                  <div class="field">
+                    <%= f.text_field :return_name, :placeholder => @user.name -%>
+                  </div>
+                  <div class="field">
+                    <%= f.text_field :return_street, :placeholder => @user.street || '123 Anywhere St.'-%>
+                  </div>
+                  <div class="field">
+                    <%= f.text_field :return_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 45 %>
+                  </div>
+                  <div class="field">
+                      <%= f.text_field :return_city, :placeholder => @user.city || 'City' %>
+                      <%= f.select :return_state, Carmen::state_codes('US') %>
+                      <%= f.text_field :return_zip, :placeholder => @user.zip || 'Zip', :size => 15 %>
+                  </div>
+              </fieldset>
+            </div>
+
+			<div id="destination-address">
+			    <fieldset>
+			      <legend>Destination Address</legend>
+			      <div class="field">
+			        <%= f.text_field :dest_name, :placeholder => "Destination" -%>
+			      </div>
+			      <div class="field">
+			        <%= f.text_field :dest_street, :placeholder => "Address" -%>
+			      </div>
+			      <div class="field">
+			        <%= f.text_field :dest_addr_line2, :placeholder => 'Office #, Apartment #, etc.', :size => 45 %>
+			      </div>
+			      <div class="field">
+			        <%= f.text_field :dest_city, :placeholder => 'City'%>
+			        <%= f.select :dest_state, Carmen::state_codes('US') %>
+			        <%= f.text_field :dest_zip, :placeholder => 'Zip', :size => 15 %>
+			      </div>
+			    </fieldset>
+			</div>
+       
+            <div id="check-button">
+                <%= f.submit "Preview" -%>
+            </div>
+        
+        </div><!-- #envelope-content -->
 
     <% end %>
     </div><!-- .form-->

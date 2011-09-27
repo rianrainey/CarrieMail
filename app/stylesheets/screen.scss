@@ -226,16 +226,12 @@ body {
 							#destination-address {
 								//@include column(12);
 								@include prepend(10);
-								@include column(6);
 								@include column(8);
+								@include column(6);
 							}
 							#return-address {
 								@include prepend(.5);
 								@include column(12, true);
-								
-								#note_return_zip {
-									display:block;
-								}
 								
 							}
 							
