@@ -76,8 +76,8 @@ body {
 					/* Clear floats */
 					float:left;
 					/* Bring the nav above everything else--uncomment if needed.*/
-//					position:relative;
-//					z-index:5;
+					position:relative;
+					z-index:5;
 
 					background: url('images/tape-links.png') repeat-x 0 0;
 					height: 65px;
@@ -108,14 +108,15 @@ body {
 					/*--- DROPDOWN ---*/
 					ul{
 						background: url('images/tape-links.png') repeat 0 0; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
-						background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+//						background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+						background: #FFF;
 						list-style:none;
 						position:absolute;
 						left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
 						color:#12537F;
 					}
 					ul li{
-						padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+						//padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
 						float:none;
 					}
 					ul a{
@@ -127,7 +128,8 @@ body {
 						left:0; /* Bring back on-screen when needed */
 					}
 					li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
-						background:rgba(255,255,255,0);
+//						background:rgba(255,255,255,0);
+						background:#FFF;
 						text-decoration:none;
 					}
 					li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
@@ -135,6 +137,7 @@ body {
 					}
 					li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
 						background:url('images/tape-links.png') repeat 0 0;
+						background:#FFF;
 					}					
 					
 				} // ul#utility-nav
