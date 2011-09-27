@@ -154,6 +154,7 @@ body #container .wrapper #header #mainmenu ul a {
 }
 /* line 100, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul a:hover {
+  background: #6b0c36;
   text-decoration: none;
 }
 /* line 106, ../../app/stylesheets/screen.scss */
