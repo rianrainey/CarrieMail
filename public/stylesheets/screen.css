@@ -57,7 +57,7 @@ a img {
   border: none;
 }
 
-/* line 36, ../../app/stylesheets/screen.scss */
+/* line 41, ../../app/stylesheets/screen.scss */
 .clear {
   clear: both;
 }
@@ -70,27 +70,27 @@ a img {
   src: url('fonts/BlackJackRegular/blackjar-webfont.ttf') format('truetype'), url('fonts/BlackJackRegular/blackjar-webfont.otf') format('opentype');
 }
 
-/* line 49, ../../app/stylesheets/screen.scss */
+/* line 54, ../../app/stylesheets/screen.scss */
 body {
   margin-top: 1em;
   background: url("images/body-bg.png") repeat 0 0;
 }
-/* line 50, ../../app/stylesheets/screen.scss */
+/* line 55, ../../app/stylesheets/screen.scss */
 body li {
   list-style-type: none;
 }
-/* line 53, ../../app/stylesheets/screen.scss */
+/* line 58, ../../app/stylesheets/screen.scss */
 body #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 55, ../../app/stylesheets/screen.scss */
+/* line 60, ../../app/stylesheets/screen.scss */
 body #container .wrapper {
   position: relative;
 }
-/* line 57, ../../app/stylesheets/screen.scss */
+/* line 62, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header {
   display: inline;
   float: left;
@@ -102,7 +102,7 @@ body #container .wrapper #header {
 * html body #container .wrapper #header {
   overflow-x: hidden;
 }
-/* line 61, ../../app/stylesheets/screen.scss */
+/* line 66, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu {
   display: inline;
   float: left;
@@ -116,7 +116,7 @@ body #container .wrapper #header #mainmenu {
 * html body #container .wrapper #header #mainmenu {
   overflow-x: hidden;
 }
-/* line 66, ../../app/stylesheets/screen.scss */
+/* line 71, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul {
   /*------------------------------------*\
   	NAV
@@ -139,25 +139,25 @@ body #container .wrapper #header #mainmenu ul {
   line-height: 1em;
   /*--- DROPDOWN ---*/
 }
-/* line 89, ../../app/stylesheets/screen.scss */
+/* line 94, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul li {
   float: left;
   margin-right: 10px;
   position: relative;
 }
-/* line 94, ../../app/stylesheets/screen.scss */
+/* line 99, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul a {
   display: block;
   padding: 5px;
   text-decoration: none;
   color: #12537F;
 }
-/* line 100, ../../app/stylesheets/screen.scss */
+/* line 105, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul a:hover {
   background: #6b0c36;
   text-decoration: none;
 }
-/* line 106, ../../app/stylesheets/screen.scss */
+/* line 111, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul ul {
   background: url("images/tape-links.png") repeat 0 0;
   /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
@@ -168,41 +168,41 @@ body #container .wrapper #header #mainmenu ul ul {
   /* Hide off-screen when not needed (this is more accessible than display:none;) */
   color: #12537F;
 }
-/* line 115, ../../app/stylesheets/screen.scss */
+/* line 120, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul ul li {
   float: none;
 }
-/* line 119, ../../app/stylesheets/screen.scss */
+/* line 124, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul ul a {
   white-space: nowrap;
   /* Stop text wrapping and creating multi-line dropdown items */
   text-decoration: none;
   color: #12537F;
 }
-/* line 124, ../../app/stylesheets/screen.scss */
+/* line 129, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul li:hover ul {
   /* Display the dropdown on hover */
   left: 0;
   /* Bring back on-screen when needed */
 }
-/* line 127, ../../app/stylesheets/screen.scss */
+/* line 132, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul li:hover a {
   /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
   background: #FFF;
   text-decoration: none;
 }
-/* line 132, ../../app/stylesheets/screen.scss */
+/* line 137, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul li:hover ul a {
   /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
   text-decoration: none;
 }
-/* line 135, ../../app/stylesheets/screen.scss */
+/* line 140, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #mainmenu ul li:hover ul li a:hover {
   /* Here we define the most explicit hover states--what happens when you hover each individual link. */
   background: url("images/tape-links.png") repeat 0 0;
   background: #FFF;
 }
-/* line 143, ../../app/stylesheets/screen.scss */
+/* line 148, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #logo {
   display: inline;
   float: left;
@@ -213,7 +213,7 @@ body #container .wrapper #header #logo {
 * html body #container .wrapper #header #logo {
   overflow-x: hidden;
 }
-/* line 146, ../../app/stylesheets/screen.scss */
+/* line 151, ../../app/stylesheets/screen.scss */
 body #container .wrapper #header #title-top {
   display: inline;
   float: left;
@@ -224,7 +224,7 @@ body #container .wrapper #header #title-top {
 * html body #container .wrapper #header #title-top {
   overflow-x: hidden;
 }
-/* line 151, ../../app/stylesheets/screen.scss */
+/* line 156, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper {
   display: inline;
   float: left;
@@ -235,7 +235,7 @@ body #container .wrapper #main-wrapper {
 * html body #container .wrapper #main-wrapper {
   overflow-x: hidden;
 }
-/* line 153, ../../app/stylesheets/screen.scss */
+/* line 159, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main {
   display: inline;
   float: left;
@@ -249,12 +249,83 @@ body #container .wrapper #main-wrapper #main {
 * html body #container .wrapper #main-wrapper #main {
   overflow-x: hidden;
 }
-/* line 161, ../../app/stylesheets/screen.scss */
+/* line 167, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main a#send {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 110px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin: 0.7em 0.5em 0.7em 0;
+  border-width: 1px;
+  border-style: solid;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 100%;
+  line-height: 130%;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 10px 5px 7px;
+}
+/* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body #container .wrapper #main-wrapper #main a#send {
+  overflow-x: hidden;
+}
+/* line 7, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body #container .wrapper #main-wrapper #main a#send {
+  *display: inline;
+}
+/* line 75, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+body #container .wrapper #main-wrapper #main a#send img {
+  margin: 0 3px -3px 0 !important;
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 16px;
+  float: none;
+}
+/* line 171, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main #notelist {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin-top: 45px;
+}
+/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #main-wrapper #main #notelist li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #main-wrapper #main #notelist li:first-child, body #container .wrapper #main-wrapper #main #notelist li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #main-wrapper #main #notelist li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #main-wrapper #main #notelist li.last {
+  padding-right: 0;
+}
+/* line 176, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard {
   height: 570px;
   padding: 20px;
 }
-/* line 166, ../../app/stylesheets/screen.scss */
+/* line 181, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content {
   display: inline;
   float: left;
@@ -269,7 +340,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #note-content {
 * html body #container .wrapper #main-wrapper #main #note-wizard #note-content {
   overflow-x: hidden;
 }
-/* line 173, ../../app/stylesheets/screen.scss */
+/* line 188, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #instructions {
   padding-left: 80px;
   margin-top: 30px;
@@ -283,11 +354,11 @@ body #container .wrapper #main-wrapper #main #note-wizard #note-content #instruc
 * html body #container .wrapper #main-wrapper #main #note-wizard #note-content #instructions {
   overflow-x: hidden;
 }
-/* line 179, ../../app/stylesheets/screen.scss */
+/* line 194, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #instructions li {
   list-style-type: decimal;
 }
-/* line 183, ../../app/stylesheets/screen.scss */
+/* line 198, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #message {
   display: inline;
   float: left;
@@ -299,7 +370,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #note-content #message
 * html body #container .wrapper #main-wrapper #main #note-wizard #note-content #message {
   overflow-x: hidden;
 }
-/* line 187, ../../app/stylesheets/screen.scss */
+/* line 202, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #separator {
   width: 85%;
   height: 5px;
@@ -308,7 +379,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #note-content #separat
   clear: both;
   margin-bottom: 15px;
 }
-/* line 195, ../../app/stylesheets/screen.scss */
+/* line 210, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-nav {
   display: inline;
   float: left;
@@ -319,14 +390,14 @@ body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-n
 * html body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-nav {
   overflow-x: hidden;
 }
-/* line 198, ../../app/stylesheets/screen.scss */
+/* line 213, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-nav #thumb-front, body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-nav #thumb-open, body #container .wrapper #main-wrapper #main #note-wizard #note-content #thumb-nav #thumb-back {
   padding-left: 40px;
   width: 260px;
   text-align: center;
   float: left;
 }
-/* line 207, ../../app/stylesheets/screen.scss */
+/* line 222, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content {
   background: #FFF;
   display: inline;
@@ -341,7 +412,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content {
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content {
   overflow-x: hidden;
 }
-/* line 214, ../../app/stylesheets/screen.scss */
+/* line 229, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #carrie-stamp {
   background: url("images/carrie-stamp.png") no-repeat 0 0;
   display: inline;
@@ -357,7 +428,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #car
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #carrie-stamp {
   overflow-x: hidden;
 }
-/* line 223, ../../app/stylesheets/screen.scss */
+/* line 238, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #destination-address {
   padding-left: 400px;
   display: inline;
@@ -377,7 +448,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #des
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #destination-address {
   overflow-x: hidden;
 }
-/* line 229, ../../app/stylesheets/screen.scss */
+/* line 244, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #return-address {
   padding-left: 20px;
   display: inline;
@@ -389,7 +460,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #ret
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #return-address {
   overflow-x: hidden;
 }
-/* line 235, ../../app/stylesheets/screen.scss */
+/* line 250, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button {
   padding-left: 800px;
   display: inline;
@@ -401,19 +472,100 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #che
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button {
   overflow-x: hidden;
 }
-/* line 243, ../../app/stylesheets/screen.scss */
+/* line 253, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button input[type="submit"] {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin: 0.7em 0.5em 0.7em 0;
+  border-width: 1px;
+  border-style: solid;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 100%;
+  line-height: 130%;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+  overflow: visible;
+  padding: 4px 10px 3px 7px;
+}
+/* line 7, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button input[type="submit"] {
+  *display: inline;
+}
+/* line 75, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button input[type="submit"] img {
+  margin: 0 3px -3px 0 !important;
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 16px;
+  float: none;
+}
+/* line 95, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button input[type="submit"][type] {
+  padding: 4px 10px 4px 7px;
+  line-height: 17px;
+}
+/* line 98, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+*:first-child + html body #container .wrapper #main-wrapper #main #note-wizard #envelope-content #check-button input[type="submit"][type] {
+  padding: 4px 10px 3px 7px;
+}
+/* line 261, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #send-button {
-  padding-left: 800px;
+  padding-left: 480px;
   display: inline;
   float: left;
   margin-right: 0;
-  width: 150px;
+  width: 470px;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #main-wrapper #main #note-wizard #send-button {
   overflow-x: hidden;
 }
-/* line 248, ../../app/stylesheets/screen.scss */
+/* line 264, ../../app/stylesheets/screen.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #send-button a {
+  display: inline;
+  float: left;
+  margin-right: 0;
+  width: 110px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin: 0.7em 0.5em 0.7em 0;
+  border-width: 1px;
+  border-style: solid;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 100%;
+  line-height: 130%;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 10px 5px 7px;
+}
+/* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body #container .wrapper #main-wrapper #main #note-wizard #send-button a {
+  overflow-x: hidden;
+}
+/* line 7, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #send-button a {
+  *display: inline;
+}
+/* line 75, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_buttons.scss */
+body #container .wrapper #main-wrapper #main #note-wizard #send-button a img {
+  margin: 0 3px -3px 0 !important;
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 16px;
+  float: none;
+}
+/* line 270, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
   padding-left: 20px;
   display: inline;
@@ -425,7 +577,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-return {
   overflow-x: hidden;
 }
-/* line 252, ../../app/stylesheets/screen.scss */
+/* line 274, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination {
   margin-top: 50px;
   padding-left: 400px;
@@ -446,7 +598,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination 
 * html body #container .wrapper #main-wrapper #main #note-wizard #envelope-destination {
   overflow-x: hidden;
 }
-/* line 259, ../../app/stylesheets/screen.scss */
+/* line 281, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #note-wizard #letter {
   padding-left: 400px;
   display: inline;
@@ -463,7 +615,7 @@ body #container .wrapper #main-wrapper #main #note-wizard #letter {
 * html body #container .wrapper #main-wrapper #main #note-wizard #letter {
   overflow-x: hidden;
 }
-/* line 269, ../../app/stylesheets/screen.scss */
+/* line 291, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content {
   background: url("images/home-bg.png") no-repeat -10px 0;
   box-shadow: 10px 10px 5px #888888;
@@ -471,7 +623,7 @@ body #container .wrapper #main-wrapper #main #content {
   -webkit-box-shadow: 10px 10px 5px #888888;
   height: 436px;
 }
-/* line 279, ../../app/stylesheets/screen.scss */
+/* line 301, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #callout {
   margin-top: 1em;
   padding-left: 20px;
@@ -489,7 +641,7 @@ body #container .wrapper #main-wrapper #main #content #callout {
 * html body #container .wrapper #main-wrapper #main #content #callout {
   overflow-x: hidden;
 }
-/* line 289, ../../app/stylesheets/screen.scss */
+/* line 311, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider {
   background: url("images/home-bubble.png") no-repeat 0 0;
   margin-top: 50px;
@@ -504,7 +656,7 @@ body #container .wrapper #main-wrapper #main #content #card-slider {
 * html body #container .wrapper #main-wrapper #main #content #card-slider {
   overflow-x: hidden;
 }
-/* line 296, ../../app/stylesheets/screen.scss */
+/* line 318, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
   margin-top: 10px;
   padding-left: 40px;
@@ -519,7 +671,7 @@ body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubbl
 * html body #container .wrapper #main-wrapper #main #content #card-slider #speech-bubble {
   overflow-x: hidden;
 }
-/* line 306, ../../app/stylesheets/screen.scss */
+/* line 328, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   background: url("images/carrie-stamp.png") no-repeat 0 0;
   display: inline;
@@ -534,11 +686,11 @@ body #container .wrapper #main-wrapper #main #content #carrie-stamp {
 * html body #container .wrapper #main-wrapper #main #content #carrie-stamp {
   overflow-x: hidden;
 }
-/* line 313, ../../app/stylesheets/screen.scss */
+/* line 335, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin {
   padding-top: 10px;
 }
-/* line 316, ../../app/stylesheets/screen.scss */
+/* line 338, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
   padding-left: 20px;
   display: inline;
@@ -551,7 +703,7 @@ body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
 * html body #container .wrapper #main-wrapper #main #content #signin #carrie_img {
   overflow-x: hidden;
 }
-/* line 322, ../../app/stylesheets/screen.scss */
+/* line 344, ../../app/stylesheets/screen.scss */
 body #container .wrapper #main-wrapper #main #content #signin .form {
   margin-top: 50px;
   display: inline;
@@ -566,7 +718,7 @@ body #container .wrapper #main-wrapper #main #content #signin .form {
 * html body #container .wrapper #main-wrapper #main #content #signin .form {
   overflow-x: hidden;
 }
-/* line 338, ../../app/stylesheets/screen.scss */
+/* line 360, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes {
   margin-top: 1.5em;
   display: inline;
@@ -580,7 +732,7 @@ body #container .wrapper #featurettes {
 * html body #container .wrapper #featurettes {
   overflow-x: hidden;
 }
-/* line 343, ../../app/stylesheets/screen.scss */
+/* line 365, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .block {
   display: inline;
   float: left;
@@ -591,7 +743,7 @@ body #container .wrapper #featurettes .block {
 * html body #container .wrapper #featurettes .block {
   overflow-x: hidden;
 }
-/* line 346, ../../app/stylesheets/screen.scss */
+/* line 368, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .box {
   display: inline;
   float: left;
@@ -609,7 +761,7 @@ body #container .wrapper #featurettes .box {
 * html body #container .wrapper #featurettes .box {
   overflow-x: hidden;
 }
-/* line 356, ../../app/stylesheets/screen.scss */
+/* line 378, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes .info {
   display: inline;
   float: left;
@@ -625,28 +777,28 @@ body #container .wrapper #featurettes .info {
 * html body #container .wrapper #featurettes .info {
   overflow-x: hidden;
 }
-/* line 365, ../../app/stylesheets/screen.scss */
+/* line 387, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes h1 {
   font-size: 35px;
   color: #ffffff;
 }
-/* line 369, ../../app/stylesheets/screen.scss */
+/* line 391, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 {
   background: url("images/green-step.png") no-repeat 0px 0px;
 }
-/* line 371, ../../app/stylesheets/screen.scss */
+/* line 393, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-1 a {
   text-decoration: none;
 }
-/* line 375, ../../app/stylesheets/screen.scss */
+/* line 397, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-2 {
   background: url("images/red-step.png") no-repeat 0px 0px;
 }
-/* line 378, ../../app/stylesheets/screen.scss */
+/* line 400, ../../app/stylesheets/screen.scss */
 body #container .wrapper #featurettes #step-3 {
   background: url("images/blue-step.png") no-repeat 0px 0px;
 }
-/* line 383, ../../app/stylesheets/screen.scss */
+/* line 405, ../../app/stylesheets/screen.scss */
 body #container .wrapper textarea#styled-textarea {
   width: 400px;
   border: 3px solid #cccccc;
@@ -654,7 +806,7 @@ body #container .wrapper textarea#styled-textarea {
   font-family: "BlackJackRegular", serif;
   font-size: 12pt;
 }
-/* line 395, ../../app/stylesheets/screen.scss */
+/* line 414, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer {
   margin-top: 1.5em;
   display: inline;
@@ -666,11 +818,11 @@ body #container .wrapper #footer {
 * html body #container .wrapper #footer {
   overflow-x: hidden;
 }
-/* line 398, ../../app/stylesheets/screen.scss */
+/* line 417, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer li {
   display: inline;
 }
-/* line 401, ../../app/stylesheets/screen.scss */
+/* line 420, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #copyright {
   display: inline;
   float: left;
@@ -681,15 +833,44 @@ body #container .wrapper #footer #copyright {
 * html body #container .wrapper #footer #copyright {
   overflow-x: hidden;
 }
-/* line 404, ../../app/stylesheets/screen.scss */
+/* line 423, ../../app/stylesheets/screen.scss */
 body #container .wrapper #footer #ftr-links {
+  margin-top: 1.5em;
   display: inline;
   float: left;
   margin-right: 0;
   width: 750px;
-  text-align: right;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+  text-align: center;
 }
 /* line 147, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body #container .wrapper #footer #ftr-links {
   overflow-x: hidden;
+}
+/* line 60, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #footer #ftr-links li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: right;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #footer #ftr-links li:first-child, body #container .wrapper #footer #ftr-links li.first {
+  padding-right: 0;
+}
+/* line 49, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #footer #ftr-links li:last-child {
+  padding-left: 0;
+}
+/* line 50, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+body #container .wrapper #footer #ftr-links li.last {
+  padding-left: 0;
 }

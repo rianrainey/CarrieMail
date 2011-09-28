@@ -22,7 +22,12 @@
 // Allows me to embed new fonts
 @import "compass/css3/font-face";
 
+// lists & cool stuff
 @import "compass/utilities";
+@import "compass/typography/lists/horizontal-list";
+
+// compass buttons
+@import "blueprint/buttons";
 
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
@@ -150,6 +155,7 @@ body {
 			}
 			#main-wrapper {
 				@include column($blueprint-grid-columns);
+
 				#main {
 					//background: $main-bg-shadow;
 					@include column($blueprint-grid-columns);
@@ -157,6 +163,15 @@ body {
 
 					font-family:$script-font;
 					color:#12537F;
+					
+					a#send {
+						@include column(3);
+						@include anchor-button(false);
+					}
+					#notelist {
+						@include horizontal-list(4px, left);
+						@include prepend-top(45px);
+					}
 					
 					#note-wizard {
 						//background: #FFF;
@@ -235,14 +250,21 @@ body {
 							#check-button {
 								@include prepend(20);
 								@include column(4);
+								input[type="submit"] {
+									@include button-button(false);
+								}
 							}
 							
 						}
 
 						
 						#send-button {
-							@include prepend(20);
-							@include column(4, true);
+							@include prepend(12);
+							@include column(12, true);
+							a {
+								@include column(3, true);
+								@include anchor-button(false);
+							}
 						}
 						
 						#envelope-return {
@@ -386,10 +408,7 @@ body {
 				padding: 5px;
 				font-family: $script-font;
 				font-size:12pt;
-			}	
-			
-
-			
+			}			
 			
 			
 			#footer {
@@ -402,8 +421,10 @@ body {
 					@include column(5);
 				}
 				#ftr-links {
+					@include prepend-top();
 					@include column(19, true);
-					text-align:right;
+					@include horizontal-list(4px, right);
+					text-align:center;
 				}
 
 			}

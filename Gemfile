@@ -13,6 +13,8 @@ gem 'builder', '~> 2.1.2'
 gem 'carmen' # states & countries
 gem 'paperclip', '~> 2.3.15'
 gem 'jquery-rails', '>= 1.0.3'
+gem 'activemerchant'
+gem 'aasm'
 
 
 # user authentication & authorization 

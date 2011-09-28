@@ -104,6 +104,10 @@ class Note < ActiveRecord::Base
     self.errors.count == 0
   end
 
+  def purchase ip_addr
+    true
+  end
+  
       
   def is_printing?
     self.status == 2 || self.status == 3

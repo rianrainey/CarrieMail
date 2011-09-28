@@ -17,8 +17,13 @@
 
 
     <div id='send-button'>
-      <div class="box"><%= link_to 'Edit Note', edit_catalog_note_path(@catalog, @note) %> </div>
-    	<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
+        <%= link_to 'Edit', edit_catalog_note_path(@catalog, @note) %>
+		<% if session[:guest_user_id].nil? %>
+			<%= link_to 'Send', generate_pdf_catalog_note_path(@catalog, @note) %>
+			<%= link_to 'Checkout' %>
+		<% else %>
+			<%= link_to 'Sign In', new_user_session_path %>
+		<% end %>
     </div>
 
     

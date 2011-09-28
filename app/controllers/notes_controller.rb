@@ -60,7 +60,7 @@ class NotesController < ApplicationController
     end
   end
 
-  # POST /notes/1/createpdf
+  # GET /notes/1/createpdf
   def generate_pdf
     # check if we've authenticated for real yet
     if !anyone_signed_in?
@@ -75,11 +75,18 @@ class NotesController < ApplicationController
       # update the envelope content so we can generate the envelope
       @note.envelope_content = render_to_string(:action=>'standard_envelope.pdf', :format=>:pdf, :layout=>false)
     
+      # capture the remote ip address of the purchaser
+      buyers_ipaddr = request.remote_ip
+      
       # on save, the PDF is generated and saved to S3
       respond_to do |format|
         if @note.save 
-          format.html { redirect_to(catalog_notes_path(@catalog)) }
-          format.xml  { render :xml => @note, :status => :created, :location => @note }
+          if @note.purchase buyers_ipaddr
+            format.html { redirect_to(catalog_notes_path(@catalog)) }
+            format.xml  { render :xml => @note, :status => :created, :location => @note }
+          else
+            format.html { render :action => 'edit', :notice => 'Unable to process payment. Please try again.'}
+          end          
         else
           format.html { render :action => "new" }
           format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
