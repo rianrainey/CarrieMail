@@ -3,6 +3,20 @@ class ApplicationController < ActionController::Base
   
   before_filter :protect_catalog 
 
+  def current_cart
+    if session[:cart_id]
+      @current_cart ||= Cart.find(session[:cart_id])
+      session[:cart_id] = nil if @current_cart.purchased_at
+    end
+    
+    if session[:cart_id].nil?
+      @current_cart = Cart.create!
+      current_or_guest_user.carts << @current_cart
+      session[:cart_id] = @current_cart.id
+    end
+    @current_cart
+  end
+
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user
     if current_user
@@ -28,6 +42,7 @@ class ApplicationController < ActionController::Base
   # to hand off from guest_user to current_user.
   def logging_in
     current_user.catalog.notes << guest_user.catalog.notes
+    current_user.carts << guest_user.carts
   end
 
   def deny_access

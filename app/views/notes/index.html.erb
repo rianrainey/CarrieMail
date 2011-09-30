@@ -1,19 +1,21 @@
 <div id="main">
-<% unless @catalog.notes.empty? %>
+	<div id="content">
+	<% unless @catalog.notes.empty? %>
+	<div id="all_notes">
+		<% @notes.each do |note| %>
+			<ul id="notelist">
+		    <li><%= note.created_at.strftime("%m/%d/%y") %></li>
+		    <li><%= note.dest_name %></li>
+		    <li><%= note.status_description %></li>
+			  <li><%= link_to 'PDF', note.letter.url -%></li>
+				<li><%= link_to 'View', catalog_note_path(@catalog, note) -%></li>
+				<li><%= link_to image_tag("page_white_edit.png"), edit_catalog_note_path(@catalog, note) -%></li>
+				<li><%= link_to image_tag("dialog-close.png"), [@catalog, note], :confirm => 'Are you sure?', :method=> :delete -%></li>
+			</ul>
+		<% end %>
+	</div>
 
-<% @notes.each do |note| %>
-	<ul id="notelist">
-    <li><%= note.created_at.strftime("%m/%d/%y") %></li>
-    <li><%= note.dest_name %></li>
-    <li><%= note.status_description %></li>
-	<li><%= link_to image_tag(note.letter.url(:thumb)), catalog_note_path(@catalog, note) -%></li>
-	<li><%= link_to image_tag("page_white_edit.png"), edit_catalog_note_path(@catalog, note) -%></li>
-	<li><%= link_to image_tag("dialog-close.png"), [@catalog, note], :confirm => 'Are you sure?', :method=> :delete -%></li>
-	</ul>
-<% end %>
+	<% end %>
 
-<br />
-<% end %>
-
-<%= link_to 'Send a Card', new_catalog_note_path(@catalog), :id => 'send' %>
+	</div>
 </div>

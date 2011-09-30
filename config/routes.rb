@@ -1,5 +1,7 @@
 CarrieMail::Application.routes.draw do
 
+  get "carts/show"
+
   resources :catalogs do
     resources :notes do
       member do
@@ -13,7 +15,11 @@ CarrieMail::Application.routes.draw do
   devise_for :users, :path => 'accounts' , 
               :path_names => { :sign_in => 'login', :sign_out => 'logout' }, 
               :controllers => {:registrations => "registrations", :sessions => "sessions"}
-  
+
+
+  match "cart" => "carts#show"
+  resources :orders, :except => [:edit, :delete]
+    
   resources :users do 
     resources :recipients
   end

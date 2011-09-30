@@ -48,6 +48,7 @@ class NotesController < ApplicationController
   # POST /notes.xml
   def create
     @note = @user.catalog.notes.build(params[:note])
+    current_cart.notes << @note
     
     respond_to do |format|
       if @note.save 
@@ -74,10 +75,9 @@ class NotesController < ApplicationController
       
       # update the envelope content so we can generate the envelope
       @note.envelope_content = render_to_string(:action=>'standard_envelope.pdf', :format=>:pdf, :layout=>false)
-    
-      # capture the remote ip address of the purchaser
-      buyers_ipaddr = request.remote_ip
       
+      buyers_ipaddr = request.remote_ip
+    
       # on save, the PDF is generated and saved to S3
       respond_to do |format|
         if @note.save 
@@ -99,7 +99,7 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
     
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
@@ -116,7 +116,7 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.xml
   def destroy
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
 
     # can only destroy notes that have not yet been generated
     if !@note.is_printing?

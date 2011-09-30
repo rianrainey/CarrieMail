@@ -1,0 +1,30 @@
+<div id="main">
+	<div id="content">
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Purchased at</th>
+    <th>Ip address</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Card type</th>
+    <th>Card expires on</th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.purchased_at %></td>
+    <td><%= order.ip_address %></td>
+    <td><%= order.first_name %></td>
+    <td><%= order.last_name %></td>
+    <td><%= order.card_type %></td>
+    <td><%= order.card_expires_on %></td>
+    <td><%= link_to 'Show', order_path(order) %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
+</div>

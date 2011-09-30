@@ -1,5 +1,6 @@
 class Note < ActiveRecord::Base
   belongs_to :catalog
+  belongs_to :cart
   
   after_initialize :init  # initializes new notes with default values
   
@@ -7,8 +8,9 @@ class Note < ActiveRecord::Base
                         :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
    
   attr_accessible :body, :catalog_id, :status, :letter, :envelope, :document_content, :envelope_content,
-                  :return_name, :return_street, :return_city,
+                  :return_name, :return_street, :return_city, :full_price,
                   :return_state, :return_zip, :dest_name, :dest_street, :dest_city, :dest_state, :dest_zip
+  
                   
   before_save :create_envelope, :create_letter
   
@@ -29,11 +31,15 @@ class Note < ActiveRecord::Base
 #                    :s3_permissions => :private,
                     :path => ":id/:style-:attachment-:normalized_filename",
                     :url => ":id/:style-:attachment-:normalized_filename"
-                    
+   
+  # paperclip file name gets set...                 
   Paperclip.interpolates :normalized_filename do |attachment, style|
     attachment.instance.normalized_filename
   end
   
+  #
+  # properties
+  #
   def return_city_state_zip
     "#{self.return_city}, #{self.return_state} #{self.return_zip}"
   end
@@ -128,9 +134,12 @@ class Note < ActiveRecord::Base
   # similar to constructor, initializes values for new models
   def init
     self.status ||= 0
+    self.full_price = 1.99
   end
   
 end
+
+
 
 
 
@@ -169,5 +178,8 @@ end
 #  envelope_content_type :string(255)
 #  envelope_file_size    :integer
 #  envelope_content      :text
+#  purchased_at          :datetime
+#  full_price            :decimal(, )
+#  cart_id               :integer
 #
 

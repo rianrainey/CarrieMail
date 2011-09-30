@@ -54,4 +54,13 @@ CarrieMail::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+    ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => 'mark_1317093604_biz_api1.carriemail.com',
+      :password => '1317093657',
+      :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31ANPm7I0aOiiB3ldYRZIRol3-O1gl'
+    )
+  end
 end

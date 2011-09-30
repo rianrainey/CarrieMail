@@ -15,6 +15,8 @@ end
 
 
 
+
+
 # == Schema Information
 #
 # Table name: notes
@@ -45,5 +47,8 @@ end
 #  envelope_content_type :string(255)
 #  envelope_file_size    :integer
 #  envelope_content      :text
+#  purchased_at          :datetime
+#  full_price            :decimal(, )
+#  cart_id               :integer
 #
 

@@ -168,6 +168,12 @@ body {
 						@include column(3);
 						@include anchor-button(false);
 					}
+					#all_notes {
+						@include column($blueprint-grid-columns/3);
+						@include border-radius(4px, 4px);
+						background: gray;
+						background: rgba(255,255,255,.5);
+					}
 					#notelist {
 						@include horizontal-list(4px, left);
 						@include prepend-top(45px);
@@ -291,7 +297,17 @@ body {
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
+						$half_width: $blueprint_grid_columns / 2;
 						
+						#user_info {
+							@include column($half_width);
+						}
+						#pricing_plan {
+							@include column($half_width, true);
+						}
+						#cancel_account {
+							@include column($blueprint_grid_columns)
+						}
 						
 						// Make this a function/mixin/something reusable
 						box-shadow: $content-shadow;
