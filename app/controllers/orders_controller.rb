@@ -33,9 +33,11 @@ class OrdersController < ApplicationController
     @note = current_cart.notes.first
     
     respond_to do |format|
-      if @order.save
+      if @order.save # if we can save the order successfully, then purchase the item
         if @order.purchase
-          format.html { redirect_to(generate_pdf_catalog_note_path(@catalog, @note), :controller => :orders, :notice => 'Success! Your letter will soon be delivered.') }
+          format.html { redirect_to(generate_pdf_catalog_note_path(@catalog, @note), 
+                                    :controller => :orders, 
+                                    :notice => 'Success! Your letter will soon be delivered.') }
           format.xml  { render :xml => @order, :status => :created, :location => @order }
         else
           format.html { render :action => "new"}

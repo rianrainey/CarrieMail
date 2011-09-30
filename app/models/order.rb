@@ -7,6 +7,8 @@ class Order < ActiveRecord::Base
   validate(:validate_card, :on => :create)
   
   def purchase
+    # I should use the 'reserve' method, and then complete the purchase later when we actually 
+    # ship the item to the user.
     response = STANDARD_GATEWAY.purchase(total_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => total_in_cents, :response => response)
     cart.update_attribute(:purchased_at, Time.now) if response.success?
