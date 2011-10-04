@@ -3,8 +3,9 @@
 		<% if @user.id != session[:guest_user_id] -%>
 		<li><%= @user.name %>
 			<ul>
-			<li><%= link_to 'My Account', edit_user_registration_path(@user) %>
-			<li><%= link_to 'My Cards', catalog_notes_path(@catalog) -%>
+			<li><%= link_to 'Send Cards', new_catalog_note_path(@catalog) -%>
+			<li><%= link_to 'Settings', edit_user_registration_path(@user) %>
+			<li><%= link_to 'Cards Sent', catalog_notes_path(@catalog) %></li>
 			<li><%= link_to 'Logout', destroy_user_session_path -%></li>
 			</ul>
 		</li>

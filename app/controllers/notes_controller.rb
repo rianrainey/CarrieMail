@@ -48,6 +48,7 @@ class NotesController < ApplicationController
   # POST /notes.xml
   def create
     @note = @user.catalog.notes.build(params[:note])
+    current_cart.notes << @note
     
     respond_to do |format|
       if @note.save 
@@ -60,7 +61,7 @@ class NotesController < ApplicationController
     end
   end
 
-  # POST /notes/1/createpdf
+  # GET /notes/1/createpdf
   def generate_pdf
     # check if we've authenticated for real yet
     if !anyone_signed_in?
@@ -74,12 +75,18 @@ class NotesController < ApplicationController
       
       # update the envelope content so we can generate the envelope
       @note.envelope_content = render_to_string(:action=>'standard_envelope.pdf', :format=>:pdf, :layout=>false)
+      
+      buyers_ipaddr = request.remote_ip
     
       # on save, the PDF is generated and saved to S3
       respond_to do |format|
         if @note.save 
-          format.html { redirect_to(catalog_notes_path(@catalog)) }
-          format.xml  { render :xml => @note, :status => :created, :location => @note }
+          if @note.purchase buyers_ipaddr
+            format.html { redirect_to(catalog_notes_path(@catalog)) }
+            format.xml  { render :xml => @note, :status => :created, :location => @note }
+          else
+            format.html { render :action => 'edit', :notice => 'Unable to process payment. Please try again.'}
+          end          
         else
           format.html { render :action => "new" }
           format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
@@ -92,7 +99,7 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
     
     # on save, the PDF is generated and saved to S3
     respond_to do |format|
@@ -109,7 +116,7 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.xml
   def destroy
-    @note = @catalog.notes.find(params[:id])
+    @note = @user.catalog.notes.find(params[:id])
 
     # can only destroy notes that have not yet been generated
     if !@note.is_printing?

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110914023218) do
+ActiveRecord::Schema.define(:version => 20110930030420) do
+
+  create_table "carts", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "catalogs", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +51,20 @@ ActiveRecord::Schema.define(:version => 20110914023218) do
     t.string   "envelope_content_type"
     t.integer  "envelope_file_size"
     t.text     "envelope_content"
+    t.datetime "purchased_at"
+    t.decimal  "full_price"
+    t.integer  "cart_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "ip_address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cart_id"
   end
 
   create_table "recipients", :force => true do |t|
@@ -65,9 +86,22 @@ ActiveRecord::Schema.define(:version => 20110914023218) do
     t.datetime "photo_updated_at"
   end
 
+  create_table "transactions", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

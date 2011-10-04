@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS
   has_one :catalog, :dependent => :destroy
   has_many :recipients, :dependent => :destroy
+  has_many :carts
   
   after_initialize :init
   

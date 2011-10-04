@@ -1,0 +1,37 @@
+<div id="main">
+	<div id="content">
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name, "Name" %><br />
+    <%= f.text_field :first_name, :value => @user.first_name %> <%= f.text_field :last_name, :value => @user.last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br />
+    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]]  %>
+  </div>
+  <div class="field">
+	  <%= f.label :card_number, "Credit Card Number" %><%= f.text_field :card_number %><br/>
+	  <%= f.label :card_verification_value, "CVV" %> <%= f.text_field :card_verification_value, :size => 5 %>
+	</div>
+  <div class="field">
+    <%= f.label :card_expires_on %><br />
+    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+</div>

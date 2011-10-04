@@ -1,56 +1,49 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="main">
+	<div id="content">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+		<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <p><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></p>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		  <%= devise_error_messages! %>
+			<div id="user_info">
+		  	<p><%= f.label :email, "Email Address" %>  <%= f.text_field :email %></p>
 
-  <p><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></p>
+			  <p><%= f.label :first_name, "Name" %><br />
+			  <%= f.text_field :first_name %> <%= f.text_field :last_name %></p>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+			  <p><%= f.label :street, "Address" %></p>
+			  <p><%= f.text_field :street, :size => 45 %></p>
+			  <p><%= f.text_field :city %>,  <%= f.select :state, Carmen::state_codes('US') %> <%= f.text_field :zip, :size => 15 %></p>
 
-  <p><%= f.label :street %><br />
-  <%= f.text_field :street %></p>
+			  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+			  <%= f.password_field :password %></p>
 
-  <p><%= f.label :city %><br />
-  <%= f.text_field :city %></p>
+			  <p><%= f.label :password_confirmation %><br />
+			  <%= f.password_field :password_confirmation %></p>
 
-  <p><%= f.label :state %><br />
-  <%= f.select :state, Carmen::state_codes('US') %>
+			  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+			  <%= f.password_field :current_password %></p>
+			</div>
 	
-    <p><%= f.label :zip %><br />
-  <%= f.text_field :zip %></p>
+			<div id="pricing_plan">
+				<p>Choose a pricing plan</p>
+				  <p><%= f.radio_button :package_choice, '0', :checked => true%>
+				  <%= label :package_choice, 'Basic' %></p>
+				  <p><%= f.radio_button :package_choice, '1' %>
+				  <%= label :package_choice, 'Premium' %></p>
+				  <p><%= f.radio_button :package_choice, '2' %>
+				  <%= label :package_choice, 'Free' %></p>
+			</div>
 
+			<div id="update_button">
+		  	<p><%= f.submit "Update" %></p>
+			</div>
+			
+		<% end %>
 
-  <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
-
-  <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
-
-	<div class="form">
-		<p>Choose a pricing plan</p>
-		  <p><%= f.radio_button :package_choice, '0', :checked => true%>
-		  <%= label :package_choice, 'Basic' %></p>
-		  <p><%= f.radio_button :package_choice, '1' %>
-		  <%= label :package_choice, 'Premium' %></p>
-		  <p><%= f.radio_button :package_choice, '2' %>
-		  <%= label :package_choice, 'Free' %></p>
-		
-	</div>
-
-
-  <p><%= f.submit "Update" %></p>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+		<div id="cancel_account">
+			<h3>Cancel my account</h3>
+			<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+		</div>
+	</div> <!-- content -->
+</div> <!-- main -->

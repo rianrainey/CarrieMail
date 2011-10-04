@@ -22,7 +22,12 @@
 // Allows me to embed new fonts
 @import "compass/css3/font-face";
 
+// lists & cool stuff
 @import "compass/utilities";
+@import "compass/typography/lists/horizontal-list";
+
+// compass buttons
+@import "blueprint/buttons";
 
 // To generate css equivalent to the blueprint css but with your
 // configuration applied, uncomment:
@@ -31,9 +36,6 @@
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
 // what pages use blueprint when stylesheets are concatenated together.
-
-
-
 
 // Carriemail Body Styling
 .clear {
@@ -77,8 +79,8 @@ body {
 					/* Clear floats */
 					float:left;
 					/* Bring the nav above everything else--uncomment if needed.*/
-//					position:relative;
-//					z-index:5;
+					position:relative;
+					z-index:5;
 
 					background: url('images/tape-links.png') repeat-x 0 0;
 					height: 65px;
@@ -109,14 +111,15 @@ body {
 					/*--- DROPDOWN ---*/
 					ul{
 						background: url('images/tape-links.png') repeat 0 0; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
-						background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+//						background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+						background: #FFF;
 						list-style:none;
 						position:absolute;
 						left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
 						color:#12537F;
 					}
 					ul li{
-						padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+						//padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
 						float:none;
 					}
 					ul a{
@@ -128,7 +131,8 @@ body {
 						left:0; /* Bring back on-screen when needed */
 					}
 					li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
-						background:rgba(255,255,255,0);
+//						background:rgba(255,255,255,0);
+						background:#FFF;
 						text-decoration:none;
 					}
 					li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
@@ -136,6 +140,7 @@ body {
 					}
 					li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
 						background:url('images/tape-links.png') repeat 0 0;
+						background:#FFF;
 					}					
 					
 				} // ul#utility-nav
@@ -151,6 +156,7 @@ body {
 			}
 			#main-wrapper {
 				@include column($blueprint-grid-columns);
+
 				#main {
 					//background: $main-bg-shadow;
 					@include column($blueprint-grid-columns);
@@ -158,6 +164,21 @@ body {
 
 					font-family:$script-font;
 					color:#12537F;
+					
+					a#send {
+						@include column(3);
+						@include anchor-button(false);
+					}
+					#all_notes {
+						@include column($blueprint-grid-columns/3);
+						@include border-radius(4px, 4px);
+						background: gray;
+						background: rgba(255,255,255,.5);
+					}
+					#notelist {
+						@include horizontal-list(4px, left);
+						@include prepend-top(45px);
+					}
 					
 					#note-wizard {
 						//background: #FFF;
@@ -224,30 +245,33 @@ body {
 							#destination-address {
 								//@include column(12);
 								@include prepend(10);
-								@include column(6);
 								@include column(8);
+								@include column(6);
 							}
 							#return-address {
 								@include prepend(.5);
 								@include column(12, true);
-								
-								#note_return_zip {
-									display:block;
-								}
 								
 							}
 							
 							#check-button {
 								@include prepend(20);
 								@include column(4);
+								input[type="submit"] {
+									@include button-button(false);
+								}
 							}
 							
 						}
 
 						
 						#send-button {
-							@include prepend(20);
-							@include column(4, true);
+							@include prepend(12);
+							@include column(12, true);
+							a {
+								@include column(3, true);
+								@include anchor-button(false);
+							}
 						}
 						
 						#envelope-return {
@@ -274,7 +298,17 @@ body {
 					#content {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
+						$half_width: $blueprint_grid_columns / 2;
 						
+						#user_info {
+							@include column($half_width);
+						}
+						#pricing_plan {
+							@include column($half_width, true);
+						}
+						#cancel_account {
+							@include column($blueprint_grid_columns)
+						}
 						
 						// Make this a function/mixin/something reusable
 						box-shadow: $content-shadow;
@@ -391,10 +425,7 @@ body {
 				padding: 5px;
 				font-family: $script-font;
 				font-size:12pt;
-			}	
-			
-
-			
+			}			
 			
 			
 			#footer {
@@ -407,8 +438,10 @@ body {
 					@include column(5);
 				}
 				#ftr-links {
+					@include prepend-top();
 					@include column(19, true);
-					text-align:right;
+					@include horizontal-list(4px, right);
+					text-align:center;
 				}
 
 			}

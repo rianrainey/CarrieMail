@@ -19,6 +19,7 @@ CarrieMail::Application.configure do
 
   ### ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
   # A dummy setup for development - no deliveries, but logged
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = false
@@ -30,5 +31,16 @@ CarrieMail::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # active merchant setup
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+
+    ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      :login => 'mark_1317093604_biz_api1.carriemail.com',
+      :password => '1317093657',
+      :signature => 'AFcWxV21C7fd0v3bYYYRCpSSRl31ANPm7I0aOiiB3ldYRZIRol3-O1gl'
+    )
+  end
 end
 
