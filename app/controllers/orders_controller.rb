@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
     
     respond_to do |format|
       if @order.save # if we can save the order successfully, then purchase the item
-        if @order.purchase
+        if @order.purchase  # when we purchase it, redirect to create a PDF version of the card
           format.html { redirect_to(generate_pdf_catalog_note_path(@catalog, @note), 
                                     :controller => :orders, 
                                     :notice => 'Success! Your letter will soon be delivered.') }
