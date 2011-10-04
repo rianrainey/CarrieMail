@@ -9,11 +9,15 @@
 // configuration applied
 @import "blueprint";
 
+@import "blueprint/form";
+
 // Grab Blueprint's grid layout
 @import "blueprint/grid";
 
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
+
+@import "compass/utilities/tables";
 
 // Give me access to CSS3 styles
 @import "compass/css3";
@@ -245,8 +249,8 @@ body {
 							#destination-address {
 								//@include column(12);
 								@include prepend(10);
-								@include column(8);
-								@include column(6);
+								@include column(14);
+							//	@include column(4);
 							}
 							#return-address {
 								@include prepend(.5);
@@ -299,6 +303,38 @@ body {
 						background: url('images/home-bg.png') no-repeat -10px 0;
 						
 						$half_width: $blueprint_grid_columns / 2;
+						
+						#body {
+							padding-top:1em;
+							@include prepend(6);
+							@include column(12, true);
+							@include append(6);
+						}
+						
+						form {
+							@include blueprint-form-sizes(150px);
+							@include blueprint-form-layout;
+							@include blueprint-form-borders();
+							//@include blueprint-form;
+							
+							#order_card_verification_value {
+								width:50px;
+							}
+						}
+						
+						.field label {
+							width: 140px;
+							float:left;
+						}
+						
+						table {
+						//	@include outer-table-borders(4px, #F00);
+							//@include inner-table-borders();
+							@include column(12, true);
+							border:1px solid #000;
+						}
+
+						
 						
 						#user_info {
 							@include column($half_width);

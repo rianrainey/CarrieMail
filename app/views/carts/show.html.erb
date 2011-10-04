@@ -1,20 +1,23 @@
 <div id="main">
 	<div id="content">
-		<table id="notes">
-		  <tr>
-		    <th>Card</th>
-		    <th class="price">Full Price</th>
-		  </tr>
-		  <% for note in @cart.notes %>
-		    <tr class="<%= cycle :odd, :even %>">
-		      <td><%= note.normalized_filename %></td>
-		      <td class="price"><%= number_to_currency(note.full_price) %></td>
-		    </tr>
-		  <% end %>
-		</table>
-
-		<p>
-		  <%= link_to "Send it!", new_order_path %>
-		</p>
+  	<div id="body">
+  	 	<table id="notes">
+  		  <tr>
+  		    <th>Card</th>
+  		    <th class="price">Full Price</th>
+  		  </tr>
+  		  <% for note in @cart.notes %>
+  		    <tr class="<%= cycle :odd, :even %>">
+  		      <td><%= note.normalized_filename %></td>
+  		      <td class="price"><%= number_to_currency(note.full_price) %></td>
+  		    </tr>
+  		  <% end %>
+  		</table>
+  		
+  		<p>
+  		  <%= link_to "Send it!", new_order_path %>
+  		</p>
+	   
+  	</div><!-- #body -->
 	</div>
 </div>

@@ -14,19 +14,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name, "Name" %><br />
+    <%= f.label :first_name, "Name" %>
     <%= f.text_field :first_name, :value => @user.first_name %> <%= f.text_field :last_name, :value => @user.last_name %>
   </div>
   <div class="field">
-    <%= f.label :card_type %><br />
+    <%= f.label :card_type %>
     <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]]  %>
   </div>
   <div class="field">
-	  <%= f.label :card_number, "Credit Card Number" %><%= f.text_field :card_number %><br/>
+	  <%= f.label :card_number, "Credit Card Number" %>
+	  <%= f.text_field :card_number %>
+	</div>
+	<div class="field">
 	  <%= f.label :card_verification_value, "CVV" %> <%= f.text_field :card_verification_value, :size => 5 %>
 	</div>
   <div class="field">
-    <%= f.label :card_expires_on %><br />
+    <%= f.label :card_expires_on %>
     <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
   </div>
   <div class="actions">
