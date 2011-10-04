@@ -12,6 +12,7 @@ class Order < ActiveRecord::Base
     response = STANDARD_GATEWAY.purchase(total_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => total_in_cents, :response => response)
     cart.update_attribute(:purchased_at, Time.now) if response.success?
+    logger.debug "Order#purchase: response = #{response.to_s}"
     response.success?
   end
 
