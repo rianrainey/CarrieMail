@@ -36,7 +36,7 @@ CarrieMail::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'carriemail.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'carriemail-staging.heroku.com' }
 
   ### ActionMailer Config
   # Setup for production - deliveries, no errors raised
@@ -56,7 +56,7 @@ CarrieMail::Application.configure do
   config.active_support.deprecation = :notify
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :production
+    ActiveMerchant::Billing::Base.mode = :development
     ::STANDARD_GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
       :login => 'mark_1317093604_biz_api1.carriemail.com',
       :password => '1317093657',
