@@ -8,7 +8,7 @@ test:
   access_key_id: AKIAJH6PB433TWJOE4ZA
   secret_access_key: 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
 
-production:
+staging:
   bucket: carriemail-staging
   access_key_id: AKIAJH6PB433TWJOE4ZA
   secret_access_key: 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
