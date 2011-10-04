@@ -66,6 +66,7 @@ body {
 					@include prepend(7);
 					@include append(9);
 					position:absolute;
+					z-index:10;
 				ul {
 					/*------------------------------------*\
 						NAV
